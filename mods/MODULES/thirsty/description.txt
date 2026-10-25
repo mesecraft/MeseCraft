@@ -1,2 +1,0 @@
-A mod that adds a "thirst" mechanic, similar to hunger.
-

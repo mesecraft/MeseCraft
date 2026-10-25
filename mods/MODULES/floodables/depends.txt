@@ -1,3 +1,0 @@
-default?
-flowers?
-farming?

@@ -42,22 +42,22 @@ playereffects.register_effect_type("blind", "Blind", nil, {},
 -- Makes the user faster
 playereffects.register_effect_type("high_speed", "High speed", nil, {"speed"}, 
 	function(player)
-		player:set_physics_override(4,nil,nil)
+		player:set_physics_override({speed = 4})
 	end,
 	
 	function(effect, player)
-		player:set_physics_override(1,nil,nil)
+		player:set_physics_override({speed = 1})
 	end
 )
 
 -- Makes the user faster (hidden effect)
 playereffects.register_effect_type("high_speed_hidden", "High speed", nil, {"speed"}, 
 	function(player)
-		player:set_physics_override(4,nil,nil)
+		player:set_physics_override({speed = 4})
 	end,
 	
 	function(effect, player)
-		player:set_physics_override(1,nil,nil)
+		player:set_physics_override({speed = 1})
 	end,
 	true
 )
@@ -67,21 +67,21 @@ playereffects.register_effect_type("high_speed_hidden", "High speed", nil, {"spe
 -- Slows the user down
 playereffects.register_effect_type("low_speed", "Low speed", nil, {"speed"}, 
 	function(player)
-		player:set_physics_override(0.25,nil,nil)
+		player:set_physics_override({speed = 0.25})
 	end,
 	
 	function(effect, player)
-		player:set_physics_override(1,nil,nil)
+		player:set_physics_override({speed = 1})
 	end
 )
 
 -- Increases the jump height
 playereffects.register_effect_type("highjump", "Greater jump height", "playereffects_example_highjump.png", {"jump"},
 	function(player)
-		player:set_physics_override(nil,2,nil)
+		player:set_physics_override({jump = 2})
 	end,
 	function(effect, player)
-		player:set_physics_override(nil,1,nil)
+		player:set_physics_override({jump = 1})
 	end
 )
 

@@ -1,1 +1,0 @@
-Adds 3d_armor page to the sfinv inventory.

@@ -56,7 +56,7 @@ mobs:register_mob("mesecraft_mobs:cave_crocodile", {
         floats = 0,
 	owner = "",
 	order = "follow",
-	follow = {"mobs_creautres:meat"},
+	follow = {"mobs_creatures:meat"},
         reach = 3,
         attack_chance = 30,
         attack_animals = true,

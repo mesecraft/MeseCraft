@@ -1,1 +1,0 @@
-A "floating" block that can be placed at the surface of a body of water without needing to build pilings first.

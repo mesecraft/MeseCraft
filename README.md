@@ -1,33 +1,47 @@
 MeseCraft - A blocky survival game.
 ==========================
-Copyright (C) 2019-2023 MeseCraft
+Copyright (C) 2019-2025 MeseCraft
 <contact@mesecraft.com>
 
 
 Description
 -------------------------
-The best game for Minetest. A survival game with new depth, mechanics, biomes, mobs and many essential additions. Has a focus on being fun, user-friendly, stable, and minimalist but featured. Join us at: https://www.mesecraft.com
+Mesecraft is the best game for Luanti. MeseCraft is a singleplayer and multiplayer blocky survival game. Explore, survive, and craft in a beautiful and dangerous world. Discover unique biomes, mobs, villages, items, caverns, magic, tech, and more. Craft a new adventure with MeseCraft! https://www.mesecraft.com.
 
-Currently, this game is stable and has been debugged on an online server environment with many players. There is active development so new bugs may come and go.
-
-Development Cycle
--------------------------
-There are three main git branches of MeseCraft:
-* `master`: stable branch, meant to be ran by players and on servers. Focused on high stability.
-* `testing`: beta branch, for testing new updates, finding bugs, and eliminating them before merging into the main branch.
-* `unstable`: alpha branch, a staging branch for additions to MeseCraft. For new code, updates, and fixes. Changes and commits should go here.
-
-Minetest Engine Requirements
+Requirements
 --------------------------
-Minetest engine version 5.2.0 or greater is currently recommended to run this game.
-Minetest engine version 5.1.1 is compatabile but not all mods and function completely.
+Luanti engine version 5.11.0 or greater is recommended to run MeseCraft.
+Luanti is freely available on most platforms. To download and install Luanti, reference https://www.luanti.org/downloads/
 
-Credits and Acknowledgements
+Installation
 -------------------------
-Designed by Jeremy Weston and MeseCraft community contributors.
+MeseCraft can easily be installed and played from Luanti.
+1. Open Luanti.
+2. Go to the "Content" tab.
+3. Press the "Browse online content" button.
+4. Go to the "Games" tab.
+5. Search for "MeseCraft".
+6. Find "MeseCraft" by MeseCraft. When you find it, click on it.
+7. Click on the green "Install" button. Luanti will download and install the game.
+8. Finally, you can play MeseCraft from the "Start Game" tab in Luanti.
 
-A special thanks to the Minetest community.
+Development
+-------------------------
+MeseCraft has a focus on being fun, featured, stable, and user-friendly. The game is actively supported and maintained. Please report bugs so that they can be reviewed and fixed. Help is needed and welcome for additional development and progress. Join our community of players and developers at https://www.mesecraft.com.
+
+Branches
+-------------------------
+There are two branches of MeseCraft:
+* `main`: The stable version of MeseCraft. For players and server operators. It prioritizes operational stability to create a positive gameplay experience.
+* `dev`: The development version of MeseCraft. For testers and developers. New code, fixes, and pull requests should target here.
+
+Credits
+-------------------------
+* Game Design - Komodo (Jeremy Weston)
+* MeseCraft players & community members.
+* The Luanti community
+* Minetest Modders
 
 License
 --------------------------
-GNU AFFERO GENERAL PUBLIC LICENSE V3
+GNU AFFERO GENERAL PUBLIC LICENSE VERSION 3

@@ -1,1 +1,0 @@
-Modpack adding a lot of various loot containers across the world to be found and providing an API, resources and integrations for other mods

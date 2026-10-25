@@ -1,1 +1,0 @@
-This mod adds a juice press and two juice storage containers. Most fruits and several veggies can be juiced. The resulting drinks can be eaten to gain health, or if you are using the thirsty mod, to regain hydration.

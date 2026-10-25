@@ -1,1 +1,0 @@
-A weapons modpack aiming at providing a complete, technologic and magic progression of ranged weapons, along with an API to easily make your own ones.

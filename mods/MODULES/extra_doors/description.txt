@@ -1,1 +1,0 @@
-Extra Doors adds a set of 18 new doors to Minetest including castle, dungeon, barn, cottage, and multi-panel styles.

@@ -146,7 +146,7 @@ minetest.register_globalstep(function(dtime)
 
 		-- set player physics
 		if not monoids and not pova_mod then
-			player:set_physics_override(def.speed, def.jump, def.gravity)
+			player:set_physics_override(def)
 		end
 --[[
 		print ("Speed: " .. def.speed

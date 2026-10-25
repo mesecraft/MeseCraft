@@ -1,1 +1,0 @@
-Addition of Fly and Swimming animations to 3d_armour base character model, used when swimming and flyinf or falling avaliable for other mods to make use of.

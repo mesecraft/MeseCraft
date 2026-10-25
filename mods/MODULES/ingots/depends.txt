@@ -1,4 +1,0 @@
-default?
-moreores?
-technic?
-rainbow_ore?

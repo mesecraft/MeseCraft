@@ -1,1 +1,0 @@
-This mod adds a wooden trash can, and a dumpster to the game.  Right click it, put in your trash, and click the empty trash button.

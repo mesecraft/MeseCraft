@@ -106,4 +106,5 @@ end
 minetest.register_on_joinplayer(function(player)
 	local inv = player:get_inventory()
 	inv:set_size("mesecraft_void_chest:void_chest", 8*4)
+
 end)

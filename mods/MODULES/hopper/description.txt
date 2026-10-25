@@ -1,3 +1,0 @@
-Adds hoppers to transport items between chests/furnace etc.
-
-Forum: https://forum.minetest.net/viewtopic.php?f=9&t=20058
