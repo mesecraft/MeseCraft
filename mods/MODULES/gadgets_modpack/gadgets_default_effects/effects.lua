@@ -136,13 +136,22 @@ gadgets.register_effect({
     particle_displacement = 0.5,
 })
 
+-- set_hp truncates to whole points, so carry the half point between ticks.
+local health_regen_carry = {}
+
 gadgets.register_effect({
     id = "gadgets_default_effects_health_regen",
     name = "Health Regen",
     icon = "gadgets_default_effects_health_regen_icon.png",
     groups = {"health_regen"},
     apply = function(player)
-        player:set_hp(player:get_hp()+0.5)
+        local name = player:get_player_name()
+        local amount = (health_regen_carry[name] or 0) + 0.5
+        local whole = math.floor(amount)
+        health_regen_carry[name] = amount - whole
+        if whole > 0 then
+            player:set_hp(player:get_hp() + whole)
+        end
     end,
     nil,
     hidden = false,

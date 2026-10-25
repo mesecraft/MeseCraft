@@ -71,7 +71,7 @@ beds.register_bed("mesecraft_beds:bed_" ..color, {
 -- Fuel
 minetest.register_craft({
 	type = "fuel",
-	recipe = "beds:bed_"..color,
+	recipe = "mesecraft_beds:bed_"..color,
 	burntime = 12,
 })
 end

@@ -222,7 +222,7 @@ slimes.uber_slime_anim = function(ent)
 	local is_liquid_below = ((minetest.registered_nodes[minetest.get_node({x=pos.x,y=pos.y-0.5,z=pos.z}).name] or {liquidtype = "none"}).liquidtype == "none")
 	if velocity.y ~= 0 then
 		if is_liquid_below and (math.abs(velocity.x) > math.abs(velocity.y) or math.abs(velocity.z) > math.abs(velocity.y)) then
-			mobs.set_animation(ent, "move")
+			mobs:set_animation(ent, "move")
 			return
 		end
 		if velocity.y > 0 then

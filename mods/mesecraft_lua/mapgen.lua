@@ -80,3 +80,28 @@ minetest.register_on_generated(function(minp, maxp, seed)
 --	minetest.generate_ores(vm, minp, maxp)
 	vm:write_to_map()
 end)
+
+-- Predict the moon's surface height at x,z from the same noise and chunk rules as above.
+-- Portals need this before the destination has been generated.
+local chunk_len = (tonumber(minetest.get_mapgen_setting("chunksize")) or 5) * 16
+local chunk_offset = -16 * math.floor(chunk_len / 32)
+local base_point_perlin
+
+local function chunk_min_y(y)
+	return math.floor((y - chunk_offset) / chunk_len) * chunk_len + chunk_offset
+end
+
+function mesecraft_lua.surface_y(x, z)
+	base_point_perlin = base_point_perlin or minetest.get_perlin(base_params)
+	local top = chunk_min_y(mesecraft_lua.maxy) + chunk_len - 1
+	for y = top, mesecraft_lua.miny, -1 do
+		local minp_y = chunk_min_y(y)
+		if minp_y >= mesecraft_lua.miny and minp_y <= mesecraft_lua.maxy then
+			if minp_y < mesecraft_lua.maxsolidy
+					or base_point_perlin:get_3d({x = x, y = y, z = z}) > (y - minp_y) / chunk_len then
+				return y + 1
+			end
+		end
+	end
+	return mesecraft_lua.maxsolidy
+end

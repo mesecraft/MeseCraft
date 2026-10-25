@@ -23,7 +23,7 @@ minetest.register_craftitem("mesecraft_halloween:candycorn", {
 minetest.register_craft({
     type = "shapeless",
     output = "mesecraft_halloween:candycorn 3",
-    recipe = {"mesecraft_halloweencaramelized_sugar", "dye:orange", "dye:yellow", "dye:white"},
+    recipe = {"mesecraft_halloween:caramelized_sugar", "dye:orange", "dye:yellow", "dye:white"},
 })
 
 minetest.register_craftitem("mesecraft_halloween:halloween_chocolate", {

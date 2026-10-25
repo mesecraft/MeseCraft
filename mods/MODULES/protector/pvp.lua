@@ -24,6 +24,7 @@ and minetest.settings:get_bool("protector_pvp") then
 			if not player
 			or not hitter then
 				print(S("[Protector] on_punchplayer called with nil objects"))
+				return false
 			end
 
 			if not hitter:is_player() then

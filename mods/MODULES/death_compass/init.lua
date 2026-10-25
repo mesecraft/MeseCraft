@@ -306,6 +306,9 @@ minetest.register_on_dieplayer(function(player, reason)
 	end
 	
 end)
+-- Run before bones mods: otherwise the compass is moved into the bones with the rest of
+-- the inventory and never activates.
+table.insert(minetest.registered_on_dieplayers, 1, table.remove(minetest.registered_on_dieplayers))
 -- Called when a player dies
 -- `reason`: a PlayerHPChangeReason table, see register_on_player_hpchange
 

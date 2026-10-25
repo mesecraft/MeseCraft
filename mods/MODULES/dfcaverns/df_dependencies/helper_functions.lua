@@ -16,6 +16,8 @@ df_dependencies.mods_required.bucket = true
 df_dependencies.mods_required.mcl_buckets = true
 if minetest.get_modpath("bucket") then
 	df_dependencies.bucket_register_liquid = bucket.register_liquid
+elseif minetest.get_modpath("mesecraft_bucket") then
+	df_dependencies.bucket_register_liquid = mesecraft_bucket.register_liquid
 elseif minetest.get_modpath("mcl_buckets") then
 	df_dependencies.bucket_register_liquid = function(source_liquid, flowing_liquid, bucket_node, texture, desc)
 		mcl_buckets.register_liquid({

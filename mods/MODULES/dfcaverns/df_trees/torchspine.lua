@@ -167,7 +167,7 @@ minetest.register_node("df_trees:torchspine_1", {
 })
 
 minetest.register_node("df_trees:torchspine_1_lit", {
-	description = S("Torchspine Tip"),
+	description = S("Torchspine Tip") .. " (lit)",
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
 	_doc_items_usagehelp = df_trees.doc.torchspine_usage,
 	tiles = {df_dependencies.texture_gold_block, "dfcaverns_torchspine_1.5.png", "dfcaverns_torchspine_1_lit.png"},
@@ -206,7 +206,7 @@ if looped_node_sound_modpath then
 end
 
 minetest.register_node("df_trees:torchspine_2", {
-	description = S("Torchspine"),
+	description = S("Torchspine") .. " (size 2)",
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
 	_doc_items_usagehelp = df_trees.doc.torchspine_usage,
 	tiles = {"dfcaverns_torchspine_1.5.png", "dfcaverns_torchspine_2.5.png", "dfcaverns_torchspine_2.png"},
@@ -235,7 +235,7 @@ minetest.register_node("df_trees:torchspine_2", {
 })
 
 minetest.register_node("df_trees:torchspine_3", {
-	description = S("Torchspine"),
+	description = S("Torchspine") .. " (size 3)",
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
 	_doc_items_usagehelp = df_trees.doc.torchspine_usage,
 	tiles = {"dfcaverns_torchspine_2.5.png", "dfcaverns_torchspine_3.5.png", "dfcaverns_torchspine_3.png"},
@@ -268,7 +268,7 @@ minetest.register_node("df_trees:torchspine_3", {
 })
 
 minetest.register_node("df_trees:torchspine_4", {
-	description = S("Torchspine"),
+	description = S("Torchspine") .. " (size 4)",
 	_doc_items_longdesc = df_trees.doc.torchspine_desc,
 	_doc_items_usagehelp = df_trees.doc.torchspine_usage,
 	tiles = {"dfcaverns_torchspine_3.5.png", "dfcaverns_torchspine_4.5.png", "dfcaverns_torchspine_4.png"},

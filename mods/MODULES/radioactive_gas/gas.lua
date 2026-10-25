@@ -9,6 +9,7 @@ minetest.register_node("radioactive_gas:gas", {
 	buildable_to = true,
 	drawtype = "glasslike",
 	drowning = 1,
+	damage_per_second = 1,
 	post_effect_color = {a = 20, r = 20, g = 250, b = 20},
 	tiles = {"radioactive_gas.png"},
 	use_texture_alpha = "blend",

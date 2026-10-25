@@ -84,6 +84,8 @@ subterrane.register_stalagmite_nodes = function(base_name, base_node_def, drop_b
 	if drop_base_name then
 		def1.drop = drop_base_name.."_1"
 	end
+	-- Size suffix so the four sizes can be told apart (and sorted) by name.
+	def1.description = def1.description and (def1.description .. " (size 1)")
 	minetest.register_node(base_name.."_1", def1)
 
 	local def2 = deep_copy(base_node_def)
@@ -93,6 +95,7 @@ subterrane.register_stalagmite_nodes = function(base_name, base_node_def, drop_b
 	if drop_base_name then
 		def2.drop = drop_base_name.."_2"
 	end
+	def2.description = def2.description and (def2.description .. " (size 2)")
 	minetest.register_node(base_name.."_2", def2)
 
 	local def3 = deep_copy(base_node_def)
@@ -101,6 +104,7 @@ subterrane.register_stalagmite_nodes = function(base_name, base_node_def, drop_b
 	if drop_base_name then
 		def3.drop = drop_base_name.."_3"
 	end
+	def3.description = def3.description and (def3.description .. " (size 3)")
 	minetest.register_node(base_name.."_3", def3)
 
 	local def4 = deep_copy(base_node_def)
@@ -109,6 +113,7 @@ subterrane.register_stalagmite_nodes = function(base_name, base_node_def, drop_b
 	if drop_base_name then
 		def4.drop = drop_base_name.."_4"
 	end
+	def4.description = def4.description and (def4.description .. " (size 4)")
 	minetest.register_node(base_name.."_4", def4)
 	
 	return {

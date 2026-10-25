@@ -230,6 +230,21 @@ local function bweapons_repair(itemstack, player, old_craft_grid, craft_inv, nam
 
 end
 
+-- Skip recipes that need items from mods that aren't installed (e.g. technic), so the
+-- craft guide doesn't show recipes with unknown items.
+local function recipe_mods_loaded(recipe)
+    for _, entry in pairs(recipe) do
+        local items = type(entry) == "table" and entry or {entry}
+        for _, item in pairs(items) do
+            local modname = item:match("^([%w_]+):")
+            if modname and modname ~= "group" and not minetest.get_modpath(modname) then
+                return false
+            end
+        end
+    end
+    return true
+end
+
 function bweapons.register_weapon(def)
 
     --Stop registration if mod requirements are not met or not enough definition fields
@@ -637,12 +652,14 @@ function bweapons.register_weapon(def)
     --Register a crafting recipe
     if def.recipe then
         for _,v in pairs(def.recipe) do
+            if recipe_mods_loaded(v) then
             minetest.register_craft({
             type = craft_shape,
             output = def.name,
             recipe = v,
             replacements = def.replacements,
             })
+            end
         end
     end
 
@@ -691,11 +708,13 @@ function bweapons.register_ammo(def)
 
     if def.recipe then
         for _,v in pairs(def.recipe) do
+            if recipe_mods_loaded(v) then
             minetest.register_craft({
             type = "shaped",
             output = def.name .. " " .. amount,
             recipe = v,
             })
+            end
         end
     end
 

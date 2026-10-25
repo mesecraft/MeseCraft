@@ -669,6 +669,11 @@ nether.PortalShape_Platform = {
 -- =============================== --
 
 local debugf = nether.debug
+
+-- Portal interiors may be air or, in space, vacuum.
+local function is_empty_space(node_name)
+	return node_name == "air" or node_name == "vacuum:vacuum"
+end
 local ignition_item_name
 local mod_storage = minetest.get_mod_storage()
 local meseconsAvailable = minetest.get_modpath("mesecon") ~= nil and minetest.global_exists("mesecon")
@@ -1026,7 +1031,7 @@ local function set_portal_metadata(portal_definition, anchorPos, orientation, de
 
 		if ignite then
 			local node_name = minetest.get_node(pos).name
-			if node_name == "air" then
+			if is_empty_space(node_name) then
 				minetest.set_node(pos, {name = portal_definition.wormhole_node_name, param2 = param2})
 				if meseconsAvailable then mesecon.receptor_on(pos, mesecon_rules) end
 			end
@@ -1117,7 +1122,7 @@ local function is_portal_at_anchorPos(portal_definition, anchorPos, orientation,
 		local node_name = minetest.get_node(check_pos).name
 		if node_name ~= wormhole_node_name then
 			portal_is_ignited = false;
-			if node_name ~= "air" then
+			if not is_empty_space(node_name) then
 				nodes_are_valid = false
 				return true -- short-circuit the search
 			end
