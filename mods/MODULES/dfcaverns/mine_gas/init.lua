@@ -73,8 +73,7 @@ minetest.register_on_dignode(function(pos, oldnode, digger)
 	local np = minetest.find_node_near(pos, 1,{"mine_gas:gas"})
 	if np ~= nil then
 		minetest.set_node(pos, {name = "mine_gas:gas"})
-		local gas_meta = minetest.get_meta(pos)
-		gas_meta:set_string("origin", minetest.serialize(pos) )
+		minetest.get_meta(pos):set_string("origin", minetest.pos_to_string(pos))
 		return
 	end
 end)
@@ -91,6 +90,16 @@ local function pdist2(p1, p2)
 end
 
 local gas_node = {name="mine_gas:gas"}
+
+-- Swap gas at pos with next_node at next_pos, carrying the gas's origin along.
+-- swap_node leaves metadata in place, so the origin is moved by hand.
+local function move_gas(pos, next_pos, next_node, origin)
+	minetest.swap_node(next_pos, gas_node)
+	minetest.swap_node(pos, next_node)
+	minetest.get_meta(pos):set_string("origin", "")
+	minetest.get_meta(next_pos):set_string("origin", origin)
+end
+
 minetest.register_abm({
     label = "mine_gas:gas movement",
     nodenames = {"mine_gas:gas"},
@@ -101,41 +110,38 @@ minetest.register_abm({
     action = function(pos, node)
 		local gas_meta = minetest.get_meta(pos)
 		local origin = gas_meta:get_string("origin")
-		-- delete gas node if it's too far from its source
-		if origin == "" or pdist2(pos, minetest.deserialize(origin) ) >= mine_gas.max_dist2 then
+		local origin_pos = origin ~= "" and minetest.string_to_pos(origin)
+		if not origin_pos then
+			-- Gas from mapgen, mobs, snuffed torches or older worlds starts its range here.
+			origin = minetest.pos_to_string(pos)
+			gas_meta:set_string("origin", origin)
+		elseif pdist2(pos, origin_pos) >= mine_gas.max_dist2 then
+			-- delete gas node if it's too far from its source
 			minetest.remove_node(pos)
 			return
 		end
 		local next_pos = {x=pos.x, y=pos.y+1, z=pos.z}
 		local next_node = minetest.get_node(next_pos)
 		if minetest.get_item_group(next_node.name, "liquid") > 0 then
-			--minetest.swap_node(next_pos, node)
-			--minetest.swap_node(pos, next_node)
-			lua_ext.fullswap(pos, next_pos)
+			move_gas(pos, next_pos, next_node, origin)
 		else
 			next_pos.y = pos.y-1
 			next_node = minetest.get_node(next_pos)
 			if next_node.name == "air" then
-				--minetest.swap_node(next_pos, node)
-				--minetest.swap_node(pos, next_node)
-				lua_ext.fullswap(pos, next_pos)
+				move_gas(pos, next_pos, next_node, origin)
 			else
 				local dir = directions[math.random(1,4)]
 				next_pos = vector.add(pos, dir)
 				next_node = minetest.get_node(next_pos)
 				if next_node.name == "air" or  minetest.get_item_group(next_node.name, "liquid") > 0 then
 					if next_node.name == "air" or math.random() < 0.5 then -- gas never "climbs" above air.
-						--minetest.swap_node(next_pos, node)
-						--minetest.swap_node(pos, next_node)
-						lua_ext.fullswap(pos, next_pos)
+						move_gas(pos, next_pos, next_node, origin)
 					else
 						-- this can get gas to rise up out of the surface of liquid, preventing it from forming a permanent hole.
 						next_pos.y = next_pos.y + 1
 						next_node = minetest.get_node(next_pos)
 						if next_node.name == "air" then
-							--minetest.swap_node(next_pos, node)
-							--minetest.swap_node(pos, next_node)
-							lua_ext.fullswap(pos, next_pos)
+							move_gas(pos, next_pos, next_node, origin)
 						end
 					end
 				end
@@ -201,8 +207,6 @@ local orthogonal = {
 	{x=-1,y=0,z=0},
 }
 
-local LList = lua_ext.LList
-
 local CELL_CAP = 64
 local CELL_DIV = 32
 
@@ -224,7 +228,6 @@ end
 
 local lava_cells = {} -- "bx_by_bz" -> { count = n, positions = { [posstring] = pos } }
 
-local active_block_range2 = (16*minetest.settings:get("active_block_range") )^2
 minetest.register_lbm({
     label = "track lava positions for mine_gas:shut_down_lava_adjacent",
     name = "mine_gas:track_lava_positions",
@@ -232,16 +235,17 @@ minetest.register_lbm({
     run_at_every_load = true,
     action = function(pos, node)
 		local key = cell_key_for(pos)
-        local cell = lava_cells[key]
+		local cell = lava_cells[key]
 		if not cell then
 			cell = { count = 0, positions = {} }
-            lava_cells[key] = cell
+			lava_cells[key] = cell
+		end
+		-- Large lava seas hit this for every node; bail out before building the key string.
+		if cell.count >= CELL_CAP then
+			return
 		end
 		local pk = minetest.pos_to_string(pos)
-		if cell.positions[pk] -- already tracked
-			then return 
-		end
-        if cell.count < CELL_CAP then
+		if not cell.positions[pk] then
 			add_to_cell(cell, pos, pk)
 		end
 	end,
@@ -249,7 +253,7 @@ minetest.register_lbm({
 
 local function lava_within_radius2(pos, radius2)
     local bx, by, bz = math.floor(pos.x/CELL_DIV), math.floor(pos.y/CELL_DIV), math.floor(pos.z/CELL_DIV)
-    local span = math.ceil(radius/CELL_DIV)
+    local span = math.ceil(math.sqrt(radius2)/CELL_DIV)
     for dx = -span, span do
       for dy = -span, span do
         for dz = -span, span do
@@ -283,9 +287,13 @@ minetest.register_lbm({
     nodenames = {"mine_gas:gas_seep"},
     run_at_every_load = true,
     action = function(pos, node)
-		if lava_within_radius2(pos, mine_gas.min_lava_dist2) then
-			minetest.set_node(pos, {name=stone_with_coal})
-		end
+		-- Delay so lava in the same and neighbouring blocks has been tracked first.
+		minetest.after(math.random()*60, function()
+			if minetest.get_node(pos).name == "mine_gas:gas_seep"
+					and lava_within_radius2(pos, mine_gas.min_lava_dist2) then
+				minetest.set_node(pos, {name=stone_with_coal})
+			end
+		end)
 	end,
 })
 
@@ -300,8 +308,7 @@ minetest.register_abm({
 		local target_pos = vector.add(pos,orthogonal[math.random(1,6)])
 		if minetest.get_node(target_pos).name == "air" then
 			minetest.swap_node(target_pos, {name="mine_gas:gas"})
-			local gas_meta = minetest.get_meta(target_pos)
-			gas_meta:set_string("origin", minetest.serialize(target_pos) )
+			minetest.get_meta(target_pos):set_string("origin", minetest.pos_to_string(target_pos))
 			if math.random() < 0.5 then
 				minetest.sound_play(
 					"mine_gas_seep_hiss",
