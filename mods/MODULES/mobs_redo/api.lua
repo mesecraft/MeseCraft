@@ -3366,7 +3366,7 @@ function mob_class:mob_expire(pos, dtime)
 
 					self.lifetimer = 20
 
-					return
+					return false
 				end
 			end
 
@@ -3376,9 +3376,11 @@ function mob_class:mob_expire(pos, dtime)
 
 			remove_mob(self, true)
 
-			return
+			return true
 		end
 	end
+
+	return false
 end
 
 
@@ -3438,7 +3440,9 @@ function mob_class:on_step(dtime, moveresult)
 		end
 
 		-- has mob expired (0.25 instead of dtime since were in a timer)
-		self:mob_expire(pos, 0.25)
+		if self:mob_expire(pos, 0.25) then
+			return
+		end
 	end
 
 	-- check if falling, flying, floating and return if player died
