@@ -17,7 +17,9 @@ Don't add code or assets that are under non-commercial licenses (e.g. CC BY-NC) 
 
 ## Running / testing
 
-There is no build step, test suite or repo-level linter. You check changes by loading the game in the engine (`/usr/games/luanti` is installed). Because this directory sits in `~/.minetest/games/`, the engine picks it up as game id `mesecraft`. For example:
+Run luacheck on any Lua file you change and fix new warnings.
+
+There is no build step or test suite. You check changes by loading the game in the engine (`/usr/games/luanti` is installed). Because this directory sits in `~/.minetest/games/`, the engine picks it up as game id `mesecraft`. For example:
 
 ```
 luanti --server --gameid mesecraft --world /path/to/test-world   # headless; Lua errors print to the terminal
