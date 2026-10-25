@@ -93,44 +93,72 @@ function mesecraft_toolranks.new_afteruse(itemstack, user, node, digparams)
 end
 
 
--- Helper function
-local function add_tool(name, desc, afteruse)
+-- Helper function to inject toolranks in an item without overriding his after_use function (if any)
+mesecraft_toolranks.registered_tools = {}
+function mesecraft_toolranks.register_tool(name)
+	-- Check if tool is already registered to prevent appending multiple after_use callbacks
+	for _, registered_name in pairs(mesecraft_toolranks.registered_tools) do
+		if registered_name == name then
+			return false
+		end
+	end
 
+  -- Retrieve attributes from the original item
+	local original_definition = ItemStack(name):get_definition()
+	local original_after_use = original_definition.after_use
+
+	-- Set description & append after_use callback
 	minetest.override_item(name, {
-		original_description = desc,
-		description = mesecraft_toolranks.create_description(desc, 0, 1),
-		after_use = afteruse and mesecraft_toolranks.new_afteruse
+		original_description = original_definition.description,
+		description = mesecraft_toolranks.create_description(original_definition.description, 0, 1),
+		after_use = function(itemstack, user, node, digparams)
+			if original_after_use then
+				-- Run the original after_use, revert the applied wear
+				-- and adjust digparams wear for the toolranks after_use
+				local initial_wear = itemstack:get_wear()
+				itemstack = original_after_use(itemstack, user, node, digparams)
+				local wear = itemstack:get_wear() - initial_wear
+				itemstack:set_wear(initial_wear)
+				digparams.wear = wear
+			end
+
+			return mesecraft_toolranks.new_afteruse(itemstack, user, node, digparams)
+		end
 	})
+
+	-- Track list of registered tool names
+	table.insert(mesecraft_toolranks.registered_tools, name)
+	return true
 end
 
 -- Sword
-add_tool("default:sword_wood", "Wooden Sword", true)
-add_tool("default:sword_stone", "Stone Sword", true)
-add_tool("default:sword_steel", "Steel Sword", true)
-add_tool("default:sword_bronze", "Bronze Sword", true)
-add_tool("default:sword_mese", "Mese Sword", true)
-add_tool("default:sword_diamond", "Diamond Sword", true)
+mesecraft_toolranks.register_tool("default:sword_wood")
+mesecraft_toolranks.register_tool("default:sword_stone")
+mesecraft_toolranks.register_tool("default:sword_steel")
+mesecraft_toolranks.register_tool("default:sword_bronze")
+mesecraft_toolranks.register_tool("default:sword_mese")
+mesecraft_toolranks.register_tool("default:sword_diamond")
 
 -- Pickaxe
-add_tool("default:pick_wood", "Wooden Pickaxe", true)
-add_tool("default:pick_stone", "Stone Pickaxe", true)
-add_tool("default:pick_steel", "Steel Pickaxe", true)
-add_tool("default:pick_bronze", "Bronze Pickaxe", true)
-add_tool("default:pick_mese", "Mese Pickaxe", true)
-add_tool("default:pick_diamond", "Diamond Pickaxe", true)
+mesecraft_toolranks.register_tool("default:pick_wood")
+mesecraft_toolranks.register_tool("default:pick_stone")
+mesecraft_toolranks.register_tool("default:pick_steel")
+mesecraft_toolranks.register_tool("default:pick_bronze")
+mesecraft_toolranks.register_tool("default:pick_mese")
+mesecraft_toolranks.register_tool("default:pick_diamond")
 
 -- Axe
-add_tool("default:axe_wood", "Wooden Axe", true)
-add_tool("default:axe_stone", "Stone Axe", true)
-add_tool("default:axe_steel", "Steel Axe", true)
-add_tool("default:axe_bronze", "Bronze Axe", true)
-add_tool("default:axe_mese", "Mese Axe", true)
-add_tool("default:axe_diamond", "Diamond Axe", true)
+mesecraft_toolranks.register_tool("default:axe_wood")
+mesecraft_toolranks.register_tool("default:axe_stone")
+mesecraft_toolranks.register_tool("default:axe_steel")
+mesecraft_toolranks.register_tool("default:axe_bronze")
+mesecraft_toolranks.register_tool("default:axe_mese")
+mesecraft_toolranks.register_tool("default:axe_diamond")
 
 -- Shovel
-add_tool("default:shovel_wood", "Wooden Shovel", true)
-add_tool("default:shovel_stone", "Stone Shovel", true)
-add_tool("default:shovel_steel", "Steel Shovel", true)
-add_tool("default:shovel_bronze", "Bronze Shovel", true)
-add_tool("default:shovel_mese", "Mese Shovel", true)
-add_tool("default:shovel_diamond", "Diamond Shovel", true)
+mesecraft_toolranks.register_tool("default:shovel_wood")
+mesecraft_toolranks.register_tool("default:shovel_stone")
+mesecraft_toolranks.register_tool("default:shovel_steel")
+mesecraft_toolranks.register_tool("default:shovel_bronze")
+mesecraft_toolranks.register_tool("default:shovel_mese")
+mesecraft_toolranks.register_tool("default:shovel_diamond")
