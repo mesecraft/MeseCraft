@@ -78,6 +78,9 @@ local function lay_down(player, pos, bed_pos, state, skip)
 		player:set_physics_override({speed = 1, jump = 1, gravity = 1})
 		hud_flags.wielditem = true
 		player_api.set_animation(player, "stand" , 30)
+		
+		--Close bed form if it is still open
+		minetest.show_formspec(name, "beds_form", "")
 
 	-- lay down
 	else
