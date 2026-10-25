@@ -41,8 +41,8 @@ minetest.register_abm({
 	nodenames = {"scifi_nodes:egg"},
 	interval = 30, chance = 10,
 	action = function(pos, node, _, _)
-		minetest.env:add_entity(pos, "scifi_mobs:xenomorph")
-		minetest.env:remove_node(pos)
+		minetest.add_entity(pos, "scifi_mobs:xenomorph")
+		minetest.remove_node(pos)
 	end
 })
 end

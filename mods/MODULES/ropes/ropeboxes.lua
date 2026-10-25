@@ -131,7 +131,10 @@ local function register_rope_block(multiple, max_multiple, name_prefix, node_pre
 			type = "fixed",
 			fixed = rope_box_data[multiple].node
 		},
-		selection_box = {type="regular"},
+		selection_box = {
+			type = "fixed",
+			fixed = rope_box_data[multiple].node
+		},
 		collision_box = {type="regular"},
 		groups = {choppy=2, oddly_breakable_by_hand=1, rope_block = 1},
 		
@@ -251,7 +254,7 @@ local rope_def = {
 	connect_sides = {"top"},
 	selection_box = {
 		type = "fixed",
-		fixed = {-1/8, -1/2, -1/8, 1/8, 1/2, 1/8},
+		fixed = {-1/16, -1/2, -1/16, 1/16, 1/2, 1/16},
 	},
   	after_destruct = function(pos)
 		ropes.hanging_after_destruct(pos, "ropes:rope_top", "ropes:rope", "ropes:rope_bottom")
@@ -288,7 +291,11 @@ local rope_bottom_def = {
 	connect_sides = {"top"},
 	selection_box = {
 		type = "fixed",
-		fixed = {-1/8, -1/2, -1/8, 1/8, 1/2, 1/8},
+		fixed = {
+			{-1/16, -3/8, -1/16, 1/16, 1/2, 1/16},
+			{-2/16, -5/16, -2/16, 2/16, -1/16, 2/16},
+		},
+
 	},
 	
 	on_construct = function( pos )

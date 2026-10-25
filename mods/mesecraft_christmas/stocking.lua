@@ -45,9 +45,9 @@ end
 --stuffer.register_stuff("modname:nodename", amount)
 stuffer.register_stuff("default:gold_ingot", 25)
 stuffer.register_stuff("mesecraft_christmas:candy_cane", 25)
-stuffer.register_stuff("mesecraft_christmas:candy_cane_pickaxe", 1)
-stuffer.register_stuff("mesecraft_christmas:candy_cane_axe", 1)
-stuffer.register_stuff("mesecraft_christmas:candy_cane_sword", 1)
+stuffer.register_stuff("mesecraft_christmas:pick_cane", 1)
+stuffer.register_stuff("mesecraft_christmas:axe_cane", 1)
+stuffer.register_stuff("mesecraft_christmas:sword_cane", 1)
 stuffer.register_stuff("mesecraft_christmas:helmet_cane", 1)
 stuffer.register_stuff("mesecraft_christmas:chestplate_cane", 1)
 stuffer.register_stuff("mesecraft_christmas:leggings_cane", 1)
@@ -144,7 +144,7 @@ minetest.register_node("mesecraft_christmas:stocking", {
 		end
 	end,
 	on_place = function(itemstack, placer, pointed_thing)
-		if minetest.is_yes(placer:get_attribute("has_placed_stocking")) then
+		if minetest.is_yes(placer:get_meta():get_string("has_placed_stocking")) then
 			minetest.chat_send_player(placer:get_player_name(), "Santa won't fill more than one stocking!")
 			return itemstack
 		else
@@ -158,7 +158,7 @@ minetest.register_node("mesecraft_christmas:stocking", {
 		meta:set_string("infotext", owner.."'s Stocking")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*2)
-		placer:set_attribute("has_placed_stocking", "true")
+		placer:get_meta():set_string("has_placed_stocking", "true")
 		local year = tonumber(os.date("%Y"))
 		if date_in_seconds() >= christmas_date then
 			meta:set_int("fill_year", year + 1)
@@ -174,7 +174,7 @@ minetest.register_node("mesecraft_christmas:stocking", {
 		local year = tonumber(os.date("%Y"))
 		local owner  = meta:get_string("owner")
 		if owner == player then
-			if check_fillable(pos) == true or clicker:get_attribute("needs_fill") == "true" then
+			if check_fillable(pos) == true or clicker:get_meta():get_string("needs_fill") == "true" then
 				for i=1, #stuffers do
 					inv:set_stack("main", i, stuffers[i])
 				end
@@ -183,7 +183,7 @@ minetest.register_node("mesecraft_christmas:stocking", {
 				elseif date_in_seconds() < christmas_date then
 					meta:set_int("fill_year", year)
 				end
-				clicker:set_attribute("needs_fill", "false")
+				clicker:get_meta():set_string("needs_fill", "false")
 			end
 			if owner == player then
 				minetest.show_formspec(
@@ -215,9 +215,9 @@ minetest.register_node("mesecraft_christmas:stocking", {
 		local inv = digger:get_inventory()
 		if stocking.can_dig_function(pos, digger) then
 			if minetest.is_yes(check_fillable(pos)) then
-				digger:set_attribute("needs_fill", "true")
+				digger:get_meta():set_string("needs_fill", "true")
 			end
-			digger:set_attribute("has_placed_stocking", "false")
+			digger:get_meta():set_string("has_placed_stocking", "false")
 			minetest.remove_node(pos)
 			inv:add_item("main", "mesecraft_christmas:stocking")
 		end
@@ -245,7 +245,7 @@ minetest.register_node("mesecraft_christmas:green_stocking", {
 		end
 	end,
 	on_place = function(itemstack, placer, pointed_thing)
-		if minetest.is_yes(placer:get_attribute("has_placed_stocking")) then
+		if minetest.is_yes(placer:get_meta():get_string("has_placed_stocking")) then
 			minetest.chat_send_player(placer:get_player_name(), "Santa won't fill more than one stocking!")
 			return itemstack
 		else
@@ -259,7 +259,7 @@ minetest.register_node("mesecraft_christmas:green_stocking", {
 		meta:set_string("infotext", owner.."'s Stocking")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*2)
-		placer:set_attribute("has_placed_stocking", "true")
+		placer:get_meta():set_string("has_placed_stocking", "true")
 		local year = tonumber(os.date("%Y"))
 		if date_in_seconds() >= christmas_date then
 			meta:set_int("fill_year", year + 1)
@@ -275,7 +275,7 @@ minetest.register_node("mesecraft_christmas:green_stocking", {
 		local year = tonumber(os.date("%Y"))
 		local owner  = meta:get_string("owner")
 		if owner == player then
-			if check_fillable(pos) == true or clicker:get_attribute("needs_fill") == "true" then
+			if check_fillable(pos) == true or clicker:get_meta():get_string("needs_fill") == "true" then
 				for i=1, #stuffers do
 					inv:set_stack("main", i, stuffers[i])
 				end
@@ -284,7 +284,7 @@ minetest.register_node("mesecraft_christmas:green_stocking", {
 				elseif date_in_seconds() < christmas_date then
 					meta:set_int("fill_year", year)
 				end
-				clicker:set_attribute("needs_fill", "false")
+				clicker:get_meta():set_string("needs_fill", "false")
 			end
 			if owner == player then
 				minetest.show_formspec(
@@ -316,9 +316,9 @@ minetest.register_node("mesecraft_christmas:green_stocking", {
 		local inv = digger:get_inventory()
 		if stocking.can_dig_function(pos, digger) then
 			if minetest.is_yes(check_fillable(pos)) then
-				digger:set_attribute("needs_fill", "true")
+				digger:get_meta():set_string("needs_fill", "true")
 			end
-			digger:set_attribute("has_placed_stocking", "false")
+			digger:get_meta():set_string("has_placed_stocking", "false")
 			minetest.remove_node(pos)
 			inv:add_item("main", "mesecraft_christmas:green_stocking")
 		end

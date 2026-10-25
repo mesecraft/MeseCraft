@@ -95,9 +95,9 @@ mesecraft_christmas.christmas_special_item_pool = {}
         table.insert(mesecraft_christmas.christmas_special_item_pool, "mesecraft_christmas:painting_06")
         table.insert(mesecraft_christmas.christmas_special_item_pool, "mesecraft_christmas:stocking")
         table.insert(mesecraft_christmas.christmas_special_item_pool, "mesecraft_christmas:green_stocking")
-        table.insert(mesecraft_christmas.christmas_special_item_pool, "mesecraft_christmas:candy_cane_pickaxe")
-        table.insert(mesecraft_christmas.christmas_special_item_pool, "mesecraft_christmas:candy_cane_axe")
-        table.insert(mesecraft_christmas.christmas_special_item_pool, "mesecraft_christmas:candy_cane_sword")
+        table.insert(mesecraft_christmas.christmas_special_item_pool, "mesecraft_christmas:pick_cane")
+        table.insert(mesecraft_christmas.christmas_special_item_pool, "mesecraft_christmas:axe_cane")
+        table.insert(mesecraft_christmas.christmas_special_item_pool, "mesecraft_christmas:sword_cane")
         table.insert(mesecraft_christmas.christmas_special_item_pool, "gramophone:vinyl_disc12")
         table.insert(mesecraft_christmas.christmas_special_item_pool, "gramophone:vinyl_disc13")
 

@@ -1,4 +1,5 @@
 # textdomain: default
+Can use /give and /giveme=Pode usar /give e /giveme
 Locked Chest=Baú Trancado
 Locked Chest (owned by @1)=Baú Trancado (pertence a @1)
 You do not own this chest.=Você não é dono deste baú.
@@ -23,7 +24,7 @@ Coal Lump=Pedaço de Carvão
 Copper Ingot=Lingote de Cobre
 Copper Lump=Pedaço de Cobre
 Diamond=Diamante
-Flint=Sílex (Flint)
+Flint=Rocha Sílex
 Gold Ingot=Lingote de Ouro
 Gold Lump=Pedaço de Ouro
 Iron Lump=Pedaço de Ferro

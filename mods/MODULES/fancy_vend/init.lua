@@ -333,7 +333,7 @@ local function sort_inventory(inv)
         if not st:is_empty() then
             local n = st:get_name()
             local w = st:get_wear()
-            local m = st:get_metadata()
+            local m = st:get_meta():get_string("")
             local k = string.format("%s %05d %s", n, w, m)
             if not typecnt[k] then
                 typecnt[k] = {

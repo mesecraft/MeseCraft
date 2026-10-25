@@ -169,8 +169,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	vm:write_to_map()
 end)
 
-local nobj_local_chasm = minetest.get_perlin(np_chasms)
-local nobj_local_waver = minetest.get_perlin(np_waver)
+-- Created on first use: get_perlin is not allowed during script init.
+local nobj_local_chasm
+local nobj_local_waver
 
 chasms.is_in_chasm = function(pos)
 	nobj_local_chasm = nobj_local_chasm or minetest.get_perlin(np_chasms)

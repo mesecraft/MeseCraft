@@ -21,7 +21,7 @@ minetest.register_node("mesecraft_fireplace:fireplace_active", {
 	tiles = {
 	"mesecraft_fireplace_top.png", "mesecraft_fireplace_top.png", "mesecraft_fireplace_side.png", "mesecraft_fireplace_side.png", "mesecraft_fireplace_side.png",
 		{
-			image = "mesecraft_fireplace_active.png",
+			name = "mesecraft_fireplace_active.png",
 			animation = {
 				type = "vertical_frames",
 				aspect_w = 16,

@@ -4379,7 +4379,7 @@ function mobs:register_egg(mob, desc, background, addegg, no_creative)
 
 				pos.y = pos.y + 1
 
-				local data = itemstack:get_metadata()
+				local data = itemstack:get_meta():get_string("")
 				local smob = minetest.add_entity(pos, mob, data)
 				local ent = smob and smob:get_luaentity()
 
@@ -4484,7 +4484,7 @@ function mobs:force_capture(self, clicker)
 
 	local data_str = minetest.serialize(tmp)
 
-	new_stack:set_metadata(data_str)
+	new_stack:get_meta():set_string("", data_str)
 
 	local inv = clicker:get_inventory()
 
@@ -4598,7 +4598,7 @@ function mobs:capture_mob(self, clicker, chance_hand, chance_net,
 
 				local data_str = minetest.serialize(tmp)
 
-				new_stack:set_metadata(data_str)
+				new_stack:get_meta():set_string("", data_str)
 			end
 
 			local inv = clicker:get_inventory()

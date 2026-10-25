@@ -604,7 +604,7 @@ local function register_torch_bomb(name, desc, dirs, min_range, blast_radius, te
 			minetest.set_node(pos, {name="air"})
 	
 			local obj = minetest.add_entity(pos, "torch_bomb:"..name.."_rocket_entity")
-			obj:setacceleration({x=0, y=1, z=0})
+			obj:set_acceleration({x=0, y=1, z=0})
 			local lua_entity = obj:get_luaentity()
 			lua_entity.player_name = ignitor_name
 			lua_entity.fuse = fuse
@@ -637,7 +637,7 @@ if enable_grenade then
 			local dir = user:get_look_dir()
 			obj:set_velocity(vector.multiply(dir, throw_velocity))
 			obj:set_acceleration(gravity)
-			obj:set_yaw(user:get_look_yaw()+math.pi)
+			obj:set_yaw((user:get_look_horizontal() + math.pi/2)+math.pi)
 			local lua_entity = obj:get_luaentity()
 			lua_entity.player_name = user:get_player_name()
 			

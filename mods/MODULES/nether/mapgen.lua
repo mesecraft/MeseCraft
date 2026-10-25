@@ -237,6 +237,9 @@ minetest.register_ore({
 	wherein         = "nether:rack",
 	clust_scarcity  = 14 * 14 * 14,
 	clust_size      = 8,
+	-- The engine's fallback noise, which this ore used before noise_params was set.
+	noise_params    = {offset = 0, scale = 1, spread = {x = 250, y = 250, z = 250},
+		seed = 12345, octaves = 3, persistence = 0.6, lacunarity = 2.0, flags = "defaults"},
 	y_max = mapgen.ore_ceiling,
 	y_min = mapgen.ore_floor
 })

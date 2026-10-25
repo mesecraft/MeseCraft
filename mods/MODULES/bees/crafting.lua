@@ -59,3 +59,33 @@ minetest.register_craft({
 		{"bees:honeycomb", "bees:honeycomb", "bees:honeycomb"},
 	}
 })
+
+minetest.register_craft({ 
+	type = "shapeless", 
+	output = "bees:honeycomb", 
+	recipe = { "bees:frame_full", },
+	replacements = {{"bees:frame_full", "bees:frame_empty"}}, 
+})
+
+
+minetest.register_craft({ 
+	type = "shapeless", 
+	output = "bees:wax_in_water", 
+	recipe = { "mesecraft_bucket:bucket_water", "bees:honeycomb", }
+})
+
+minetest.register_craft({ 
+	type = "shapeless", 
+	output = "bees:wax_in_water", 
+	recipe = { "mesecraft_bucket:bucket_river_water", "bees:honeycomb", }
+})
+
+
+minetest.register_craft({ 
+	type = "cooking", 
+	output = "bees:wax", 
+	recipe = "bees:wax_in_water", 
+	cooktime = 10.0, 
+	replacements = {{"bees:wax_in_water", "mesecraft_bucket:bucket_empty"}}
+})
+

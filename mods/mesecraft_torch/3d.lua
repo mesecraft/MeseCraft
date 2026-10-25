@@ -1,7 +1,7 @@
 
 -- unlit floor torch
 minetest.register_node("mesecraft_torch:torch", {
-	description = "Torch",
+	description = "Unlit Torch",
 	drawtype = "mesh",
 	mesh = "torch_floor.obj",
 	inventory_image = "mesecraft_torch_on_floor.png",
@@ -10,6 +10,7 @@ minetest.register_node("mesecraft_torch:torch", {
 		    name = "mesecraft_torch_on_floor.png",
 		    animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.3}
 	}},
+	use_texture_alpha = "clip",
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	light_source = 0,
@@ -64,6 +65,7 @@ minetest.register_node("mesecraft_torch:torch_wall", {
 		    name = "mesecraft_torch_on_floor.png",
 		    animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.3}
 	}},
+	use_texture_alpha = "clip",
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	light_source = 0,
@@ -91,6 +93,7 @@ minetest.register_node("mesecraft_torch:torch_ceiling", {
 		    name = "mesecraft_torch_on_floor.png",
 		    animation = {type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3.3}
 	}},
+	use_texture_alpha = "clip",
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	light_source = 0,

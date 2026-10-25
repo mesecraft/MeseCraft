@@ -1860,7 +1860,13 @@ function default.register_decorations()
 	-- Emergent jungle tree
 	-- Due to 32 node height, altitude is limited and prescence depends on chunksize
 
-	local chunksize = tonumber(minetest.get_mapgen_setting("chunksize"))
+	local chunksize
+	if core.get_mapgen_chunksize then
+		local v = core.get_mapgen_chunksize()
+		chunksize = math.max(v.x, v.y, v.z)
+	else
+		chunksize = tonumber(core.get_mapgen_setting("chunksize"))
+	end
 	if chunksize >= 5 then
 		minetest.register_decoration({
 			name = "default:emergent_jungle_tree",
@@ -2476,9 +2482,6 @@ end
 -- Detect mapgen to select functions
 --
 
-minetest.clear_registered_biomes()
-minetest.clear_registered_ores()
-minetest.clear_registered_decorations()
 
 local mg_name = minetest.get_mapgen_setting("mg_name")
 

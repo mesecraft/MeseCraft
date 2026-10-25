@@ -128,7 +128,7 @@ function awards.unlock(name, award)
 	else
 		local player = minetest.get_player_by_name(name)
 		local one = player:hud_add({
-			hud_elem_type = "image",
+			type = "image",
 			name = "award_bg",
 			scale = {x = 2, y = 1},
 			text = background,
@@ -143,7 +143,7 @@ function awards.unlock(name, award)
 			hud_announce = S("Award Unlocked!")
 		end
 		local two = player:hud_add({
-			hud_elem_type = "text",
+			type = "text",
 			name = "award_au",
 			number = 0xFFFFFF,
 			scale = {x = 100, y = 20},
@@ -153,7 +153,7 @@ function awards.unlock(name, award)
 			alignment = {x = 0, y = -1}
 		})
 		local three = player:hud_add({
-			hud_elem_type = "text",
+			type = "text",
 			name = "award_title",
 			number = 0xFFFFFF,
 			scale = {x = 100, y = 20},
@@ -163,7 +163,7 @@ function awards.unlock(name, award)
 			alignment = {x = 0, y = -1}
 		})
 		local four = player:hud_add({
-			hud_elem_type = "image",
+			type = "image",
 			name = "award_icon",
 			scale = {x = 2, y = 2}, -- adjusted for 32x32 from x/y = 4
 			text = icon,

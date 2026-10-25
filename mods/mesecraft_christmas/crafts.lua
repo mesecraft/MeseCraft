@@ -93,7 +93,7 @@
 	})
 -- Candy Cane Pickaxe
         minetest.register_craft({
-                output = "mesecraft_christmas:candy_cane_pickaxe",
+                output = "mesecraft_christmas:pick_cane",
                 recipe = {
                         {"mesecraft_christmas:candy_cane_block", "mesecraft_christmas:candy_cane_block", "mesecraft_christmas:candy_cane_block"},
                         {"", "mesecraft_christmas:candy_cane", ""},
@@ -102,7 +102,7 @@
         })
 -- Candy Cane Axe
         minetest.register_craft({
-                output = "mesecraft_christmas:candy_cane_axe",
+                output = "mesecraft_christmas:axe_cane",
                 recipe = {
                         {"mesecraft_christmas:candy_cane_block", "mesecraft_christmas:candy_cane_block", ""},
                         {"", "mesecraft_christmas:candy_cane", ""},
@@ -111,7 +111,7 @@
         })
 -- Candy Cane Sword
         minetest.register_craft({
-                output = "mesecraft_christmas:candy_cane_sword",
+                output = "mesecraft_christmas:sword_cane",
                 recipe = {
                         {"", "mesecraft_christmas:candy_cane_block", ""},
                         {"", "mesecraft_christmas:candy_cane_block", ""},

@@ -67,6 +67,23 @@ local frozen_biomes = {
     "frost_ocean",
 }
 
+-- The lists above name biomes from several biome mods; keep only the ones registered in this game
+-- so the engine doesn't warn about each missing name. An empty list would mean "all biomes", so
+-- fall back to the full list in that case.
+local function registered_only(biomes)
+    local found = {}
+    for _, name in ipairs(biomes) do
+        if minetest.registered_biomes[name] then
+            table.insert(found, name)
+        end
+    end
+    return #found > 0 and found or biomes
+end
+
+warm_biomes = registered_only(warm_biomes)
+temperate_biomes = registered_only(temperate_biomes)
+frozen_biomes = registered_only(frozen_biomes)
+
 local corals = {
     "blue",
     "crimson",

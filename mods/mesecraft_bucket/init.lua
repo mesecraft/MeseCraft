@@ -128,16 +128,58 @@ minetest.register_craftitem("mesecraft_bucket:bucket_empty", {
 			return
 		end
 		-- Check if pointing to a liquid source
-		local node = minetest.get_node(pointed_thing.under)
+		local pos = pointed_thing.under
+		local node = minetest.get_node(pos)
 		local liquiddef = mesecraft_bucket.liquids[node.name]
 		local item_count = user:get_wielded_item():get_count()
+
+		-- if flowing, grab a nearby source instead
+		if liquiddef ~= nil
+		and node.name == liquiddef.flowing then
+			local voffset = vector.offset(pos,0,1,0) 	-- start above
+			local vnode = minetest.get_node(voffset)
+			if vnode.name == liquiddef.source then
+				pos = voffset
+				node = vnode
+			else
+				-- check cardinal directions in random order
+				local dirs = {{1,0},{0,1},{-1,0},{0,-1}}
+				for i=4,2,-1 do
+					j = math.random(i)
+					dirs[i],dirs[j]=dirs[j],dirs[i]
+				end
+				for _, dir in ipairs(dirs) do
+					voffset = vector.offset(pos,dir[1],0,dir[2])
+					vnode = minetest.get_node(voffset)
+					if vnode.name == liquiddef.source
+					then 
+						pos = voffset
+						node = vnode
+						break
+					end
+				end
+			end
+			if pos == pointed_thing.under then
+				-- still unchanged, check under
+				voffset = vector.offset(pos,0,-1,0)
+				vnode = minetest.get_node(voffset)
+				if vnode.name == liquiddef.source then
+					pos = voffset
+					node = vnode
+				end
+			end
+		end
 
 		if liquiddef ~= nil
 		and liquiddef.itemname ~= nil
 		and node.name == liquiddef.source then
 			if check_protection(pointed_thing.under,
 					user:get_player_name(),
-					"take ".. node.name) then
+					"take ".. node.name) 
+			or check_protection(pos,
+					user:get_player_name(),
+					"take ".. node.name) 
+			then
 				return
 			end
 
@@ -147,7 +189,7 @@ minetest.register_craftitem("mesecraft_bucket:bucket_empty", {
 			-- check if holding more than 1 empty bucket
 			if item_count > 1 then
 
-				-- if space in inventory add filled bucked, otherwise drop as item
+				-- if space in inventory add filled bucket, otherwise drop as item
 				local inv = user:get_inventory()
 				if inv:room_for_item("main", {name=liquiddef.itemname}) then
 					inv:add_item("main", liquiddef.itemname)
@@ -166,10 +208,10 @@ minetest.register_craftitem("mesecraft_bucket:bucket_empty", {
 			local source_neighbor = false
 			if liquiddef.force_renew then
 				source_neighbor =
-					minetest.find_node_near(pointed_thing.under, 1, liquiddef.source)
+					minetest.find_node_near(pos, 1, liquiddef.source)
 			end
 			if not (source_neighbor and liquiddef.force_renew) then
-				minetest.add_node(pointed_thing.under, {name = "air"})
+				minetest.add_node(pos, {name = "air"})
 			end
 
 			return ItemStack(giving_back)

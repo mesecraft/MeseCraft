@@ -42,7 +42,7 @@ function fire_plus.burn_player(player, burns, damage, not_initial)
 		fire_plus.burning[name] = {
 			burns_left = burns,
 			hud_id = player:hud_add({
-				hud_elem_type = "image",
+				type = "image",
 				position  = {x = 0.5, y = 0.95},
 				offset    = {x = 0, y = 0},
 				text      = "fire_basic_flame.png",

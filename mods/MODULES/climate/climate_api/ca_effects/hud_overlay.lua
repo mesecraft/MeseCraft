@@ -24,7 +24,7 @@ local function apply_hud(pname, weather, hud)
 	local file
 	if hud.color_correction then
 		local pos = vector.add(player:get_pos(), {x = 0, y = 1, z = 0})
-		local node_light = minetest.env:get_node_light(pos)
+		local node_light = minetest.get_node_light(pos)
 		if not node_light then node_light = 0 end
 		local light = math.floor(math.max(node_light / 15, 0.2) * 256)
 		local shadow = 256 - light
@@ -38,7 +38,7 @@ local function apply_hud(pname, weather, hud)
 
 	local handle = player:hud_add({
 		name = weather,
-		hud_elem_type = "image",
+		type = "image",
 		position = {x = 0, y = 0},
 		alignment = {x = 1, y = 1},
 		scale = { x = -100, y = -100},

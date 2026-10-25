@@ -3,20 +3,17 @@
 -- Global namespace for functions
 fire = {}
 
--- Load support for MT game translation.
 local S = minetest.get_translator("fire")
 
--- 'Enable fire' setting
-local fire_enabled = minetest.settings:get_bool("enable_fire")
-if fire_enabled == nil then
-	-- enable_fire setting not specified, check for disable_fire
-	local fire_disabled = minetest.settings:get_bool("disable_fire")
-	if fire_disabled == nil then
-		-- Neither setting specified, check whether singleplayer
-		fire_enabled = minetest.is_singleplayer()
-	else
-		fire_enabled = not fire_disabled
+-- Default to enabled in singleplayer
+local fire_enabled = minetest.settings:get("enable_fire") or "auto"
+if fire_enabled == "auto" then
+	fire_enabled = minetest.is_singleplayer()
+	if minetest.settings:get_bool("disable_fire") then -- this is undocumented...?
+		fire_enabled = false
 	end
+else
+	fire_enabled = minetest.is_yes(fire_enabled)
 end
 
 --
@@ -101,13 +98,18 @@ minetest.register_tool("fire:flint_and_steel", {
 				return
 			end
 			if minetest.is_protected(pointed_thing.under, player_name) then
-				minetest.chat_send_player(player_name, "This area is protected")
+				minetest.record_protection_violation(pointed_thing.under, player_name)
 				return
 			end
 			if nodedef.on_ignite then
 				nodedef.on_ignite(pointed_thing.under, user)
 			elseif minetest.get_item_group(node_under, "flammable") >= 1
 					and minetest.get_node(pointed_thing.above).name == "air" then
+				if minetest.is_protected(pointed_thing.above, player_name) then
+					minetest.record_protection_violation(pointed_thing.above, player_name)
+					return
+				end
+
 				minetest.set_node(pointed_thing.above, {name = "fire:basic_flame"})
 			end
 		end

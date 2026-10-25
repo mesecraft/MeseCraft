@@ -1,4 +1,4 @@
--- Minetest 0.4 mod: default
+-- Minetest Game mod: default
 -- See README.txt for licensing and other information.
 
 -- The API documentation in here was moved into game_api.txt
@@ -13,13 +13,13 @@ default.LIGHT_MAX = 14
 default.get_translator = S
 
 -- Check for engine features required by MTG
--- This provides clear error behaviour when MTG is newer than the installed engine
+-- This provides clear error behavior when MTG is newer than the installed engine
 -- and avoids obscure, hard to debug runtime errors.
 -- This section should be updated before release and older checks can be dropped
 -- when newer ones are introduced.
-if ItemStack("").add_wear_by_uses == nil then
+if core.get_mapgen_edges == nil then
 	error("\nThis version of MeseCraft is incompatible with your engine version "..
-		"(which is too old). You should upgrade Minetest.\n")
+		"(which is too old). You should upgrade Luanti.\n")
 end
 
 -- GUI related stuff
@@ -74,5 +74,22 @@ dofile(default_path.."/item_entity.lua")
 dofile(default_path.."/craftitems.lua")
 dofile(default_path.."/crafting.lua")
 dofile(default_path.."/mapgen.lua")
+dofile(default_path.."/chat.lua")
 dofile(default_path.."/aliases.lua")
 dofile(default_path.."/legacy.lua")
+
+-- Smoke test that is run via ./util/test/run.sh
+if minetest.settings:get_bool("minetest_game_smoke_test") then
+	minetest.after(0, function()
+		minetest.emerge_area(vector.new(0, 0, 0), vector.new(32, 32, 32))
+		local pos = vector.new(9, 9, 9)
+		local function check()
+			if minetest.get_node(pos).name ~= "ignore" then
+				minetest.request_shutdown()
+				return
+			end
+			minetest.after(0, check)
+		end
+		check()
+	end)
+end

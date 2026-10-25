@@ -124,6 +124,11 @@ function creative.update_creative_inventory(player_name, tab_content)
 	inv.size = #creative_list
 end
 
+minetest.register_on_leaveplayer(function(player)
+	local name = player:get_player_name()
+	player_inventory[name] = nil
+end)
+
 -- Create the trash field
 local trash = minetest.create_detached_inventory("trash", {
 	-- Allow the stack to be placed and remove it in on_put()
@@ -170,6 +175,7 @@ function creative.register_tab(name, title, items)
 				"tooltip[creative_prev;" .. esc(S("Previous page")) .. "]" ..
 				"tooltip[creative_next;" .. esc(S("Next page")) .. "]" ..
 				"listring[current_player;main]" ..
+				"field_enter_after_edit[creative_filter;true]" ..
 				"field_close_on_enter[creative_filter;false]" ..
 				"field[0.3,4.2;2.8,1.2;creative_filter;;" .. esc(inv.filter) .. "]" ..
 				"listring[detached:creative_" .. player_name .. ";main]" ..

@@ -22,7 +22,7 @@ playereffects.register_effect_type("null", "No effect", nil, {},
 playereffects.register_effect_type("blind", "Blind", nil, {},
 	function(player)
 		local hudid = player:hud_add({
-			hud_elem_type = "image",
+			type = "image",
 			position = { x=0.5, y=0.5 },
 			scale = { x=-100, y=-100 },
 			text = "playereffects_example_black.png",

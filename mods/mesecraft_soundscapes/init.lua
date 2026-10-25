@@ -267,7 +267,7 @@ end
 local nodes_in_range = function(pos, search_distance, node_name)
 	minp = {x=pos.x-search_distance,y=pos.y-search_distance, z=pos.z-search_distance}
 	maxp = {x=pos.x+search_distance,y=pos.y+search_distance, z=pos.z+search_distance}
-	nodes = minetest.env:find_nodes_in_area(minp, maxp, node_name)
+	nodes = minetest.find_nodes_in_area(minp, maxp, node_name)
 	--minetest.chat_send_all("Found (" .. node_name .. ": " .. #nodes .. ")")
 	return #nodes
 end

@@ -1,7 +1,7 @@
 --Register Candy Cane Pickaxe
-minetest.register_tool("mesecraft_christmas:candy_cane_pickaxe", {
+minetest.register_tool("mesecraft_christmas:pick_cane", {
 	description = "Candy Cane Pickaxe",
-	inventory_image = "mesecraft_christmas_candy_cane_pickaxe.png",
+	inventory_image = "mesecraft_christmas_tool_pick_cane.png",
 	tool_capabilities = {
 		full_punch_interval = 0.9,
 		max_drop_level=3,
@@ -11,11 +11,12 @@ minetest.register_tool("mesecraft_christmas:candy_cane_pickaxe", {
 		damage_groups = {fleshy=5},
 	},
 })
+minetest.register_alias("mesecraft_christmas:candy_cane_pickaxe", "mesecraft_christmas:pick_cane")
 
 --Register Candy Cane Axe
-minetest.register_tool("mesecraft_christmas:candy_cane_axe", {
+minetest.register_tool("mesecraft_christmas:axe_cane", {
 	description = "Candy Cane Axe",
-	inventory_image = "mesecraft_christmas_candy_cane_axe.png",
+	inventory_image = "mesecraft_christmas_tool_axe_cane.png",
 	tool_capabilities = {
 		full_punch_interval = 0.9,
 		max_drop_level=1,
@@ -25,11 +26,12 @@ minetest.register_tool("mesecraft_christmas:candy_cane_axe", {
 		damage_groups = {fleshy=6},
 	}
 })
+minetest.register_alias("mesecraft_christmas:candy_cane_axe", "mesecraft_christmas:axe_cane")
 
 --Register Candy Cane Sword
-minetest.register_tool("mesecraft_christmas:candy_cane_sword", {
+minetest.register_tool("mesecraft_christmas:sword_cane", {
 	description = "Candy Cane Sword",
-	inventory_image = "mesecraft_christmas_candy_cane_sword.png",
+	inventory_image = "mesecraft_christmas_tool_sword_cane.png",
 	tool_capabilities = {
 		full_punch_interval = 0.7,
 		max_drop_level=1,
@@ -39,6 +41,7 @@ minetest.register_tool("mesecraft_christmas:candy_cane_sword", {
 		damage_groups = {fleshy=7},
 	}
 })
+minetest.register_alias("mesecraft_christmas:candy_cane_sword", "mesecraft_christmas:sword_cane")
 
 -- Add mesecraft_toolranks support
 if minetest.get_modpath("mesecraft_toolranks") then
@@ -50,7 +53,7 @@ if minetest.get_modpath("mesecraft_toolranks") then
 			after_use = afteruse and mesecraft_toolranks.new_afteruse
 		})
 	end
-	add_tool("mesecraft_christmas:candy_cane_pickaxe", "Candy Cane Pickaxe", true)
-	add_tool("mesecraft_christmas:candy_cane_axe", "Candy Cane Axe", true)
-	add_tool("mesecraft_christmas:candy_cane_sword", "Candy Cane Sword", true)
+	add_tool("mesecraft_christmas:pick_cane", "Candy Cane Pickaxe", true)
+	add_tool("mesecraft_christmas:axe_cane", "Candy Cane Axe", true)
+	add_tool("mesecraft_christmas:sword_cane", "Candy Cane Sword", true)
 end

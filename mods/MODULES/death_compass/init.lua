@@ -137,7 +137,7 @@ local function update_hud(player, player_name, compass)
 	local id = player_huds[player_name]
 	if not id then
 		id = player:hud_add({
-			hud_elem_type = "text",
+			type = "text",
 			position = hud_position,
 			text = description,
 			number = hud_color,

@@ -31,10 +31,9 @@ MeseCraft has a focus on being fun, featured, stable, and user-friendly. The gam
 
 Branches
 -------------------------
-There are three branches of MeseCraft:
-* `main`: The main version of MeseCraft. For players and server operators. It prioritizes operational stability to create a positive gameplay experience.
-* `testing`:  The beta version of MeseCraft. For testers and developers. It prioritizes testing  new developments so bugs can be identified and fixed.
-* `unstable`: The alpha version of MeseCraft. For developers. New code and projects should target here.
+There are two branches of MeseCraft:
+* `main`: The stable version of MeseCraft. For players and server operators. It prioritizes operational stability to create a positive gameplay experience.
+* `dev`: The development version of MeseCraft. For testers and developers. New code, fixes, and pull requests should target here.
 
 Credits
 -------------------------

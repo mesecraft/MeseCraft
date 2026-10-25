@@ -273,7 +273,7 @@ minetest.register_entity("farming:hoebomb_entity", {
 
 		if self.lastpos.x ~= nil then
 
-			local vel = self.object:getvelocity()
+			local vel = self.object:get_velocity()
 
 			-- only when potion hits something physical
 			if vel.x == 0
@@ -314,13 +314,13 @@ local function throw_potion(itemstack, player)
 	local dir = player:get_look_dir()
 	local velocity = 20
 
-	obj:setvelocity({
+	obj:set_velocity({
 		x = dir.x * velocity,
 		y = dir.y * velocity,
 		z = dir.z * velocity
 	})
 
-	obj:setacceleration({
+	obj:set_acceleration({
 		x = dir.x * -3,
 		y = -9.5,
 		z = dir.z * -3
