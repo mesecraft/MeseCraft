@@ -43,7 +43,7 @@ minetest.register_globalstep(function(dtime)
 			hud[name] = {}
 
 			hud[name].id = player:hud_add({
-				hud_elem_type = "text",
+				type = "text",
 				name = "Protector Area",
 				number = 0xFFFF22,
 				position = {x = 0, y = 0.95},

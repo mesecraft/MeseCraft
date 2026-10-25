@@ -649,13 +649,13 @@ if minetest.get_modpath("mobs") then
             ent.velocity = food_VELOCITY -- needed for api internal timing
             ent.switch = 1 -- needed so that food doesn't despawn straight away
 
-            obj:setvelocity({
+            obj:set_velocity({
                 x = dir.x * food_VELOCITY,
                 y = dir.y * food_VELOCITY,
                 z = dir.z * food_VELOCITY
             })
 
-            obj:setacceleration({
+            obj:set_acceleration({
                 x = dir.x * -3,
                 y = -food_GRAVITY,
                 z = dir.z * -3

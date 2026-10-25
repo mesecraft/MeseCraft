@@ -66,7 +66,7 @@ local function gadgets_on_use(itemstack, user, pointed_thing, def)
 
     local playername = user:get_player_name()
     local inv = user:get_inventory()
-    local meta = minetest.deserialize(itemstack:get_metadata())
+    local meta = minetest.deserialize(itemstack:get_meta():get_string(""))
 
     if def.mana_per_use and mana.get(playername) < def.mana_per_use or
     def.ammo_type and not inv:contains_item("main", {name=def.ammo_type, count=def.ammo_per_use})
@@ -102,7 +102,7 @@ local function gadgets_on_use(itemstack, user, pointed_thing, def)
         if def.requires_technic then
             meta.charge = meta.charge - def.technic_charge_per_use
             technic.set_RE_wear(itemstack, meta.charge, def.technic_charge)
-            itemstack:set_metadata(minetest.serialize(meta))
+            itemstack:get_meta():set_string("", minetest.serialize(meta))
         else
             local wear = itemstack:get_wear()
             wear = wear + (65535/def.uses)
@@ -129,7 +129,7 @@ local function gadgets_on_use(itemstack, user, pointed_thing, def)
             inv:add_item("main", {name = def.return_item})
         else
             local obj = minetest.add_item({x = playerpos.x, y = playerpos.y + 1.5, z = playerpos.z}, def.return_item)
-            obj:setvelocity({x = dir.x * 5, y = dir.y * 5, z = dir.z * 5})
+            obj:set_velocity({x = dir.x * 5, y = dir.y * 5, z = dir.z * 5})
         end
     end
 

@@ -407,7 +407,7 @@ function bweapons.register_weapon(def)
             end
 
             if def.has_durability then
-                local meta = minetest.deserialize(itemstack:get_metadata())
+                local meta = minetest.deserialize(itemstack:get_meta():get_string(""))
                 if
                 def.requires_technic and not meta or
                 def.requires_technic and meta.charge < technic_charge_per_use or
@@ -422,7 +422,7 @@ function bweapons.register_weapon(def)
                 if def.requires_technic then
                     meta.charge = meta.charge - technic_charge_per_use
                     technic.set_RE_wear(itemstack, meta.charge, technic_charge)
-                    itemstack:set_metadata(minetest.serialize(meta))
+                    itemstack:get_meta():set_string("", minetest.serialize(meta))
                 else
                     local wear = itemstack:get_wear()
                     wear = wear + (65535/uses)
@@ -587,11 +587,11 @@ function bweapons.register_weapon(def)
                     --Set previous pos when just spawned
                     obj:get_luaentity().previous_pos = {x = playerpos.x, y = playerpos.y + 1, z = playerpos.z}
                     --Combined velocity with player velocity
-                    obj:setvelocity({x=((dir.x+bweapons.get_spread(spread))*projectile_speed)+vel.x,
+                    obj:set_velocity({x=((dir.x+bweapons.get_spread(spread))*projectile_speed)+vel.x,
                                     y=((dir.y+bweapons.get_spread(spread))*projectile_speed)+vel.y,
                                     z=((dir.z+bweapons.get_spread(spread))*projectile_speed)+vel.z})
-                    obj:setacceleration({x=0, y=projectile_gravity, z=0})
-                    obj:setyaw(user:get_look_yaw()+math.pi)
+                    obj:set_acceleration({x=0, y=projectile_gravity, z=0})
+                    obj:set_yaw((user:get_look_horizontal() + math.pi/2)+math.pi)
                 end
             end
 
@@ -617,7 +617,7 @@ function bweapons.register_weapon(def)
                     inv:add_item("main", {name = def.return_item})
                 else
                     local obj = minetest.add_item({x = playerpos.x, y = playerpos.y + 1.5, z = playerpos.z}, def.return_item)
-                    obj:setvelocity({x = dir.x * 5, y = dir.y * 5, z = dir.z * 5})
+                    obj:set_velocity({x = dir.x * 5, y = dir.y * 5, z = dir.z * 5})
                 end
             end
 

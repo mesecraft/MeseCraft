@@ -4,7 +4,7 @@ function update_heli_hud(player)
     --[[
     local player_name = player:get_player_name()
 
-	hour = minetest.env:get_timeofday() * 24
+	hour = minetest.get_timeofday() * 24
 	hour = math.ceil(hour)
     
     -- Get the dig and place count from storage, or default to 0
@@ -23,7 +23,7 @@ function update_heli_hud(player)
         local screen_pos_x = -100
         ids = {}
         ids["bg"] = player:hud_add({
-            hud_elem_type = "image",
+            type = "image",
             position  = {x = 1, y = 0.5},
             offset    = {x = -240 + screen_pos_x, y = -10 + screen_pos_y},
             text      = "flight_info_bg.png",
@@ -32,7 +32,7 @@ function update_heli_hud(player)
         })
         
         ids["title"] = player:hud_add({
-            hud_elem_type = "text",
+            type = "text",
             position  = {x = 1, y = 0.5},
             offset    = {x = -120 + screen_pos_x, y = -25 + screen_pos_y},
             text      = "Flight Information",
@@ -42,7 +42,7 @@ function update_heli_hud(player)
         })
 
         ids["time"] = player:hud_add({
-            hud_elem_type = "text",
+            type = "text",
             position  = {x = 1, y = 0.5},
             offset    = {x = -180 + screen_pos_x, y = 0 + screen_pos_y},
             text      = time_text,
@@ -52,7 +52,7 @@ function update_heli_hud(player)
         })
 
         ids["altitude"] = player:hud_add({
-            hud_elem_type = "text",
+            type = "text",
             position  = {x = 1, y = 0.5},
             offset    = {x = -70 + screen_pos_x, y = 0 + screen_pos_y},
             text      = altitude_text,

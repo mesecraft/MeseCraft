@@ -16,8 +16,8 @@ function explosion_web(pos, webtype)
                 -- TODO 0 check, why are we operating on two positions?
                 local p = {x=i,y=j,z=k}
                 local k = {x=i,y=j+1,z=k}
-                local current = minetest.env:get_node(p).name
-                local ontop  = minetest.env:get_node(k).name
+                local current = minetest.get_node(p).name
+                local ontop  = minetest.get_node(k).name
                 if current == "air" then
                 --if not nssm.unswappable_node(p) then -- replaces to many nodes
                     minetest.set_node(p, {name=webtype})

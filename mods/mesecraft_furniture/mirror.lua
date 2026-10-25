@@ -49,12 +49,12 @@ minetest.register_node("mesecraft_furniture:mirror_closed", {
    paramtype2 = "facedir",
    groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
    on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		inv:set_size('storage', 3*3)
    end,
    on_punch = function(pos, node, puncher)
-		minetest.env:swap_node(pos, {name = "mesecraft_furniture:mirror", param2 = node.param2})
+		minetest.swap_node(pos, {name = "mesecraft_furniture:mirror", param2 = node.param2})
 		local meta = minetest.get_meta(pos);
 		meta:set_string('formspec',formspec)
 		end,
@@ -84,7 +84,7 @@ minetest.register_node("mesecraft_furniture:mirror", {
    drop = "mesecraft_furniture:mirror_closed",
    groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, not_in_creative_inventory = 1},
    on_punch = function(pos, node, puncher)
-		minetest.env:swap_node(pos, {name = "mesecraft_furniture:mirror_closed", param2 = node.param2})
+		minetest.swap_node(pos, {name = "mesecraft_furniture:mirror_closed", param2 = node.param2})
 		local meta = minetest.get_meta(pos);
 		meta:set_string('formspec',nil)
 		end,

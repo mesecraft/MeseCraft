@@ -168,7 +168,7 @@ local function add_hud_marker(waypoints_type, player, player_name, pos, label, c
 	waypoints_for_this_type[player_name] = waypoints
 	color = color or 0xFFFFFF
 	local hud_id = player:hud_add({
-		hud_elem_type = "waypoint",
+		type = "waypoint",
 		name = label,
 		text = "m",
 		number = color,

@@ -13,7 +13,7 @@ local setup_hud = function(player)
 	hud[playername] = hud_data
 
 	hud_data.overlay = player:hud_add({
-	    hud_elem_type = "image",
+	    type = "image",
 	    position = {x = 0.5, y = 0.5},
 	    scale = {
 	      x = -100,
@@ -23,7 +23,7 @@ local setup_hud = function(player)
 	})
 
 	hud_data.o2_bg = player:hud_add({
-		hud_elem_type = "image",
+		type = "image",
 		position = HUD_POSITION,
 		offset = O2_BAR_OFFSET,
 		text = "mesecraft_spacesuit_o2_levels_bg.png",
@@ -32,7 +32,7 @@ local setup_hud = function(player)
 	})
 
 	hud_data.o2_fg = player:hud_add({
-		hud_elem_type = "image",
+		type = "image",
 		position = HUD_POSITION,
 		offset = O2_BAR_OFFSET,
 		text = "mesecraft_spacesuit_o2_levels_fg_green.png",
@@ -41,7 +41,7 @@ local setup_hud = function(player)
 	})
 
 	hud_data.o2_label = player:hud_add({
-		hud_elem_type = "text",
+		type = "text",
 		position = HUD_POSITION,
 		offset = {x = O2_BAR_OFFSET.x - 80,   y = O2_BAR_OFFSET.y},
 		text = "O2-Level:",
@@ -51,7 +51,7 @@ local setup_hud = function(player)
 	})
 
 	hud_data.o2_level = player:hud_add({
-		hud_elem_type = "text",
+		type = "text",
 		position = {x = 1, y = HUD_POSITION.y },
 		offset = {x = O2_BAR_OFFSET.x - 70,   y = O2_BAR_OFFSET.y},
 		text = "",
@@ -61,7 +61,7 @@ local setup_hud = function(player)
 	})
 
 	hud_data.suit_incomplete = player:hud_add({
-		hud_elem_type = "text",
+		type = "text",
 		position = HUD_POSITION,
 		offset = SUITE_INCOMPLETE_OFFSET,
 		text = "",

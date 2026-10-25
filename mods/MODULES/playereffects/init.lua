@@ -496,7 +496,7 @@ function playereffects.hud_effect(effect_type_id, player, pos, time_left, repeat
 			text = description .. " ("..tostring(time_left).." s)"
 		end
 		text_id = player:hud_add({
-			hud_elem_type = "text",
+			type = "text",
 			position = { x = 1, y = 0.3 },
 			name = "effect_"..effect_type_id,
 			text = text,
@@ -508,7 +508,7 @@ function playereffects.hud_effect(effect_type_id, player, pos, time_left, repeat
 		})
 		if(playereffects.effect_types[effect_type_id].icon ~= nil) then
 			icon_id = player:hud_add({
-				hud_elem_type = "image",
+				type = "image",
 				scale = { x = 1, y = 1 },
 				position = { x = 1, y = 0.3 },
 				name = "effect_icon_"..effect_type_id,

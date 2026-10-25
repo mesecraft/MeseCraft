@@ -6,12 +6,12 @@ minetest.register_node("mesecraft_mobs:blood_flowing", {
         tiles = {"mesecraft_mobs_items_blood_source.png^[opacity:190"},
         special_tiles = {
                 {
-                        image="mesecraft_mobs_items_blood_animate.png^[opacity:190",
+                        name="mesecraft_mobs_items_blood_animate.png^[opacity:190",
                         backface_culling=false,
                         animation={type="vertical_frames", aspect_w=32, aspect_h=32, length=1}
                 },
                 {
-                        image="mesecraft_mobs_items_blood_animate.png^[opacity:190",
+                        name="mesecraft_mobs_items_blood_animate.png^[opacity:190",
                         backface_culling=true,
                         animation={type="vertical_frames", aspect_w=32, aspect_h=32, length=1}
                 },

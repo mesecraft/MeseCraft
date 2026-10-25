@@ -458,7 +458,17 @@ local nodes = {
 
 for name, def in pairs(nodes) do
 	def.tiles = def.tiles or {"moreblocks_" ..name.. ".png"}
+	-- furnace_burntime is deprecated as a node field; register the fuel recipe directly.
+	local burntime = def.furnace_burntime
+	def.furnace_burntime = nil
 	minetest.register_node("moreblocks:" ..name, def)
+	if burntime then
+		minetest.register_craft({
+			type = "fuel",
+			recipe = "moreblocks:" ..name,
+			burntime = burntime,
+		})
+	end
 	minetest.register_alias(name, "moreblocks:" ..name)
 
 	def_copy = table.copy(def)

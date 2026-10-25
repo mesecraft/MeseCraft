@@ -114,7 +114,7 @@ candles.light1 = function(pos, node, puncher)
 	wield = wield:get_name()
 	if wield and wield == "default:torch" then
 		local litname = candles.find_lit(node.name)
-		minetest.env:add_node(pos,{name=litname, param1=node.param1, param2=node.param2})
+		minetest.add_node(pos,{name=litname, param1=node.param1, param2=node.param2})
 	local p1 = {x=pos.x, y=pos.y+1, z=pos.z}
 	local n1 = minetest.get_node(p1)
 	if n1.name == "air" then
@@ -134,7 +134,7 @@ candles.light2 = function(pos, node, puncher)
 	wield = wield:get_name()
 	if wield and wield == "default:torch" then
 		local litname = candles.find_lit(node.name)
-		minetest.env:add_node(pos,{name=litname, param1=node.param1, param2=node.param2})
+		minetest.add_node(pos,{name=litname, param1=node.param1, param2=node.param2})
 		end
 	end
 
@@ -149,7 +149,7 @@ candles.light3 = function(pos, node, puncher)
 	wield = wield:get_name()
 	if wield and wield == "default:torch" then
 		local litname = candles.find_lit(node.name)
-		minetest.env:add_node(pos,{name=litname, param1=node.param1, param2=node.param2})
+		minetest.add_node(pos,{name=litname, param1=node.param1, param2=node.param2})
 	local p1 = {x=pos.x, y=pos.y+1, z=pos.z}
 	local n1 = minetest.get_node(p1)
 	if n1.name == "air" then
@@ -169,7 +169,7 @@ candles.light3 = function(pos, node, puncher)
 	wield = wield:get_name()
 	if not wield or wield ~= "default:torch" then
 		local unlitname = candles.find_unlit(node.name)
-		minetest.env:add_node(pos,{name=unlitname, param1=node.param1, param2=node.param2})
+		minetest.add_node(pos,{name=unlitname, param1=node.param1, param2=node.param2})
 
 	local p1 = {x=pos.x, y=pos.y+1, z=pos.z}
 	local n1 = minetest.get_node(p1)
@@ -190,7 +190,7 @@ candles.light3 = function(pos, node, puncher)
 	wield = wield:get_name()
 	if not wield or wield ~= "default:torch" then
 		local unlitname = candles.find_unlit(node.name)
-		minetest.env:add_node(pos,{name=unlitname, param1=node.param1, param2=node.param2})
+		minetest.add_node(pos,{name=unlitname, param1=node.param1, param2=node.param2})
 		end
 		end
 
@@ -205,7 +205,7 @@ candles.light3 = function(pos, node, puncher)
 	wield = wield:get_name()
 	if not wield or wield ~= "default:torch" then
 		local unlitname = candles.find_unlit(node.name)
-		minetest.env:add_node(pos,{name=unlitname, param1=node.param1, param2=node.param2})
+		minetest.add_node(pos,{name=unlitname, param1=node.param1, param2=node.param2})
 
 	local p1 = {x=pos.x, y=pos.y+1, z=pos.z}
 	local n1 = minetest.get_node(p1)
@@ -265,7 +265,7 @@ candles.create_wall = function(ctype)
 				if fdir < 0 then
 					fdir = 3
 				end
-				minetest.env:add_node(above, {name = itemstack:get_name(), param2 = fdir})
+				minetest.add_node(above, {name = itemstack:get_name(), param2 = fdir})
 				itemstack:take_item()
 				return itemstack
 			end
@@ -361,7 +361,7 @@ candles.create_floor= function(ctype)
 			local fdir = minetest.dir_to_facedir(dir)
 
 			if wdir == 1 then
-				minetest.env:add_node(above, {name = itemstack:get_name(), param2 = fdir})
+				minetest.add_node(above, {name = itemstack:get_name(), param2 = fdir})
 				itemstack:take_item()
 			end
 			return itemstack
@@ -464,7 +464,7 @@ candles.create_candelabra = function(ctype)
 			local fdir = minetest.dir_to_facedir(dir)
 
 			if wdir == 1 then
-				minetest.env:add_node(above, {name = itemstack:get_name(), param2 = fdir})
+				minetest.add_node(above, {name = itemstack:get_name(), param2 = fdir})
 				itemstack:take_item()
 			end
 			return itemstack
@@ -547,7 +547,7 @@ minetest.register_node("candles:candle", {
 		local wdir = minetest.dir_to_wallmounted(dir)
 
 		if wdir == 1 then
-			minetest.env:add_node(above, {name = "candles:candle"})
+			minetest.add_node(above, {name = "candles:candle"})
 			itemstack:take_item()
 		end
 		return itemstack

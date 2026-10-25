@@ -185,7 +185,7 @@ end
 		description = "Festive Garland with Lights",
 		tiles = {
 			{
-				image = "mesecraft_christmas_nodes_garland_lights.png",
+				name = "mesecraft_christmas_nodes_garland_lights.png",
 				backface_culling = false,
 				animation = {
 					type = "vertical_frames",

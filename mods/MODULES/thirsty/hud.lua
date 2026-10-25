@@ -49,7 +49,7 @@ elseif minetest.get_modpath("hud") then
     local position = HUD_THIRST_POS or { x=0.5, y=1 }
     local offset   = HUD_THIRST_OFFSET or { x=15, y=-133} -- above AIR
     hud.register('thirst', {
-        hud_elem_type = "statbar",
+        type = "statbar",
         position = position,
         text = "thirsty_cup_100_24.png",
         background = "thirsty_cup_0_24.png",
@@ -72,7 +72,7 @@ else
         -- above breath bar, for now
         local name = player:get_player_name()
         thirsty.players[name].hud_id = player:hud_add({
-            hud_elem_type = "statbar",
+            type = "statbar",
             position = { x=0.5, y=1 },
             text = "thirsty_cup_100_24.png",
             number = thirsty.hud_clamp(PPA.get_value(player, 'thirsty_hydro')),

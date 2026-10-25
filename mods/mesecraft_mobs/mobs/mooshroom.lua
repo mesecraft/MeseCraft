@@ -51,10 +51,10 @@ mobs:register_mob("mesecraft_mobs:mooshroom", {
                         minetest.sound_play("shears", {pos = pos})
                         minetest.add_item({x=pos.x, y=pos.y+1.4, z=pos.z}, "flowers:mushroom_red" .. " 5")
 
-                        local oldyaw = self.object:getyaw()
+                        local oldyaw = self.object:get_yaw()
                         self.object:remove()
                         local cow = minetest.add_entity(pos, "mesecraft_mobs:cow")
-                        cow:setyaw(oldyaw)
+                        cow:set_yaw(oldyaw)
                 -- Use bucket to milk
                 elseif item:get_name() == "mesecraft_bucket:bucket_empty" and clicker:get_inventory() then
                         local inv = clicker:get_inventory()

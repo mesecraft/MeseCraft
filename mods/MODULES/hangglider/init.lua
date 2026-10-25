@@ -293,7 +293,7 @@ minetest.register_on_joinplayer(function(player)
 	hangglider.use[pname] = false
 	if HUD_Overlay then
 	hangglider.id[pname] = player:hud_add({
-		hud_elem_type = "image",
+		type = "image",
 		text = "blank.png",
 		position = {x=0, y=0},
 		scale = {x=-100, y=-100},
@@ -301,7 +301,7 @@ minetest.register_on_joinplayer(function(player)
 		offset = {x=0, y=0}
 	}) end
 	if debug then
-		hangglider.debug[pname] = {id = player:hud_add({hud_elem_type = "text",
+		hangglider.debug[pname] = {id = player:hud_add({type = "text",
 			position = {x=0.5, y=0.1},
 			text = "-",
 			number = 0xFF0000}),  -- red text

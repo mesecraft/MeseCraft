@@ -132,8 +132,8 @@ function rocket:on_activate(staticdata)
 	minetest.sound_play("new_fireworks_rocket", {pos=self.object:get_pos(),
 											 max_hear_distance = 13,gain = 1,})
 	self.rocket_flytime = math.random(13,15)/10
-	self.object:setvelocity({x=0, y=9, z=0})
-	self.object:setacceleration({x=math.random(-5,5), y=33, z=math.random(-5,5)})
+	self.object:set_velocity({x=0, y=9, z=0})
+	self.object:set_acceleration({x=math.random(-5,5), y=33, z=math.random(-5,5)})
 end
 
 -- Called periodically

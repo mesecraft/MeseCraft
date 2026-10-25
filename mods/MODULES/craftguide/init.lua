@@ -1913,7 +1913,7 @@ if progressive_mode then
 	local function init_hud(player, data)
 		data.hud = {
 			bg = player:hud_add{
-				hud_elem_type = "image",
+				type = "image",
 				position      = {x = 0.78, y = 1},
 				alignment     = {x = 1,    y = 1},
 				scale         = {x = 370,  y = 112},
@@ -1921,7 +1921,7 @@ if progressive_mode then
 			},
 
 			book = player:hud_add{
-				hud_elem_type = "image",
+				type = "image",
 				position      = {x = 0.79, y = 1.02},
 				alignment     = {x = 1,    y = 1},
 				scale         = {x = 4,    y = 4},
@@ -1929,7 +1929,7 @@ if progressive_mode then
 			},
 
 			text = player:hud_add{
-				hud_elem_type = "text",
+				type = "text",
 				position      = {x = 0.84, y = 1.04},
 				alignment     = {x = 1,    y = 1},
 				number        = 0xffffff,

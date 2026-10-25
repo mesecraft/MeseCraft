@@ -62,7 +62,7 @@ end
 minetest.register_on_joinplayer(function(player) -- make hud elements for each player that joins
 
 	local top = player:hud_add({
-    	hud_elem_type = "image",
+    	type = "image",
     	position = {x = 0.5, y = 0},
 		offset = {x = 0, y = -200},
 		text = "black.png",
@@ -71,7 +71,7 @@ minetest.register_on_joinplayer(function(player) -- make hud elements for each p
 		z_index = 100
 	})
 	local bottom = player:hud_add({
-    	hud_elem_type = "image",
+    	type = "image",
     	position = {x = 0.5, y = 1},
 		offset = {x = 0, y = 200},
     	text = "black.png",

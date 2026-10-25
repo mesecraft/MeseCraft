@@ -43,7 +43,7 @@ minetest.register_node("mesecraft_furniture:fridge", {
 	paramtype2 = "facedir",
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, furniture = 1},
 	on_construct = function(pos)
-		local meta = minetest.env:get_meta(pos)
+		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
 		inv:set_size('storage', 6*4)
 		meta:set_string('formspec',
