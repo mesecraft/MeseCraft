@@ -30,3 +30,13 @@ snowdrift soundpack
 
 Halloween candy, costumes, and textures from "halloween" by GreenXenith (https://github.com/GreenXenith/halloween), MIT LICENSE.
 
+
+MOBS_MC (MineClone2 / Mineclonia)
+Textures for the bat, cat/ocelot, chicken, cow, mooshroom, parrot, pig, polar bear, rabbit, sheep,
+snowman and wolf come from mobs_mc: mob textures by XSSheep (from Pixel Perfection, CC BY-SA 4.0),
+MysticTempest and other mobs_mc contributors. See https://codeberg.org/mineclonia/mineclonia
+(mods/ENTITIES/mobs_mc) for per-file credits.
+
+REPLACED TEXTURES (issue #111)
+The cod, dolphin, turtle, snapper (1-6) and wolf collar textures, and the spiderweb item, were copies of
+Minecraft textures and have been replaced with original art made for MeseCraft (AGPLv3 with the game).
