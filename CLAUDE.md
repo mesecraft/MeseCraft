@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-MeseCraft is a Luanti (formerly Minetest) **game**: a collection of Lua mods loaded by the engine, not a standalone program. Target engine is Luanti 5.11.0+. The runtime is LuaJIT, and the engine API is still exposed under the `minetest.*` global, which the existing code uses throughout. Licensed AGPLv3.
+MeseCraft is a Luanti (formerly Minetest) **game**: a collection of Lua mods loaded by the engine, not a standalone program. Target engine is Luanti 5.11.0+; the production server runs 5.13, so don't rely on engine APIs newer than that. The runtime is LuaJIT, and the engine API is still exposed under the `minetest.*` global, which the existing code uses throughout. Licensed AGPLv3.
 
 MeseCraft aims to be efficient yet featured. Server performance matters as much as new content: avoid per-node scans over large areas, heavy ABMs/LBMs, and per-step work that can be cached or event-driven.
 
