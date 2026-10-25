@@ -1,4 +1,5 @@
 # textdomain: default
+Can use /give and /giveme=Kann /give und /giveme benutzen
 Locked Chest=Abgeschlossene Truhe
 Locked Chest (owned by @1)=Abgeschlossene Truhe (Eigentum von @1)
 You do not own this chest.=Ihnen gehört diese Truhe nicht.
@@ -108,7 +109,7 @@ Acacia Tree Sapling=Akazienbaumsetzling
 Aspen Tree=Espenbaum
 Aspen Wood Planks=Espenholzplanken
 Aspen Tree Leaves=Espenbaumblätter
-Aspen Tree Sapling=Esepenbaumsetzling
+Aspen Tree Sapling=Espenbaumsetzling
 Coal Ore=Kohleerz
 Coal Block=Kohleblock
 Iron Ore=Eisenerz

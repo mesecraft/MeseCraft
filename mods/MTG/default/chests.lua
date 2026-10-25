@@ -38,16 +38,23 @@ function default.chest.chest_lid_close(pn)
 
 	default.chest.open_chests[pn] = nil
 	for k, v in pairs(default.chest.open_chests) do
-		if v.pos.x == pos.x and v.pos.y == pos.y and v.pos.z == pos.z then
+		if vector.equals(v.pos, pos) then
+			-- another player is also looking at the chest
 			return true
 		end
 	end
 
 	local node = minetest.get_node(pos)
-	minetest.after(0.2, minetest.swap_node, pos, { name = swap,
-			param2 = node.param2 })
-	minetest.sound_play(sound, {gain = 0.3, pos = pos,
-		max_hear_distance = 10}, true)
+	minetest.after(0.2, function()
+		local current_node = minetest.get_node(pos)
+		if current_node.name ~= swap .. "_open" then
+			-- the chest has already been replaced, don't try to replace what's there.
+			return
+		end
+		minetest.swap_node(pos, {name = swap, param2 = node.param2})
+		minetest.sound_play(sound, {gain = 0.3, pos = pos,
+			max_hear_distance = 10}, true)
+	end)
 end
 
 default.chest.open_chests = {}
@@ -156,12 +163,12 @@ function default.chest.register_chest(prefixed_name, d)
 			local itemstack = player:get_wielded_item()
 			local key_meta = itemstack:get_meta()
 
-			if itemstack:get_metadata() == "" then
+			if itemstack:get_meta():get_string("") == "" then
 				return
 			end
 
 			if key_meta:get_string("secret") == "" then
-				key_meta:set_string("secret", minetest.parse_json(itemstack:get_metadata()).secret)
+				key_meta:set_string("secret", minetest.parse_json(itemstack:get_meta():get_string("")).secret)
 				itemstack:set_metadata("")
 			end
 
@@ -277,7 +284,7 @@ function default.chest.register_chest(prefixed_name, d)
 			nodenames = {name},
 			action = function(pos, node)
 				local meta = minetest.get_meta(pos)
-				meta:set_string("formspec", nil)
+				meta:set_string("formspec", "")
 				local inv = meta:get_inventory()
 				local list = inv:get_list("default:chest")
 				if list then
@@ -290,9 +297,10 @@ function default.chest.register_chest(prefixed_name, d)
 	end
 
 	-- close opened chests on load
+	local modname, chestname = prefixed_name:match("^(:?.-):(.*)$")
 	minetest.register_lbm({
 		label = "close opened chests on load",
-		name = "default:close_" .. prefixed_name:gsub(":", "_") .. "_open",
+		name = modname .. ":close_" .. chestname .. "_open",
 		nodenames = {prefixed_name .. "_open"},
 		run_at_every_load = true,
 		action = function(pos, node)

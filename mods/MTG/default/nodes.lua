@@ -271,6 +271,7 @@ minetest.register_node("default:cobble", {
 	is_ground_content = false,
 	groups = {cracky = 3, stone = 2},
 	sounds = default.node_sound_stone_defaults(),
+	_tnt_loss = 4,
 })
 
 minetest.register_node("default:stonebrick", {
@@ -297,8 +298,8 @@ minetest.register_node("default:mossycobble", {
 	is_ground_content = false,
 	groups = {cracky = 3, stone = 1},
 	sounds = default.node_sound_stone_defaults(),
+	_tnt_loss = 4,
 })
-
 
 minetest.register_node("default:desert_stone", {
 	description = S("Desert Stone"),
@@ -315,6 +316,7 @@ minetest.register_node("default:desert_cobble", {
 	is_ground_content = false,
 	groups = {cracky = 3, stone = 2},
 	sounds = default.node_sound_stone_defaults(),
+	_tnt_loss = 4,
 })
 
 minetest.register_node("default:desert_stonebrick", {
@@ -444,6 +446,7 @@ minetest.register_node("default:dirt", {
 	tiles = {"default_dirt.png"},
 	groups = {crumbly = 3, soil = 1},
 	sounds = default.node_sound_dirt_defaults(),
+	_tnt_loss = 3,
 })
 
 minetest.register_node("default:dirt_with_grass", {
@@ -530,6 +533,7 @@ minetest.register_node("default:dry_dirt", {
 	tiles = {"default_dry_dirt.png"},
 	groups = {crumbly = 3, soil = 1},
 	sounds = default.node_sound_dirt_defaults(),
+	_tnt_loss = 3,
 })
 
 minetest.register_node("default:dry_dirt_with_dry_grass", {
@@ -576,6 +580,7 @@ minetest.register_node("default:sand", {
 	tiles = {"default_sand.png"},
 	groups = {crumbly = 3, falling_node = 1, sand = 1},
 	sounds = default.node_sound_sand_defaults(),
+	_tnt_loss = 2,
 })
 
 minetest.register_node("default:desert_sand", {
@@ -583,6 +588,7 @@ minetest.register_node("default:desert_sand", {
 	tiles = {"default_desert_sand.png"},
 	groups = {crumbly = 3, falling_node = 1, sand = 1},
 	sounds = default.node_sound_sand_defaults(),
+	_tnt_loss = 2,
 })
 
 minetest.register_node("default:silver_sand", {
@@ -590,6 +596,7 @@ minetest.register_node("default:silver_sand", {
 	tiles = {"default_silver_sand.png"},
 	groups = {crumbly = 3, falling_node = 1, sand = 1},
 	sounds = default.node_sound_sand_defaults(),
+	_tnt_loss = 2,
 })
 
 
@@ -604,7 +611,8 @@ minetest.register_node("default:gravel", {
 			{items = {"default:flint"}, rarity = 16},
 			{items = {"default:gravel"}}
 		}
-	}
+	},
+	_tnt_loss = 3,
 })
 
 minetest.register_node("default:clay", {
@@ -639,6 +647,7 @@ minetest.register_node("default:snow", {
 	},
 	groups = {crumbly = 3, falling_node = 1, snowy = 1},
 	sounds = default.node_sound_snow_defaults(),
+	_tnt_loss = 1, -- means it will disappear entirely
 
 	on_construct = function(pos)
 		pos.y = pos.y - 1
@@ -1985,8 +1994,8 @@ minetest.register_node("default:sand_with_kelp", {
 
 	on_place = function(itemstack, placer, pointed_thing)
 		-- Call on_rightclick if the pointed node defines it
-		if pointed_thing.type == "node" and placer and
-				not placer:get_player_control().sneak then
+		if pointed_thing.type == "node" and not (placer and placer:is_player()
+				and placer:get_player_control().sneak) then
 			local node_ptu = minetest.get_node(pointed_thing.under)
 			local def_ptu = minetest.registered_nodes[node_ptu.name]
 			if def_ptu and def_ptu.on_rightclick then
@@ -2024,7 +2033,7 @@ minetest.register_node("default:sand_with_kelp", {
 		return itemstack
 	end,
 
-	after_destruct  = function(pos, oldnode)
+	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		minetest.set_node(pos, {name = "default:sand"})
 	end
 })
@@ -2035,19 +2044,20 @@ minetest.register_node("default:sand_with_kelp", {
 --
 
 local function coral_on_place(itemstack, placer, pointed_thing)
-	if pointed_thing.type ~= "node" or not placer then
+	if pointed_thing.type ~= "node" then
 		return itemstack
 	end
 
-	local player_name = placer:get_player_name()
+	local player_name = placer and placer:get_player_name()
 	local pos_under = pointed_thing.under
 	local pos_above = pointed_thing.above
 	local node_under = minetest.get_node(pos_under)
 	local def_under = minetest.registered_nodes[node_under.name]
 
-	if def_under and def_under.on_rightclick and not placer:get_player_control().sneak then
+	if def_under and def_under.on_rightclick and not (
+		placer and placer:is_player() and placer:get_player_control().sneak) then
 		return def_under.on_rightclick(pos_under, node_under,
-				placer, itemstack, pointed_thing) or itemstack
+				placer, itemstack, pointed_thing)
 	end
 
 	if node_under.name ~= "default:coral_skeleton" or
@@ -2057,9 +2067,6 @@ local function coral_on_place(itemstack, placer, pointed_thing)
 
 	if minetest.is_protected(pos_under, player_name) or
 			minetest.is_protected(pos_above, player_name) then
-		default.log_player_action(placer,
-			"tried to place", itemstack:get_name(),
-			"at protected position", pos_under)
 		minetest.record_protection_violation(pos_under, player_name)
 		return itemstack
 	end
@@ -2099,7 +2106,7 @@ minetest.register_node("default:coral_green", {
 
 	on_place = coral_on_place,
 
-	after_destruct  = function(pos, oldnode)
+	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		minetest.set_node(pos, {name = "default:coral_skeleton"})
 	end,
 })
@@ -2130,7 +2137,7 @@ minetest.register_node("default:coral_pink", {
 
 	on_place = coral_on_place,
 
-	after_destruct  = function(pos, oldnode)
+	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		minetest.set_node(pos, {name = "default:coral_skeleton"})
 	end,
 })
@@ -2161,7 +2168,7 @@ minetest.register_node("default:coral_cyan", {
 
 	on_place = coral_on_place,
 
-	after_destruct  = function(pos, oldnode)
+	after_dig_node = function(pos, oldnode, oldmetadata, digger)
 		minetest.set_node(pos, {name = "default:coral_skeleton"})
 	end,
 })
@@ -2549,6 +2556,15 @@ local default_bookshelf_def = {
 		end
 		return 0
 	end,
+	on_metadata_inventory_put = function(pos)
+		update_bookshelf(pos)
+	end,
+	on_metadata_inventory_take = function(pos)
+		update_bookshelf(pos)
+	end,
+	on_metadata_inventory_move = function(pos)
+		update_bookshelf(pos)
+	end,
 	on_blast = function(pos)
 		local drops = {}
 		default.get_inventory_drops(pos, "books", drops)
@@ -2588,6 +2604,9 @@ local function register_sign(material, desc, def)
 			meta:set_string("formspec", "field[text;;${text}]")
 		end,
 		on_receive_fields = function(pos, formname, fields, sender)
+			if not fields.quit then
+				return -- workaround for https://github.com/luanti-org/luanti/issues/16187
+			end
 			local player_name = sender:get_player_name()
 			if minetest.is_protected(pos, player_name) then
 				minetest.record_protection_violation(pos, player_name)
@@ -2601,7 +2620,7 @@ local function register_sign(material, desc, def)
 				minetest.chat_send_player(player_name, S("Text too long"))
 				return
 			end
-			text = text:gsub("[%z-\8\11-\31\127]", "") -- strip naughty control characters (keeps \t and \n)
+			text = text:gsub("[%z\1-\8\11-\31\127]", "") -- strip naughty control characters (keeps \t and \n)
 			default.log_player_action(sender, ("wrote %q to the sign at"):format(text), pos)
 			local meta = minetest.get_meta(pos)
 			meta:set_string("text", text)
@@ -2800,6 +2819,7 @@ minetest.register_node("default:glass", {
 	is_ground_content = false,
 	groups = {cracky = 3, oddly_breakable_by_hand = 3},
 	sounds = default.node_sound_glass_defaults(),
+	_tnt_loss = 2,
 })
 
 minetest.register_node("default:obsidian_glass", {

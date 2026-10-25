@@ -1,6 +1,6 @@
 -- vessels/init.lua
 
--- Minetest 0.4 mod: vessels
+-- Minetest Game mod: vessels
 -- See README.txt for licensing and other information.
 
 -- Load support for MT game translation.
@@ -80,6 +80,15 @@ local vessels_shelf_def = {
 		drops[#drops + 1] = "vessels:shelf"
 		minetest.remove_node(pos)
 		return drops
+	end,
+	on_metadata_inventory_put = function(pos)
+		update_vessels_shelf(pos)
+	end,
+	on_metadata_inventory_take = function(pos)
+		update_vessels_shelf(pos)
+	end,
+	on_metadata_inventory_move = function(pos)
+		update_vessels_shelf(pos)
 	end,
 }
 default.set_inventory_action_loggers(vessels_shelf_def, "vessels shelf")

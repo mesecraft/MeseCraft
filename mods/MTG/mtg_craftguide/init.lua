@@ -145,7 +145,7 @@ local function cache_usages(recipe)
 	end
 end
 
-minetest.register_on_mods_loaded(function()
+minetest.after(0.01, function()
 	for name, def in pairs(minetest.registered_items) do
 		if show_item(def) then
 			local recipes = get_craftable_recipes(name)
@@ -282,6 +282,7 @@ local function get_formspec(player)
 		"tooltip[clear;"..esc(S("Reset")).."]"..
 		"tooltip[prev;"..esc(S("Previous page")).."]"..
 		"tooltip[next;"..esc(S("Next page")).."]"..
+		"field_enter_after_edit[filter;true]"..
 		"field_close_on_enter[filter;false]")
 
 	if #data.items == 0 then
