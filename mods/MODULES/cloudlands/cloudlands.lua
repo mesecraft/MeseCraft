@@ -2954,10 +2954,22 @@ end
 
 minetest.register_on_generated(on_generated)
 
-minetest.register_on_mapgen_init(
-  -- invoked after mods initially run but before the environment is created, while the mapgen is being initialized
-  function(mgparams)
-    worldSeed = mgparams.seed
-    --if DEBUG then minetest.set_mapgen_params({mgname = "singlenode"--[[, flags = "nolight"]]}) end
+-- The seed as the deprecated get_mapgen_params().seed returned it: the u64 setting read as a signed int64.
+local function get_world_seed()
+  local hi, lo = 0, 0 -- base 2^32 halves of the seed, kept exact in doubles
+  for digit in minetest.get_mapgen_setting("seed"):gmatch("%d") do
+    lo = lo * 10 + tonumber(digit)
+    hi = hi * 10 + math.floor(lo / 2^32)
+    lo = lo % 2^32
   end
-)
+  if hi >= 2^31 then
+    if lo == 0 then
+      return -((2^32 - hi) * 2^32)
+    end
+    return -((2^32 - 1 - hi) * 2^32 + (2^32 - lo))
+  end
+  return hi * 2^32 + lo
+end
+
+-- Keep the old signed value so existing worlds generate the same islands.
+worldSeed = get_world_seed()
