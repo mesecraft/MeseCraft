@@ -10,6 +10,7 @@ local modpath = minetest.get_modpath("mesecraft_lua")
 dofile(modpath.."/stone.lua")
 dofile(modpath.."/ores.lua")
 dofile(modpath.."/mapgen.lua")
+dofile(modpath.."/skybox.lua")
 
 -- Nether mod check for portal API for moon portals.
 local has_nether_mod = minetest.get_modpath("nether")
