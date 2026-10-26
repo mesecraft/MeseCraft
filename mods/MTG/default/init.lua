@@ -18,8 +18,9 @@ default.get_translator = S
 -- This section should be updated before release and older checks can be dropped
 -- when newer ones are introduced.
 if core.get_mapgen_edges == nil then
-	error("\nThis version of MeseCraft is incompatible with your engine version "..
-		"(which is too old). You should upgrade Luanti.\n")
+	error("\nThis version of Minetest Game is incompatible with your engine version "..
+		"(which is too old). You should download a version of Minetest Game that "..
+		"matches the installed engine version.\n")
 end
 
 -- GUI related stuff

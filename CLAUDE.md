@@ -27,7 +27,7 @@ There is no build step or test suite. You check changes by loading the game in t
 luanti --server --gameid mesecraft --world /path/to/test-world   # headless; Lua errors print to the terminal
 ```
 
-You can also start a world from the Luanti UI. Lua load errors and `minetest.log` output also go to `~/.minetest/debug.txt`.
+`utils/check.sh` does that on a throwaway world and fails on any Lua error, engine warning, or recipe that uses an unknown item; run it before merging to `main` (`LUANTI=/path/to/luanti utils/check.sh` to test another engine version). You can also start a world from the Luanti UI. Lua load errors and `minetest.log` output also go to `~/.minetest/debug.txt`.
 
 `.luarc.json` configures lua-language-server, with `lowercase-global` and `undefined-global` diagnostics turned off, because mods share state through globals. Some vendored mods include their own `.luacheckrc` and CI workflows. Those belong to the upstream projects and are not run for this repo.
 
@@ -38,7 +38,7 @@ You can also start a world from the Luanti UI. Lua load errors and `minetest.log
 - `game.conf`: game metadata.
 - `minetest.conf`: settings for this game only. It enables and disables features (TNT, fire, weather, bones, initial stuff) and holds per-mod configuration for the bundled mods, such as cloudlands altitude, dfcaverns layer depths and commoditymarket markets. When you change a bundled mod's behavior, check here before editing its code.
 - `menu/`: main-menu art and theme music.
-- `mods/MTG/`: a modpack copied from Minetest Game (`default`, `player_api`, `sfinv`, `stairs`, etc.). Most other mods build on this base.
+- `mods/MTG/`: Minetest Game mods (`default`, `player_api`, `sfinv`, `stairs`, etc.), kept identical to upstream so they can be updated by copying. Don't edit them: change MTG behavior from MeseCraft mods with `minetest.override_item`, aliases or the MTG APIs, and put general overrides in `mods/mesecraft_overrides`. MTG's beds, binoculars, bones, bucket, butterflies and farming are left out; `mesecraft_*` mods and Farming Redo replace them.
 - `mods/MODULES/`: a modpack of more than 100 third-party mods, vendored in-tree with no submodules. Many have been patched locally to integrate with MeseCraft; about 45 of them reference `mesecraft_*` mods. Edit them in place, and keep in mind that upstream updates have to be merged by hand.
 - `mods/mesecraft_*`: mods written for or maintained by MeseCraft (mobs, moon/"lua" dimension, holidays, furniture, toolranks, etc.).
 

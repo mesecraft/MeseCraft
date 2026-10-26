@@ -359,5 +359,3 @@ minetest.register_craft({
 	burntime = 10
 })
 
--- Create Alis for mods that use default:sign_
-minetest.register_alias("default:sign_wall_wood", "signs:wall_sign")
