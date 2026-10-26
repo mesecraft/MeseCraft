@@ -92,6 +92,15 @@ function api.register_abm(config)
 		return action(pos, node, env)
 	end
 
+	-- MeseCraft: pass height conditions to the engine so it skips map blocks outside them
+	-- (small margin for pos_override; the exact check still runs in the action).
+	if conditions and conditions.min_height and config.min_y == nil then
+		config.min_y = conditions.min_height - 2
+	end
+	if conditions and conditions.max_height and config.max_y == nil then
+		config.max_y = conditions.max_height + 2
+	end
+
 	-- register overridden abm setup
 	config.conditions = nil
 	config.action = override

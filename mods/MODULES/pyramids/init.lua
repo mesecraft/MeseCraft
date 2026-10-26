@@ -226,11 +226,6 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			minetest.log("verbose", "[pyramids] Pyramid not placed, no suitable surface. minp="..minetest.pos_to_string(minp))
 			return
 		end
-		-- Select the material type by the most prominent node type
-		-- E.g. if desert sand is most prominent, we place a desert sandstone pyramid
-		if sand_cnt_max_id then
-			sand = sands[sand_cnt_max_id]
-		end
 		if p2.y < PYRA_MIN_Y then
 			minetest.log("info", "[pyramids] Pyramid not placed, too deep. p2="..minetest.pos_to_string(p2))
 			return
