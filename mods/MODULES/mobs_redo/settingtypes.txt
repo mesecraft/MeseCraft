@@ -45,3 +45,6 @@ enable_peaceful_player (Mobs do not attack peaceful player without reason) bool 
 
 #    Enable mobs smooth rotation
 mob_smooth_rotate (Smooth rotation for mobs) bool true
+
+# MeseCraft: scales how often mobs spawn near players (spawning.lua)
+mob_spawn_rate (Mob spawn rate) float 1.0 0

@@ -286,20 +286,13 @@ junglewood_def.drop = "default:junglewood"
 minetest.register_node("settlements_medieval:junglewood", junglewood_def)
 -- register inhabitants
 if minetest.get_modpath("mobs_npc") ~= nil then
-	mobs:register_spawn("mobs_npc:npc", --name
-		{"settlements_medieval:junglewood"}, --nodes
-		20, --max_light
-		0, --min_light
-		20, --chance
-		2, --active_object_count
-		31000, --max_height
-		nil) --day_toggle
-	mobs:register_spawn("mobs_npc:trader", --name
-		{"settlements_medieval:junglewood"}, --nodes
-		20, --max_light
-		0, --min_light
-		20, --chance
-		2, --active_object_count
-		31000, --max_height
-		nil)--day_toggle
+	-- Villagers and traders appear on the junglewood floors of settlement buildings.
+	for _, mob in ipairs({"mobs_npc:npc", "mobs_npc:trader"}) do
+		mobs:spawn({
+			name = mob,
+			nodes = {"settlements_medieval:junglewood"},
+			chance = 20,
+			active_object_count = 2,
+		})
+	end
 end

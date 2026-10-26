@@ -10,6 +10,9 @@ minetest.register_privilege("peaceful_player", {
 -- Mob API
 dofile(path .. "/api.lua")
 
+-- Near-player spawning (MeseCraft: replaces the per-mob spawn ABMs)
+dofile(path .. "/spawning.lua")
+
 -- Rideable Mobs
 dofile(path .. "/mount.lua")
 

@@ -72,11 +72,8 @@ local function collect_creatures()
 		found[mob] = found[mob] or {layers = {}}
 		return found[mob]
 	end
-	for _, abm in ipairs(minetest.registered_abms) do
-		local mob = abm.label and abm.label:match("^(.-) spawning$")
-		if mob then
-			add_layers(entry(mob).layers, abm.min_y or -31000, abm.max_y or 31000)
-		end
+	for _, rule in ipairs(mobs.spawn_rules) do
+		add_layers(entry(rule.name).layers, rule.min_height, rule.max_height)
 	end
 	if minetest.get_modpath("mesecraft_seasonal") then
 		for _, def in ipairs(mesecraft_seasonal.spawns) do
