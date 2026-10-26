@@ -52,7 +52,7 @@ mobs:register_mob("mesecraft_mobs:giant_cave_spider", {
 	damage = 50,
 	drops = {
 		{name = "mesecraft_mobs:spiderweb", chance = 1, min = 1, max = 4,},
-		{name = "mobs_creautres:meat", chance = 1, min = 1, max = 8,}
+		{name = "mesecraft_mobs:meat", chance = 1, min = 1, max = 8,}
 	},
 	water_damage = 0,
 	lava_damage = 5,

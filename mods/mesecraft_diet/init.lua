@@ -173,6 +173,7 @@ end
 mesecraft_diet.__init()
 
 overwrite("default:apple", 2)
+overwrite("default:blueberries", 2)
 if minetest.get_modpath("farming") ~= nil then
 	overwrite("farming:bread", 4)
 end

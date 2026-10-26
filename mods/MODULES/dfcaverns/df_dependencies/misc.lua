@@ -69,8 +69,8 @@ df_dependencies.texture_farming_soil = select_required({{"default", "(default_di
 df_dependencies.texture_mapping_kit = select_required({{"default", "map_mapping_kit.png"}, {"mcl_maps", "mcl_maps_map_filled.png"}})
 
 df_dependencies.nethercap_name = S("Nethercap")
-if minetest.get_modpath("mcl_mapgen_core") then
-	-- since there's a whole layer called the Nether in Mineclone and it has its own mushrooms, rename
+if minetest.get_modpath("mcl_mapgen_core") or minetest.get_modpath("nether") then
+	-- since there's a whole layer called the Nether in Mineclone (and the nether mod) and it has its own mushrooms, rename
 	-- nethercaps when that's present to avoid confusion.
 	df_dependencies.nethercap_name = S("Icecap")
 end
