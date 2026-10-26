@@ -65,7 +65,7 @@ local function poisenp(tick, time, time_left, player)
 		end
 	end
 	if player:get_hp()-1 > 0 then
-		player:set_hp(player:get_hp()-1)
+		player:set_hp(player:get_hp()-1, {hunger = true})
 	end
 	
 end

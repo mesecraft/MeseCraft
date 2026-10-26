@@ -58,6 +58,17 @@ After the impact, a race of reptilian shape-shifters came to Earth and, with the
 
 How the story reaches players (lore books, creature journal entries, quests) is still open.
 
+### Player lore from the forums
+
+Ideas players posted on the mesecraft.com forums (Lore & Theories, General). Credit the authors if any of it goes into the game.
+
+- **Kiopy7's timeline:** goblins drove the dwarves underground into the Underworld, where a king ruled; wizards learned to use Mese; the King's Market is what is left of that kingdom's trade.
+- **Reptilian mini-bosses:** evil lizards that drop mirror shards, tying the magic mirror to the Reptilians. Letters found in the Slade layer tell part of the story.
+- **Komodo's themes:** harmony with nature against greed; adventure and growth. The world is just called "the world". A spreading corruption (the "Calamity") that bosses must be beaten to cleanse from a biome, and sky islands as "Bastions".
+- **Progression:** tutorial, then the surface, caves, Hell, the Moon and Mars, then space.
+- **Fossils:** the fossilized egg in sky-island caves is a rare trophy; players hoped it would hatch into a tameable dinosaur.
+- **Mana as Mese:** replace the mana bar with traces of Mese absorbed into the blood of some creatures, which powers "magical" Mese technology. Sprinting could become a Mese ability rather than a basic move.
+
 ## Ideas
 
 - **Creature journal:** players document creatures as they meet and defeat them, like the *Breath of the Wild* compendium.

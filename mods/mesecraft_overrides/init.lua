@@ -52,6 +52,35 @@ minetest.register_on_respawnplayer(function(player)
 	unbury_soon(player)
 end)
 
+-- Fire: MTG's spread ABMs ignore protection, so lava, lightning and explosions could burn down
+-- protected builds. Fire no longer lights or burns nodes inside a protected area.
+if minetest.get_modpath("fire") then
+	for _, abm in ipairs(minetest.registered_abms) do
+		if abm.label == "Ignite flame" then
+			abm.action = function(pos)
+				local p = minetest.find_node_near(pos, 1, {"air"})
+				if p and not minetest.is_protected(p, "") then
+					minetest.set_node(p, {name = "fire:basic_flame"})
+				end
+			end
+		elseif abm.label == "Remove flammable nodes" then
+			abm.action = function(pos)
+				local p = minetest.find_node_near(pos, 1, {"group:flammable"})
+				if not p or minetest.is_protected(p, "") then
+					return
+				end
+				local def = minetest.registered_nodes[minetest.get_node(p).name]
+				if def and def.on_burn then
+					def.on_burn(p)
+				else
+					minetest.remove_node(p)
+					minetest.check_for_falling(p)
+				end
+			end
+		end
+	end
+end
+
 -- Loot: magic mirrors and the Book of Portals were hard to come by (issues #16, #17).
 if minetest.get_modpath("lootchests") then
 	local extra = {}

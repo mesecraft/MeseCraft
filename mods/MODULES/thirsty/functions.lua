@@ -228,7 +228,7 @@ function thirsty.main_loop(dtime)
                     if pl.pending_dmg > 1.0 then
                         local dmg = math.floor(pl.pending_dmg)
                         pl.pending_dmg = pl.pending_dmg - dmg
-                        player:set_hp( player:get_hp() - dmg )
+                        player:set_hp( player:get_hp() - dmg, {hunger = true, thirst = true} )
                     end
                 else
                     -- forget any pending damage when not thirsty

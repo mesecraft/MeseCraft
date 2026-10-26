@@ -42,7 +42,7 @@ minetest.register_node("mesecraft_fireplace:fireplace_active", {
 minetest.register_craft({
 	output = 'mesecraft_fireplace:fireplace',
 	recipe = {
-		{'default:wood', 'default:wood', 'default:wood'},
+		{'group:wood', 'group:wood', 'group:wood'},
 		{'default:stone', 'default:coalblock', 'default:stone'},
 		{'default:stone', 'default:stone', 'default:stone'},
 	}

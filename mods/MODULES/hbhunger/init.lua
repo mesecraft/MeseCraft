@@ -121,7 +121,7 @@ minetest.register_globalstep(function(dtime)
 				player:set_hp(hp+1)
 				-- or damage player by 1 hp if satiation is < 2 (of 30)
 				elseif h <= 1 then
-					if hp-1 >= 0 then player:set_hp(hp-1) end
+					if hp-1 >= 0 then player:set_hp(hp-1, {hunger = true}) end
 				end
 			end
 			-- lower satiation by 1 point after xx seconds
