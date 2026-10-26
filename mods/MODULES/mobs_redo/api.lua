@@ -4115,6 +4115,9 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light, inter
 			interval = interval,
 			chance = max(1, (chance * mob_chance_multiplier)),
 			catch_up = false,
+			-- MeseCraft: let the engine skip map blocks outside the spawn height range.
+			min_y = tonumber(min_height),
+			max_y = tonumber(max_height),
 
 			action = function(pos, node, active_object_count, active_object_count_wider)
 				spawn_action(pos, node, active_object_count, active_object_count_wider)

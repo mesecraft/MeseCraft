@@ -47,6 +47,28 @@ minetest.register_entity("mesecraft_gauges:hp_bar", {
 	end
 })
 
+-- Each player's gauge is shown only to the other players: you see your own health on the HUD,
+-- and in first person your own gauge would still cast a shadow (issue #70).
+local gauges = {} -- owner name -> gauge object
+
+local function update_observers()
+	local names = {}
+	for _, p in ipairs(minetest.get_connected_players()) do
+		names[#names + 1] = p:get_player_name()
+	end
+	for owner, gauge in pairs(gauges) do
+		if gauge:get_pos() and gauge.set_observers then
+			local observers = {}
+			for _, name in ipairs(names) do
+				if name ~= owner then observers[name] = true end
+			end
+			gauge:set_observers(observers)
+		else
+			gauges[owner] = nil
+		end
+	end
+end
+
 local function add_gauge(player)
 	if player and minetest.is_player(player) then
 		local entity = minetest.add_entity(player:get_pos(), "mesecraft_gauges:hp_bar")
@@ -55,9 +77,16 @@ local function add_gauge(player)
 
 		entity:set_attach(player, "", {x=0, y=height, z=0}, {x=0, y=0, z=0})
 		entity:get_luaentity().wielder = player
+		gauges[player:get_player_name()] = entity
+		update_observers()
 	end
 end
 
 minetest.register_on_joinplayer(function(player)
 	minetest.after(1, add_gauge, player)
+end)
+
+minetest.register_on_leaveplayer(function(player)
+	gauges[player:get_player_name()] = nil
+	minetest.after(0, update_observers)
 end)

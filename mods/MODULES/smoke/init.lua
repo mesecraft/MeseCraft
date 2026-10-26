@@ -13,14 +13,14 @@ local ITVL=1 -- how fast smoke moves, in seconds. Smoke is generate at twice thi
 local PERSIST=0.91 -- the chance smokes has *not* to dissipate.
 -- This is a very sensitive parameter: in terms of average smoke column average half-height, 0.95 -> 14, 0.93 -> 10 but 0.80 -> 5
 local PERSIST_S=0.96 -- same parameter for smog
-local TRANSPARENCY= "opaque" -- enable/disable transparency ("blend" or "opaque"). Transparency causes visual glitches when smoke is in contact with liquids
+local TRANSPARENCY= "blend" -- "blend" or "opaque". MeseCraft uses translucent smoke (issue #12); blending can glitch slightly where smoke touches liquids
 local WIND=0.05 -- Chance for a smoke node to move horizontally instead of going up
 
 local SMOKE_DPS=nil -- use it to define the amount of damage per second of smoke nodes.
-local SMOKE_OPACITY= 200 -- opacity when inside of smoke nodes
+local SMOKE_OPACITY= 120 -- opacity when inside of smoke nodes
 
 local SMOG_DPS=nil -- use it to define the amount of damage per second of smoke nodes.
-local SMOG_OPACITY= 200 -- opacity when inside of smoke nodes
+local SMOG_OPACITY= 120 -- opacity when inside of smoke nodes
 
 
 local locations = {
@@ -88,7 +88,7 @@ minetest.register_node('smoke:block', {
 	drawtype = "glasslike",
 	waving = 1,
 	tiles = {{
-		name = "smoke.png",
+		name = "smoke.png^[opacity:140",
 		--backface_culling=false, -- it seems to mitigate a bit visual glitches when transparency is enabled.
 		animation = {
 			type = "vertical_frames",
@@ -168,7 +168,7 @@ end
 minetest.register_node('smoke:smog', {
 	description = 'Smog',
 	tiles = {{
-		name = "smoke.png^gui_hb_bg.png",
+		name = "(smoke.png^gui_hb_bg.png)^[opacity:140",
 		--backface_culling=false,
 		animation = {
 			type = "vertical_frames",
