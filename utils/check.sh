@@ -4,7 +4,7 @@
 # craft recipes that use items which don't exist.
 #
 # Usage: utils/check.sh            (uses `luanti` from PATH)
-#        LUANTI=/path/to/luanti utils/check.sh
+#        LUANTI=/path/to/luanti utils/check.sh   (or a server-only luantiserver)
 # Exits non-zero if anything was found.
 
 set -u
@@ -35,7 +35,13 @@ minetest.register_on_mods_loaded(function()
 end)
 EOF
 
-timeout 120 "$LUANTI" --server --gameid "$GAME_ID" --world "$WORLD" \
+# A server-only build (luantiserver) always runs a server and rejects --server.
+case $(basename "$LUANTI") in
+	*server) SERVER_FLAG= ;;
+	*) SERVER_FLAG=--server ;;
+esac
+
+timeout 120 "$LUANTI" $SERVER_FLAG --gameid "$GAME_ID" --world "$WORLD" \
 	--port 30199 --logfile "$TMP/log.txt" >/dev/null 2>&1
 
 if ! grep -q "listening on" "$TMP/log.txt"; then

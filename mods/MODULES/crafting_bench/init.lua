@@ -214,7 +214,7 @@ minetest.register_craft({
     output = "crafting_bench:workbench",
     recipe = {
       {"default:steel_ingot","default:steel_ingot","default:steel_ingot"},
-      {"default:wood", "default:wood","default:steel_ingot"},
+      {"group:wood", "group:wood","default:steel_ingot"},
       {"default:mese_crystal", "default:mese_crystal","default:steel_ingot"},
     }
   })

@@ -104,6 +104,11 @@ end)
 local main_timer = 0
 local timer = 0
 local timer2 = 0
+-- MeseCraft: warn once when satiation gets low, before starving starts to hurt
+local starving_warned = {}
+minetest.register_on_leaveplayer(function(player)
+	starving_warned[player:get_player_name()] = nil
+end)
 minetest.register_globalstep(function(dtime)
 	main_timer = main_timer + dtime
 	timer = timer + dtime
@@ -116,12 +121,21 @@ minetest.register_globalstep(function(dtime)
 		local h = tonumber(hbhunger.hunger[name])
 		local hp = player:get_hp()
 		if timer > 4 then
+			if h <= 3 and hp > 0 then
+				if not starving_warned[name] then
+					starving_warned[name] = true
+					minetest.chat_send_player(name, minetest.colorize("#FFAA00",
+						S("You are starving! Eat something soon or you will start losing health.")))
+				end
+			elseif h > 3 then
+				starving_warned[name] = nil
+			end
 			-- heal player by 1 hp if not dead and satiation is > 15 (of 30)
 			if h > 15 and hp > 0 and player:get_breath() > 0 then
 				player:set_hp(hp+1)
 				-- or damage player by 1 hp if satiation is < 2 (of 30)
 				elseif h <= 1 then
-					if hp-1 >= 0 then player:set_hp(hp-1) end
+					if hp-1 >= 0 then player:set_hp(hp-1, {hunger = true}) end
 				end
 			end
 			-- lower satiation by 1 point after xx seconds

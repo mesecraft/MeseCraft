@@ -52,6 +52,35 @@ minetest.register_on_respawnplayer(function(player)
 	unbury_soon(player)
 end)
 
+-- Fire: MTG's spread ABMs ignore protection, so lava, lightning and explosions could burn down
+-- protected builds. Fire no longer lights or burns nodes inside a protected area.
+if minetest.get_modpath("fire") then
+	for _, abm in ipairs(minetest.registered_abms) do
+		if abm.label == "Ignite flame" then
+			abm.action = function(pos)
+				local p = minetest.find_node_near(pos, 1, {"air"})
+				if p and not minetest.is_protected(p, "") then
+					minetest.set_node(p, {name = "fire:basic_flame"})
+				end
+			end
+		elseif abm.label == "Remove flammable nodes" then
+			abm.action = function(pos)
+				local p = minetest.find_node_near(pos, 1, {"group:flammable"})
+				if not p or minetest.is_protected(p, "") then
+					return
+				end
+				local def = minetest.registered_nodes[minetest.get_node(p).name]
+				if def and def.on_burn then
+					def.on_burn(p)
+				else
+					minetest.remove_node(p)
+					minetest.check_for_falling(p)
+				end
+			end
+		end
+	end
+end
+
 -- Loot: magic mirrors and the Book of Portals were hard to come by (issues #16, #17).
 if minetest.get_modpath("lootchests") then
 	local extra = {}
@@ -67,4 +96,73 @@ if minetest.get_modpath("lootchests") then
 			lootchests.add_to_loot_table(chest, extra)
 		end
 	end
+end
+
+-- World layers: Earth orbit and the asteroid belts get space skies (issue #116). The moon and Mars
+-- register their own skies at a higher priority, so those win inside their bands.
+if minetest.get_modpath("climate_api") and minetest.get_modpath("other_worlds") then
+	local faces = {"sky_pos_y.png", "sky_neg_y.png", "sky_pos_x.png", "sky_neg_x.png", "sky_pos_z.png", "sky_neg_z.png"}
+	local function space_sky(textures)
+		return {
+			sky_data = {type = "skybox", base_color = {r = 0, g = 0, b = 0}, textures = textures, clouds = false},
+			sun_data = {visible = true, sunrise_visible = false},
+			moon_data = {visible = false},
+			star_data = {visible = false},
+			priority = 900,
+		}
+	end
+	local red = {}
+	for i, face in ipairs(faces) do
+		red[i] = face .. "^[colorize:#a02010:90"
+	end
+	local space_floor = minetest.get_modpath("vacuum") and vacuum.space_height or 1000
+	climate_api.register_weather("mesecraft_overrides:space",
+		{min_height = space_floor, max_height = otherworlds.settings.space_asteroids.YMAX + 1},
+		{["climate_api:skybox"] = space_sky(faces)})
+	climate_api.register_weather("mesecraft_overrides:red_asteroids",
+		{min_height = otherworlds.settings.redsky_asteroids.YMIN, max_height = otherworlds.settings.redsky_asteroids.YMAX + 1},
+		{["climate_api:skybox"] = space_sky(red)})
+end
+
+-- Thirst: players weren't sure how to drink (issue #115). Explain it on the drinking items and
+-- remind thirsty players how to drink.
+if minetest.get_modpath("thirsty") then
+	local function add_hint(name, hint)
+		local def = minetest.registered_items[name]
+		if def then
+			minetest.override_item(name, {description = def.description .. "\n" .. minetest.colorize("#9ad0ff", hint)})
+		end
+	end
+	minetest.register_on_mods_loaded(function()
+		for name in pairs(thirsty.config.drink_from_container) do
+			if thirsty.config.container_capacity[name] then
+				add_hint(name, "Left-click water to fill it. Left-click anywhere to drink from it.")
+			else
+				add_hint(name, "Left-click water to drink.")
+			end
+		end
+	end)
+
+	local HINT_BELOW = 6      -- hydration out of 20
+	local HINT_EVERY = 300    -- seconds between reminders
+	local last_hint = {}
+	local timer = 0
+	minetest.register_globalstep(function(dtime)
+		timer = timer + dtime
+		if timer < 15 then return end
+		timer = 0
+		local now = minetest.get_gametime()
+		for _, player in ipairs(minetest.get_connected_players()) do
+			local name = player:get_player_name()
+			if player:get_hp() > 0 and thirsty.get_hydro(player) < HINT_BELOW
+					and (last_hint[name] or -HINT_EVERY) + HINT_EVERY <= now then
+				last_hint[name] = now
+				minetest.chat_send_player(name, minetest.colorize("#9ad0ff",
+					"You're thirsty. Stand still in water to drink, or left-click water with a glass, bottle, bowl or canteen."))
+			end
+		end
+	end)
+	minetest.register_on_leaveplayer(function(player)
+		last_hint[player:get_player_name()] = nil
+	end)
 end

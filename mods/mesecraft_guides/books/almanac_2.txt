@@ -1,0 +1,11 @@
+There are many crops you can grow, but some are more helpful than others. Perhaps the most useful are the grains: barley, cotton, oats, rice, rye and wheat.
+
+-- Grains --
+
+Seeds for these crops come from harvesting the grasses and wild plants found around the world. Harvesting a cultivated grain gives you both seeds and the crop, unlike most other crops, which serve as both seed and food.
+
+Grains must also be processed before you can eat them. Grind barley, oats, rice, rye or wheat into flour, then bake it into bread, multigrain bread or rice bread.
+
+Cotton is different from the other grains, and from every other crop: you don't eat it, you build and decorate with it. Cotton is a much more reliable source of wool than sheep, since four cotton make one wool. Wool is the start of all sorts of things: beds, chairs, carpets, ropes, curtains and more.
+
+Take care with cotton and wheat, because they can be trampled. If a trampled crop is left unattended, the soil beneath it spoils and must be tilled again.

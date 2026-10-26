@@ -3574,6 +3574,7 @@ end
 
 
 mobs.spawning_mobs = {}
+mobs.spawn_rules = {} -- MeseCraft: one entry per mobs:spawn() call, used by spawning.lua
 
 -- register mob entity
 function mobs:register_mob(name, def)
@@ -4108,31 +4109,20 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light, inter
 
 	else
 
-		minetest.register_abm({
-			label = name .. " spawning",
-			nodenames = nodes,
+		-- MeseCraft: instead of one ABM per mob, which visits every matching node in every
+		-- active map block, record the spawn rule. spawning.lua samples a few spots around
+		-- each player and runs spawn_action for the rules that match there.
+		mobs.spawn_rules[#mobs.spawn_rules + 1] = {
+			name = name,
+			nodes = nodes,
 			neighbors = neighbors,
 			interval = interval,
 			chance = max(1, (chance * mob_chance_multiplier)),
-			catch_up = false,
-			-- MeseCraft: let the engine skip map blocks outside the spawn height range.
-			min_y = tonumber(min_height),
-			max_y = tonumber(max_height),
-
-			action = function(pos, node, active_object_count, active_object_count_wider)
-				spawn_action(pos, node, active_object_count, active_object_count_wider)
-			end
-		})
+			min_height = tonumber(min_height) or -31000,
+			max_height = tonumber(max_height) or 31000,
+			action = spawn_action,
+		}
 	end
-end
-
-
--- compatibility with older mob registration
-function mobs:register_spawn(name, nodes, max_light, min_light, chance,
-		active_object_count, max_height, day_toggle)
-
-	mobs:spawn_specific(name, nodes, {"air"}, min_light, max_light, 30,
-		chance, active_object_count, -31000, max_height, day_toggle)
 end
 
 

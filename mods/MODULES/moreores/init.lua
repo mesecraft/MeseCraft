@@ -126,11 +126,12 @@ minetest.register_ore({
 	ore_type = "scatter",
 	ore = "moreores:mineral_mithril",
 	wherein = "default:stone",
-	clust_scarcity = 64*64*64,
-	clust_num_ores = 1,
-	clust_size = 11,
+	-- MeseCraft: about one ore per 4600 nodes, from just below the primordial caverns.
+	clust_scarcity = 24*24*24,
+	clust_num_ores = 3,
+	clust_size = 3,
 	y_min = -31000,
-	y_max = -6500,
+	y_max = -4100,
 })
 
 -- Silver Tools

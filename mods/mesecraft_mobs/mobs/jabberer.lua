@@ -25,7 +25,7 @@ mobs:register_mob("mesecraft_mobs:jabberer", {
    run_velocity = 3,
    jump = true,
    drops = {
-      {name = "mobs_creautres:meat", chance = 1, min = 5, max = 15},
+      {name = "mesecraft_mobs:meat", chance = 1, min = 5, max = 15},
       {name = "mesecraft_mobs:bone", chance = 1, min = 5, max = 25},
       {name = "mesecraft_mobs:feather", chance = 1, min = 1, max = 1},
       {name = "mesecraft_mobs:leather", chance = 1, min = 1, max = 10},

@@ -1,0 +1,15 @@
+While mining is often the goal of the good settler, farming is the key to survival. Bountiful crops grow in our world, and all of them give nourishment in varying amounts. This almanac aims to teach you which crops are most useful and how to farm them.
+
+-- Getting Started --
+
+All surface crops need water and light to grow. Sunlight is best, but artificial light helps crops grow at night too. Crops with enough artificial light grow around the clock.
+
+Crops must be within three blocks of water to grow. One water source in the center of a 7x7 square waters the whole square.
+
+-- Tools --
+
+The hoe is the farmer's basic tool for tilling the land. As long as the soil has water nearby, it stays tilled and never needs tilling again. Cotton and wheat can be exceptions (see Volume 2).
+
+Crops are best harvested with a sword (see Volume 5 for an exception).
+
+Mithril scythes are amazing: they harvest a crop and replant the seed for you. They wear out quickly, though.

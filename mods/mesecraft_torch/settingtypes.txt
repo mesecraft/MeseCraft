@@ -1,5 +1,5 @@
 #    Minimum torch duration before it goes out
-torch_min_duration (Torch duration min) int 480
+torch_min_duration (Torch duration min, seconds) int 1200
 
 #    Maximum torch duration before it goes out
-torch_max_duration (Torch duration max) int 600
+torch_max_duration (Torch duration max, seconds) int 1800

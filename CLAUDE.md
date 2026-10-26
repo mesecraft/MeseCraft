@@ -4,9 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-MeseCraft is a Luanti (formerly Minetest) **game**: a collection of Lua mods loaded by the engine, not a standalone program. Target engine is Luanti 5.11.0+; the production server runs 5.13, so don't rely on engine APIs newer than that. The runtime is LuaJIT, and the engine API is still exposed under the `minetest.*` global, which the existing code uses throughout. Licensed AGPLv3.
+MeseCraft is a Luanti (formerly Minetest) **game**: a collection of Lua mods loaded by the engine, not a standalone program. Target engine is Luanti 5.11.0+; the production server runs 5.17. The runtime is LuaJIT, and the engine API is still exposed under the `minetest.*` global, which the existing code uses throughout. Licensed AGPLv3.
 
 MeseCraft aims to be efficient yet featured. Server performance matters as much as new content: avoid per-node scans over large areas, heavy ABMs/LBMs, and per-step work that can be cached or event-driven.
+
+MeseCraft is in beta. Don't add backward-compatibility code for old worlds, old engine versions or games MeseCraft doesn't ship (no migration scans, legacy aliases or fallbacks "just in case"). Prefer clean, commented code that people can learn from.
 
 ## Branches
 
@@ -38,8 +40,8 @@ luanti --server --gameid mesecraft --world /path/to/test-world   # headless; Lua
 - `game.conf`: game metadata.
 - `minetest.conf`: settings for this game only. It enables and disables features (TNT, fire, weather, bones, initial stuff) and holds per-mod configuration for the bundled mods, such as cloudlands altitude, dfcaverns layer depths and commoditymarket markets. When you change a bundled mod's behavior, check here before editing its code.
 - `menu/`: main-menu art and theme music.
-- `mods/MTG/`: Minetest Game mods (`default`, `player_api`, `sfinv`, `stairs`, etc.), kept identical to upstream so they can be updated by copying. Don't edit them: change MTG behavior from MeseCraft mods with `minetest.override_item`, aliases or the MTG APIs, and put general overrides in `mods/mesecraft_overrides`. MTG's beds, binoculars, bones, bucket, butterflies and farming are left out; `mesecraft_*` mods and Farming Redo replace them.
-- `mods/MODULES/`: a modpack of more than 100 third-party mods, vendored in-tree with no submodules. Many have been patched locally to integrate with MeseCraft; about 45 of them reference `mesecraft_*` mods. Edit them in place, and keep in mind that upstream updates have to be merged by hand.
+- `mods/MTG/`: Minetest Game mods (`default`, `player_api`, `sfinv`, `stairs`, etc.), kept identical to upstream so they can be updated by copying. Don't edit them: change MTG behavior from MeseCraft mods with `minetest.override_item`, aliases or the MTG APIs, and put general overrides in `mods/mesecraft_overrides`. MTG's beds, binoculars, bones, bucket, butterflies, farming and mtg_craftguide are left out; `mesecraft_*` mods, Farming Redo and craftguide replace them.
+- `mods/MODULES/`: a modpack of more than 100 mods that started as third-party mods and are vendored in-tree with no submodules. Treat them as MeseCraft's own standalone code: edit them in place, and don't keep them close to upstream or merge upstream updates by default. Many already reference `mesecraft_*` mods.
 - `mods/mesecraft_*`: mods written for or maintained by MeseCraft (mobs, moon/"lua" dimension, holidays, furniture, toolranks, etc.).
 
 Each mod has a `mod.conf` (`name`, `description`, `depends`, `optional_depends`, `author`, `title`). Legacy `depends.txt` and `description.txt` files were removed for ContentDB, so don't add them back. Load order follows `depends`. Integration between mods is optional and guarded: a mod lists the other mod in `optional_depends` and wraps the integration in `if minetest.get_modpath("other_mod") then ... end`.

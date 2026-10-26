@@ -1,0 +1,50 @@
+This volume explains how to trade on the King's Market and the Night Market. Volume 1 covers finding a market, storing goods and money.
+
+-- Market Orders --
+
+Select "Market Orders" at the top to see every buy and sell offer. If an item isn't in the list, nobody has brought it to the market yet. To place a buy order for a new item, first add at least one of it to your market inventory. After that, it stays in the list even if you take it out again.
+
+-- The Order List --
+
+Description: the item's name or icon.
+Buy Vol: the total amount all buy offers want.
+Buy Max: the highest price anyone offers to pay. Not every buy offer pays that much.
+Sell Vol: the total amount all sell offers have.
+Sell Min: the lowest price anyone is asking. Not every sell offer is that cheap.
+Last Price: the price of the last trade, if there has been one.
+Inventory: how many you have stored in the market and not reserved for a sale.
+
+Click a column heading to sort by it. Enter part of an item's internal name in the search field and click the magnifying glass to filter the list; click the X to clear it. Tick "My orders" to see only your own orders.
+
+-- The Orders for One Item --
+
+Click an item in the upper list to see each of its buy and sell offers below.
+
+Order: whether the player wants to buy or sell. You buy from sell orders (red) and sell to buy orders (green).
+Price: the price of this order.
+Quantity: how many this order is for.
+Total Volume: how many you could trade right now at this price.
+Player: who placed the order.
+Days Old: how long ago it was placed, in real days.
+
+-- Now Get Down to Business! --
+
+To sell, the goods must be in your market inventory. To buy, you need money in your balance.
+
+Select the item in the upper list. Enter a quantity and a price per item, then click "Buy" or "Sell". If another player's order matches, the trade happens at once. Whatever isn't filled stays on the market as your own order, with the goods or money reserved for it, until another player's order meets it.
+
+In short: to sell, pick the item, enter quantity and price, and click "Sell". To buy, do the same and click "Buy". What you buy appears under "Your Inventory".
+
+-- Canceling Orders --
+
+Select the item, then double-click your order in the lower list to cancel it. The goods or money go back to your market inventory and balance.
+
+-- Your Trade Log --
+
+The King's Market and Night Market tabs show your own purchases and sales. New entries are yellow. Click "Mark logs as read" to turn them white. Ledgers of recent King's Market trades are sometimes found in village bookshelves.
+
+-- Names and Icons --
+
+At the bottom of the King's Market or Night Market tab, tick "Show Itemnames" to see internal item names, which helps with searching. Tick "Show Icons" to see item pictures alongside the names.
+
+I wish you successful trading, and have fun! :-)

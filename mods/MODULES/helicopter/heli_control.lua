@@ -157,8 +157,9 @@ function helicopter.heli_control(self, dtime, touching_ground, liquid_below, vel
         local altitude_consumption_variable = 0
 
         -- if gaining altitude, it consumes more power
-        local y_pos_reference = position.y - 200 --after altitude 200 the power need will increase
-        if y_pos_reference > 0 then altitude_consumption_variable = ((y_pos_reference/1000)^2) end
+        -- MeseCraft: per second rather than per step, and only above the cloudlands (y 400-600)
+        local y_pos_reference = position.y - 1000 --after altitude 1000 the power need will increase
+        if y_pos_reference > 0 then altitude_consumption_variable = ((y_pos_reference/1000)^2) * dtime end
 
         local consumed_power = (power/1500) + altitude_consumption_variable
         self.energy = self.energy - consumed_power;

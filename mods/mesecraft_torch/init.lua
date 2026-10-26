@@ -5,7 +5,7 @@ mesecraft_torch = {}
 
 -- check for timer settings or use defaults
 mesecraft_torch.min_duration = tonumber(minetest.settings:get("torch_min_duration")) or 1200
-mesecraft_torch.max_duration = tonumber(minetest.settings:get("torch_min_duration")) or 1800
+mesecraft_torch.max_duration = tonumber(minetest.settings:get("torch_max_duration")) or 1800
 
 
 -- check which torch(es) are available in minetest version

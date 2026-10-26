@@ -95,7 +95,8 @@ function thirsty.main_loop(dtime)
 
             if player:get_hp() <= 0 then
                 -- dead players don't get thirsty, or full for that matter :-P
-                break
+                -- (skip just this player; 'break' used to skip everyone after them)
+                goto continue
             end
 
             local name = player:get_player_name()
@@ -227,13 +228,14 @@ function thirsty.main_loop(dtime)
                     if pl.pending_dmg > 1.0 then
                         local dmg = math.floor(pl.pending_dmg)
                         pl.pending_dmg = pl.pending_dmg - dmg
-                        player:set_hp( player:get_hp() - dmg )
+                        player:set_hp( player:get_hp() - dmg, {hunger = true, thirst = true} )
                     end
                 else
                     -- forget any pending damage when not thirsty
                     pl.pending_dmg = 0.0
                 end
             end
+            ::continue::
         end -- for players
 
         -- check fountains for expiration

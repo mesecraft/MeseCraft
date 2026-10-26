@@ -1,0 +1,53 @@
+-- Coal --
+The main fuel in the game. Coal is easy to find and usually comes in veins. A certain underground biome holds enormous amounts of it. Coal also makes black dye.
+
+-- Charcoal --
+Cook any kind of log in a furnace to get two lumps of charcoal. Charcoal works as fuel like coal, and it is needed to make steel.
+
+-- Flint --
+Dig gravel to find flint. It is used in several recipes, such as flint and steel.
+
+-- Tin --
+A fairly common ore. Tin is used in many recipes, and to make bronze.
+
+-- Copper --
+Also fairly common. Copper goes into many alloys and is often used in machinery.
+
+-- Bronze --
+Craft eight copper ingots around one tin ingot to make nine bronze ingots. Bronze armor protects as well as steel and sometimes blocks a hit completely, which steel never does. It wears out about twice as fast, though.
+
+-- Iron --
+Once you dig below about -128, you'll find plenty of iron. Smelt the lumps into iron ingots. Iron makes weak, short-lived tools, but its real use is steel.
+
+-- Steel --
+After wood, steel is the most useful material in the game: more than a hundred recipes use it. Craft one iron ingot with three lumps of charcoal into an iron and charcoal mix, then smelt the mix into a steel ingot. You can also smelt the goo of a mineral slime. Steel makes durable armor and tools.
+
+-- Gold --
+Found below about -256. Gold armor is as protective as steel and sometimes blocks hits, but it is heavier and wears out quickly. Gold also has a slightly magical use: a gold ingot set in stone makes a protection block that guards your land from thieves.
+
+-- Silver --
+Found below -512. Silver is decorative, goes into some alloys, and makes very durable tools. Most silver tools beat steel, except the sword (same damage, slower swing) and the pickaxe (it digs only what a stone pickaxe can).
+
+-- Brass --
+Made from two copper ingots and one silver ingot. Used for decoration.
+
+-- Egerum and Februm --
+Magical crystals found below -256. Egerum is the base of nearly every magic recipe, and Februm is the fuel for magical items. Staffs are recharged with februm.
+
+-- Arcanite --
+An alloy of Egerum and Februm that balances magic recipes. Arcanite tools are nearly as good as diamond ones, a little less durable, but you can make them much earlier and in larger amounts.
+
+-- Mese --
+A glowing, energetic crystal found deep in the world, below about -512. It powers electrical circuits and makes powerful tools and weapons. Huge Mese crystal formations grow in the magma caves far, far below the surface.
+
+-- Diamond --
+A rare gem found below about -1024. It makes extremely powerful armor and tools.
+
+-- Mithril --
+Mithril was mined out of the shallower depths long ago because it is so strong. Sunken ships and crumbling chests underground still hold some. To mine it yourself, you must go deeper than the primordial caverns, below about -4100. Mithril makes the most powerful tools and armor in the world, and a full set is an amazing flex.
+
+-- Nether --
+Nether lumps are made by compressing nether bricks, which takes a great deal of netherrack. A nether pickaxe digs netherrack fastest, and TNT helps too. The nether sword is one of the strongest weapons there is, and the other nether tools outlast diamond. The catch is the Nether's monsters: think surface monsters on steroids.
+
+-- Candy Cane --
+An overlooked "ore", found only at Christmas: it comes in presents and from Christmas mobs, which often fight other monsters. Candy cane tools are roughly as good as Mese, and the armor sits between bronze and diamond.

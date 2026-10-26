@@ -257,7 +257,10 @@ minetest.register_on_leaveplayer(mesecraft_death_messages.reset_watchers)
 
 minetest.register_on_dieplayer(function(player)
 	name = player:get_player_name()
-	local node = minetest.registered_nodes[minetest.get_node(player:get_pos()).name]
+	local pos = player:get_pos()
+	local unknown = {name = "", groups = {}}
+	local node = minetest.registered_nodes[minetest.get_node(pos).name] or unknown
+	local head = minetest.registered_nodes[minetest.get_node(vector.offset(pos, 0, 1, 0)).name] or unknown
 	local message
 	--Death by entity
 	if mesecraft_death_messages.punched[name] and mesecraft_death_messages.punched[name] ~= name then
@@ -273,13 +276,13 @@ minetest.register_on_dieplayer(function(player)
 		message = string.gsub(message, "%(player%)", name)
 		message = string.gsub(message, "%(killer%)", mesecraft_death_messages.punched[name])
 		minetest.chat_send_all(minetest.colorize("#FF0000",(message)))
+	-- Death by lava (before drowning: lava also drains breath)
+	elseif node.groups.lava or head.groups.lava then
+		message = mesecraft_death_messages.get_message("lava")
+		minetest.chat_send_all(minetest.colorize("#FF0000",(string.gsub(message, "%(player%)", name))))
 	-- Death by drowning
 	elseif player:get_breath() == 0 then
 		message = mesecraft_death_messages.get_message("water")
-		minetest.chat_send_all(minetest.colorize("#FF0000",(string.gsub(message, "%(player%)", name))))
-	-- Death by lava
-	elseif node.groups.lava then
-		message = mesecraft_death_messages.get_message("lava")
 		minetest.chat_send_all(minetest.colorize("#FF0000",(string.gsub(message, "%(player%)", name))))
 	-- Death by fall
 	elseif mesecraft_death_messages.mightBeFalling[name] then

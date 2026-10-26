@@ -23,9 +23,17 @@ minetest.register_node("mesecraft_torch:torch", {
 		wall_bottom = {-0.1, -0.5, -0.1, 0.1, -0.5 + 0.6, 0.1},
 		wall_side = {-0.5, -0.3, -0.1, -0.5 + 0.3, 0.3, 0.1},
 	},
-	groups = {choppy = 2, dig_immediate = 3, attached_node = 1},
+	groups = {choppy = 2, dig_immediate = 3, flammable = 1, attached_node = 1},
 	legacy_wallmounted = true,
 	sounds = default.node_sound_defaults(),
+	-- Like MTG torches: water washes it off, lava burns it.
+	floodable = true,
+	on_flood = function(pos, oldnode, newnode)
+		local def = minetest.registered_nodes[newnode.name]
+		if not (def and def.groups and def.groups.lava) then
+			minetest.add_item(pos, ItemStack("mesecraft_torch:torch"))
+		end
+	end,
 })
 
 

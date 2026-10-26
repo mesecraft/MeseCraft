@@ -1,0 +1,41 @@
+So you've just started MeseCraft and don't know what to do? Your first step is to look around and survey your spawn area. Is there wood? Is there food? Did you spawn near a village?
+
+-- The Canteen --
+
+Next, find the closest water. You start with a wooden canteen. What is it for? Above your hotbar is a blue bar with a water drop: your thirst bar. Hold the canteen and left-click water to fill it, then left-click anywhere to drink from it. When it runs dry, fill it again at any water source. You can also drink by standing still in water.
+
+Then punch down a tree for wood and open your inventory. Along the top are some tabs: click "Guide". The guide shows you how to craft the items and tools you will use on your adventure. Type "canteen" into its search bar to see the canteens that hold more water, for when you have the materials.
+
+-- Early Start --
+
+(Skip this part if you already know Minetest, though it has a few useful tips.)
+
+You start with wooden tools and a torch, and they won't last long. Take your wooden pickaxe and either dig down until you find stone or look for a cave or mountainside. Mine some stone, then search the guide for "pick", "sword" or "axe" and craft the stone versions. They are stronger and last longer than wooden tools.
+
+Even with these tools you aren't well protected. One of the inventory tabs is "Armor": the armor you place there protects you. Search the guide for "armor" to see every kind. Wood is the only one you can make this early. For more protection, search for "shield" and craft a wooden shield, which goes in the armor tab too. You can also put armor in your hotbar, select it and left-click to wear it.
+
+Now look at the brown bar with a piece of bread, just above the thirst bar: your food bar. In MeseCraft, if you eat the same food too often, you grow tired of it and it fills you less. That is why you need a varied diet. Take your sword and hunt animals for their meat, and keep an eye out for wild vegetables.
+
+-- Night Time --
+
+Night falls and monsters are everywhere. How do you stay safe? If you are near a village, you may find a bed in one of the houses that lets you sleep through the night. No bed nearby? Sheep drop wool, and three wool plus three wooden planks make a bed. You can also dig a hole and seal yourself in until morning.
+
+-- Light --
+
+Torches burn out after 20 to 30 minutes. Relight a burnt-out torch by crafting it with coal powder, made from two coal lumps. For light that lasts, put a torch in a pumpkin to make a jack-o'-lantern, which you can switch on and off by punching it. Later, glass crafted on top of a Mese crystal makes a Mese lamp, which shines forever. This is MeseCraft, after all!
+
+-- A Spiffy New Base --
+
+You survived the night! Now settle somewhere to protect yourself from the many nights to come. On a server, build at least 200 to 400 blocks away from spawn, so your home is safe from griefers and your mine won't run into anyone else's.
+
+On most servers, including MeseCraft's, there are Protection Blocks, Iron Doors and Locked Chests. A protection block (made with a gold ingot and stone) protects the area around it from griefers, iron doors keep people out of your house, and locked chests stop people snooping through your things. You won't have these early on, but they are good to know about.
+
+-- Mining --
+
+You have a canteen, a food source, armor, tools and a base. Now it's time to mine for ores, interesting blocks and valuable resources. Early on, the best way to mine is not to wander aimlessly through caves but to dig down. Craft a lot of ladders (really, a lot), dig a 1x2 hole in open daylight, and work your way down, placing ladders as you go.
+
+Be careful while digging down: MeseCraft has DEEP caves. Some caverns are 300 blocks tall, and some go on for more than a thousand!
+
+-- Branching Out --
+
+You have tools, a home and a good start, so there isn't much left for me to tell you. MeseCraft has a whole world to explore: the massive caves, the creepy Underworld, the oceans, the floating cloud islands... and maybe even space?

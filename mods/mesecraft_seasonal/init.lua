@@ -34,6 +34,7 @@ end
 
 local spawns = {}    -- list of spawn definitions
 local is_seasonal = {} -- mob name -> true
+mesecraft_seasonal.spawns = spawns -- read-only for other mods (the creature journal)
 
 -- def: season, nodes, min_light, max_light, min_y, max_y, weight (default 1)
 function mesecraft_seasonal.register_spawn(mob, def)
