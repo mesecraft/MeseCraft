@@ -23,7 +23,8 @@ function mesecraft_binoculars.update_player_property(player)
 	local creative_enabled =
 		(creative_mod and creative.is_enabled_for(player:get_player_name())) or
 		creative_mode_cache
-	local new_zoom_fov = 0
+	-- Everyone can zoom (the engine handles it client-side); binoculars and creative zoom further.
+	local new_zoom_fov = 30
 
 	if player:get_inventory():contains_item(
 			"main", "mesecraft_binoculars:binoculars") then

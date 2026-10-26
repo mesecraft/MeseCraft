@@ -22,7 +22,6 @@ local clay = {
 }
 
 -- check mod support
-local techcnc_mod = minetest.get_modpath("technic_cnc")
 local stairs_mod = minetest.get_modpath("stairs")
 local stairsplus_mod = minetest.get_modpath("moreblocks")
 		and minetest.global_exists("stairsplus")
@@ -91,17 +90,6 @@ for _, clay in pairs(clay) do
 			default.node_sound_stone_defaults())
 	end
 
-	-- register bakedclay for use in technic_cnc mod after all mods loaded
-	if techcnc_mod then
-
-		core.register_on_mods_loaded(function()
-
-			technic_cnc.register_all("mesecraft_baked_clay:" .. clay[1],
-				{cracky = 3, not_in_creative_inventory = 1},
-				{"mesecraft_baked_clay_" .. clay[1] .. ".png"},
-				clay[2] .. " Baked Clay")
-		end)
-	end
 end
 
 -- cook clay block into white baked clay
@@ -124,21 +112,17 @@ minetest.register_craft( {
 	recipe = {"default:dry_shrub"}
 })
 
--- only add light grey recipe if unifieddye mod isnt present (conflict)
-if not minetest.get_modpath("unifieddyes") then
+minetest.register_craft( {
+	type = "shapeless",
+	output = "dye:dark_grey 3",
+	recipe = {"dye:black", "dye:black", "dye:white"}
+})
 
-	minetest.register_craft( {
-		type = "shapeless",
-		output = "dye:dark_grey 3",
-		recipe = {"dye:black", "dye:black", "dye:white"}
-	})
-
-	minetest.register_craft( {
-		type = "shapeless",
-		output = "dye:grey 3",
-		recipe = {"dye:black", "dye:white", "dye:white"}
-	})
-end
+minetest.register_craft( {
+	type = "shapeless",
+	output = "dye:grey 3",
+	recipe = {"dye:black", "dye:white", "dye:white"}
+})
 
 -- 2x2 red baked clay makes 16x clay brick
 minetest.register_craft( {

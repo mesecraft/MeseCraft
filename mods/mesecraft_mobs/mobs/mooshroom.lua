@@ -98,10 +98,9 @@ mobs:register_mob("mesecraft_mobs:mooshroom", {
 })
 
 
--- Register Spawn Mooshroom
-if minetest.get_modpath("ethereal") then
-	mobs:spawn_specific("mesecraft_mobs:mooshroom", "ethereal:mushroom_dirt", {"air"}, 9, 15, 120, 8000, 5, 0, 200)
-end
+-- Mooshrooms graze in forests, next to the red mushrooms that grow there.
+mobs:spawn_specific("mesecraft_mobs:mooshroom", {"default:dirt_with_grass", "default:dirt_with_coniferous_litter"},
+	{"flowers:mushroom_red"}, 9, 15, 120, 8000, 2, 0, 200)
 
 -- Register Mooshroom Spawn Egg
 mobs:register_egg("mesecraft_mobs:mooshroom", "Mooshroom Spawn Egg", "wool_red.png", 1)

@@ -215,10 +215,10 @@ minetest.register_craft({
 -- Recipe Registration
 oven.register_recipe("default:ice", "default:water_source")
 -- No milk bucket as this doesn't support substitutes for now
-oven.register_recipe("mobs_mc:chicken_raw", "test:chicken_cooked")
---[[ We don't need to check mod existance when registering recipe
-Recipe won't even be executed if there is no raw chicken in input ]]--
-oven.register_recipe("mobs_mc:beef_raw", "test:beef_cooked")
+oven.register_recipe("mesecraft_mobs:chicken_raw", "mesecraft_mobs:chicken_cooked")
+oven.register_recipe("mesecraft_mobs:meat", "mesecraft_mobs:meat_cooked")
+oven.register_recipe("mesecraft_mobs:pork_raw", "mesecraft_mobs:pork_cooked")
+oven.register_recipe("mesecraft_mobs:mutton_raw", "mesecraft_mobs:mutton_cooked")
 oven.register_recipe("farming:coffee_cup", "farming:coffee_cup_hot") -- What a crutch there was...
 
 -- Added for MeseCraft

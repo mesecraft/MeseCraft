@@ -82,6 +82,7 @@ df_dependencies.node_name_string = select_required({"farming:string", "mcl_mobit
 
 df_dependencies.node_name_bucket_empty = select_required({"mesecraft_bucket:bucket_empty", "mcl_buckets:bucket_empty"})
 df_dependencies.node_name_bucket_lava = select_required({"mesecraft_bucket:bucket_lava", "mcl_buckets:bucket_lava"})
+df_dependencies.node_name_bucket_water = select_required({"mesecraft_bucket:bucket_water", "mcl_buckets:bucket_water"})
 
 -- from "wool"
 

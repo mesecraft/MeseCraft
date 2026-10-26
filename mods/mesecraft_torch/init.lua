@@ -113,9 +113,6 @@ minetest.register_craft({
 	recipe = {"mesecraft_torch:torch", "mesecraft_torch:torch", "mesecraft_torch:torch", "mesecraft_torch:torch"},
 })
 
--- Make sure Ethereal mod isn't running as this Abm already exists there
-if not minetest.get_modpath("ethereal") then
-
 -- if torch touches water then drop as unlit torch
 minetest.register_abm({
 	label = "Real Torch water check",
@@ -159,8 +156,6 @@ minetest.register_abm({
 		end
 	end,
 })
-
-end
 
 
 -- particle effects

@@ -42,7 +42,7 @@ mobs:register_mob('mesecraft_halloween:frankenstein', {
         {name = "mesecraft_halloween:halloween_chocolate", chance = 4, min = 1, max = 2},
         {name = "mesecraft_halloween:lolipop", chance = 4, min = 1, max = 2},
         {name = "mesecraft_halloween:suit_frank", chance = 100, min = 1, max = 1},
-        {name = "mesecraft_halloween:suit_totoro", chance = 100, min = 1, max = 1},
+        {name = "mesecraft_halloween:suit_forest_spirit", chance = 100, min = 1, max = 1},
 	},
 	lava_damage = 5,
 	water_damage = 2,
@@ -62,10 +62,7 @@ mobs:register_mob('mesecraft_halloween:frankenstein', {
         },
 	-- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 2 weeks).
 	do_custom = function(self)
-	        local date = os.date("*t")
-	        if not (date.month == 10 and date.day >= 10) or (date.month == 11 and date.day <= 1) then
-	                       self.object:remove()
-	        end
+	        if not mesecraft_seasonal.keep(self, "halloween") then return false end
 	end,
 })
 
@@ -73,5 +70,9 @@ mobs:register_mob('mesecraft_halloween:frankenstein', {
 mobs:register_egg("mesecraft_halloween:frankenstein", "Frankenstein Spawn Egg", "wool_green.png", 1)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
-mobs:spawn_specific("mesecraft_halloween:frankenstein", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 60, 3000, 1, -30912, 30912, false)
-
+mesecraft_seasonal.register_spawn("mesecraft_halloween:frankenstein", {
+	season = "halloween",
+	nodes = {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"},
+	min_light = 0, max_light = 6,
+	min_y = -30912, max_y = 30912,
+})

@@ -71,10 +71,7 @@ mobs:register_mob('mesecraft_halloween:vampire', {
 	end,
 	-- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 3 weeks).
 	do_custom = function(self)
-	        local date = os.date("*t")
-	        if not (date.month == 10 and date.day >= 10) or (date.month == 11 and date.day <= 1) then
-	                       self.object:remove()
-	        end
+	        if not mesecraft_seasonal.keep(self, "halloween") then return false end
 	end,
 })
 
@@ -83,4 +80,9 @@ mobs:register_egg("mesecraft_halloween:vampire", "Vampire Spawn Egg", "wool_blac
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("mesecraft_halloween:vampire", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 6, 180, 5000, 3, -30192, 30912, false)
+mesecraft_seasonal.register_spawn("mesecraft_halloween:vampire", {
+	season = "halloween",
+	nodes = {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"},
+	min_light = 0, max_light = 6,
+	min_y = -30192, max_y = 30912,
+})

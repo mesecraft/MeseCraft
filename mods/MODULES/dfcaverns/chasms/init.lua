@@ -141,7 +141,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local chasm_area = VoxelArea:new{MinEdge = vector.subtract(emin, waver_vector), MaxEdge = vector.add(emax, waver_vector)}
 	local data_area = VoxelArea:new{MinEdge = emin, MaxEdge = emax}
 
-	for i, x, y, z in data_area:iterp_xyz(emin, emax) do
+	-- Only this chunk: neighbouring chunks carve their own nodes from the same noise.
+	local carved = false
+	for i, x, y, z in data_area:iterp_xyz(minp, maxp) do
 		local waver = math.min(math.max(math.floor(waver_data[i]+0.5), -waver_strength), waver_strength)
 		local intensity = get_intensity(y)
 		if chasm_data[chasm_area:index(x+waver, y, z)]*intensity > chasms_threshold then
@@ -159,11 +161,17 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				else
 					data[i] = c_air
 				end
+				carved = true
 				if log_location then log_location("chasm", vector.new(x,y,z)) end
 			end
 		end
 	end
-	
+
+	-- No chasm in this chunk: nothing changed, so skip relighting and writing it.
+	if not carved then
+		return
+	end
+
 	vm:set_data(data)
 	vm:calc_lighting()
 	vm:write_to_map()

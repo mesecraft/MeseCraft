@@ -24,13 +24,13 @@ TenPlus1's farming_redo, dye, and default.
 	* Dinosaur  
 	* Frankenstein (Frankenstein's Monster)  
 	* Ghost  
-	* Harry Potter  
+	* Boy Wizard  
 	* Killer  
 	* Glow-in-the-Dark Skeleton (actually glows in 5.0+)  
 	* Grim Reaper  
 	* Pink Dinosaur  
 	* Pumpkin Monster  
-	* Totoro  
+	* Forest Spirit  
 	* Unicorn
 	* Vampire  
 	* Wearwolf  

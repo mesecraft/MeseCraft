@@ -63,10 +63,7 @@ mobs:register_mob("mesecraft_christmas:mrs_claus", {
 	        end,
 		-- Remove the mob if it's not December.
 		    do_custom = function(self)
-				local date = os.date("*t")
-				if not (date.month == 12) then
-				               self.object:remove()
-				end
+				if not mesecraft_seasonal.keep(self, "christmas") then return false end
 		    end,
 		on_die = function(self, pos) -- on die, spawn particles.
 			        minetest.add_particlespawner({
@@ -108,4 +105,9 @@ mesecraft_christmas.mrs_claus = {
 mobs:register_egg("mesecraft_christmas:mrs_claus", "Mrs Claus Spawn Egg", "wool_red.png", 1)
 
 -- Spawns on Solid blocks -- Santa's spawning parameters.
-mobs:spawn_specific("mesecraft_christmas:mrs_claus", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 600, 500, 1, 2, 200)
+mesecraft_seasonal.register_spawn("mesecraft_christmas:mrs_claus", {
+	season = "christmas",
+	nodes = {"default:snow", "default:snowblock", "default:dirt_with_snow"},
+	min_light = 7, max_light = 16,
+	min_y = 2, max_y = 200,
+})

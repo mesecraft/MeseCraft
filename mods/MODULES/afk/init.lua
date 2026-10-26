@@ -92,7 +92,7 @@ local function check_moved()
                maxsize = 4,
                collisiondetection = true,
                vertical = false,
-               texture = "afk_fly_anim.png",
+               texture = "flies.png",
                animation = {
                   type = "vertical_frames",
                   aspect_w = 16,

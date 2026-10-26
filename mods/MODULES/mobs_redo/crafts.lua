@@ -117,55 +117,10 @@ minetest.register_craft({
 })
 
 
--- make sure we can register fences
-if minetest.get_modpath("default") and default.register_fence then
-
--- mob fence (looks like normal fence but collision is 2 high)
-default.register_fence("mobs:fence_wood", {
-	description = S("Mob Fence"),
-	texture = "default_wood.png",
-	material = "default:fence_wood",
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	collision_box = {
-		type = "fixed",
-		fixed = {
-			{-0.5, -0.5, -0.5, 0.5, 1.9, 0.5},
-		}
-	}
-})
-end
-
--- mob fence top (has enlarged collisionbox to stop mobs getting over)
-minetest.register_node("mobs:fence_top", {
-	description = S("Mob Fence Top"),
-	drawtype = "nodebox",
-	tiles = {"default_wood.png"},
-	paramtype = "light",
-	is_ground_content = false,
-	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	node_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
-	},
-	collision_box = {
-		type = "fixed",
-		fixed = {-0.4, -1.5, -0.4, 0.4, 0, 0.4}
-	},
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.4, -1.5, -0.4, 0.4, 0, 0.4}
-	}
-})
-
-minetest.register_craft({
-	output = "mobs:fence_top 12",
-	recipe = {
-		{"group:wood", "group:wood", "group:wood"},
-		{"", "default:fence_wood", ""}
-	}
-})
+-- MeseCraft: the mob fence and fence top are removed; fences are 1.5 nodes tall for collision
+-- (enable_fence_tall) and mobs no longer stand on each other, so normal fences hold animals.
+minetest.register_alias("mobs:fence_wood", "default:fence_wood")
+minetest.register_alias("mobs:fence_top", "default:fence_wood")
 
 
 -- items that can be used as fuel
@@ -193,19 +148,6 @@ minetest.register_craft({
 	recipe = "mobs:saddle",
 	burntime = 7
 })
-
-minetest.register_craft({
-	type = "fuel",
-	recipe = "mobs:fence_wood",
-	burntime = 7
-})
-
-minetest.register_craft({
-	type = "fuel",
-	recipe = "mobs:fence_top",
-	burntime = 2
-})
-
 
 -- this tool spawns same mob and adds owner, protected, nametag info
 -- then removes original entity, this is used for fixing any issues.

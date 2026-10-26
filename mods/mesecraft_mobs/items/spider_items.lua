@@ -42,13 +42,13 @@ minetest.register_craftitem("mesecraft_mobs:silk", {
 -- Furnace Recipe for Spiderweb.
 minetest.register_craft({
         type = "fuel",
-        recipe = "mob_creatures:spiderweb",
+        recipe = "mesecraft_mobs:spiderweb",
         burntime = 1,
 })
 
 -- Furnace Recipe for Silk
 minetest.register_craft({
 	type = "fuel",
-	recipe = "mob_creatures:silk",
+	recipe = "mesecraft_mobs:silk",
 	burntime = 1,
 })

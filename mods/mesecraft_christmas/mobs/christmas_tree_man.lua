@@ -84,10 +84,7 @@ mobs:register_mob("mesecraft_christmas:christmas_tree_man", {
     end,
 -- Remove the mob if it's not December.
     do_custom = function(self)
-                local date = os.date("*t")
-                if not (date.month == 12) then
-                               self.object:remove()
-                end
+                if not mesecraft_seasonal.keep(self, "christmas") then return false end
     end,
 })
 
@@ -95,5 +92,9 @@ mobs:register_mob("mesecraft_christmas:christmas_tree_man", {
 mobs:register_egg("mesecraft_christmas:christmas_tree_man", "Christmas Tree Man Spawn Egg", "default_pine_needles.png", 1)
 
 -- Spawning Parameters
-mobs:spawn_specific("mesecraft_christmas:christmas_tree_man", {"default:snowblock", "default:dirt_with_snow", "default:snow"}, {"air"}, 0, 7, 480, 5000, 1, -9500, -6500)
-
+mesecraft_seasonal.register_spawn("mesecraft_christmas:christmas_tree_man", {
+	season = "christmas",
+	nodes = {"default:snowblock", "default:dirt_with_snow", "default:snow"},
+	min_light = 0, max_light = 7,
+	min_y = -9500, max_y = -6500,
+})

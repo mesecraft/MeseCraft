@@ -82,10 +82,7 @@ mobs:register_mob("mesecraft_christmas:santa_claus", {
 	    	end,
 		-- Mob will remove itself if its not Christmas time. 
 	        do_custom = function(self)
-			local date = os.date("*t")
-			if not (date.month == 12) then
-	                                self.object:remove()
-	                end
+			if not mesecraft_seasonal.keep(self, "christmas") then return false end
 	        end,
 })
 
@@ -108,4 +105,9 @@ mesecraft_christmas.santa = {
 mobs:register_egg("mesecraft_christmas:santa_claus", "Santa Claus Spawn Egg", "wool_red.png", 1)
 
 -- Spawns on Solid blocks -- Santa's spawning parameters. Autoremove (do_custom) if not christmas-time.
-mobs:spawn_specific("mesecraft_christmas:santa_claus", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 600, 500, 1, 2, 200)
+mesecraft_seasonal.register_spawn("mesecraft_christmas:santa_claus", {
+	season = "christmas",
+	nodes = {"default:snow", "default:snowblock", "default:dirt_with_snow"},
+	min_light = 7, max_light = 16,
+	min_y = 2, max_y = 200,
+})

@@ -62,10 +62,7 @@ mobs:register_mob('mesecraft_halloween:werewolf', {
         },
 	    -- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 3 weeks).
 	    do_custom = function(self)
-		        local date = os.date("*t")
-		        if not (date.month == 10 and date.day >= 10) or (date.month == 11 and date.day <= 1) then
-		                       self.object:remove()
-		        end
+		        if not mesecraft_seasonal.keep(self, "halloween") then return false end
 	    end,
 })
 --Spawn Eggs
@@ -73,4 +70,9 @@ mobs:register_egg("mesecraft_halloween:werewolf", "Werewolf Spawn Egg", "mesecra
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("mesecraft_halloween:werewolf", {"group:flora", "group:leaves"}, {"air"}, 0, 4, 240, 2000, 1, -30912, 30912, false)
+mesecraft_seasonal.register_spawn("mesecraft_halloween:werewolf", {
+	season = "halloween",
+	nodes = {"group:flora", "group:leaves"},
+	min_light = 0, max_light = 4,
+	min_y = -30912, max_y = 30912,
+})

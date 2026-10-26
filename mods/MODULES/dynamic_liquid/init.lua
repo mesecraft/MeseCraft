@@ -337,13 +337,17 @@ if springs then
 		local vm, emin, emax = minetest.get_mapgen_object("voxelmanip")
 		vm:get_data(data)
 		
-		for voxelpos, voxeldata in pairs(data) do
-			if voxeldata == c_clay then
+		local changed = false
+		for voxelpos = 1, #data do
+			if data[voxelpos] == c_clay then
 				data[voxelpos] = c_spring_clay
+				changed = true
 			end
 		end
-		vm:set_data(data)
-		vm:write_to_map()
+		if changed then
+			vm:set_data(data)
+			vm:write_to_map()
+		end
 	end)
 	
 	minetest.register_abm({
@@ -500,7 +504,9 @@ if mapgen_prefill then
 				-- We could possibly be a bit more efficient by remembering how far we dropped then
 				-- last liquid node in a column and moving stuff down that far,
 				-- but for now let's keep it simple.
-				drop_liquid(vi, data, area, minp_y)
+				if data[vi] == c_water then -- drop_liquid only acts on water; skip the call otherwise
+					drop_liquid(vi, data, area, minp_y)
+				end
 			end
 		end
 		

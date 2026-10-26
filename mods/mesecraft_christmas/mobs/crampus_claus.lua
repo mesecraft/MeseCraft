@@ -53,10 +53,7 @@ mobs:register_mob('mesecraft_christmas:crampus_claus', {
         },
 -- Remove the mob if it's not December.
     do_custom = function(self)
-                local date = os.date("*t")
-                if not (date.month == 12) then
-                               self.object:remove()
-                end
+                if not mesecraft_seasonal.keep(self, "christmas") then return false end
     end,
 })
 
@@ -64,4 +61,9 @@ mobs:register_mob('mesecraft_christmas:crampus_claus', {
 mobs:register_egg("mesecraft_christmas:crampus_claus", "Crampus Claus Spawn Egg", "wool_brown.png", 1)
 
 --Spawn Functions
-mobs:spawn_specific("mesecraft_christmas:crampus_claus", {"default:dirt_with_snow","default:snow","default:ice"}, {"air"}, 0, 7, 480, 1000, 2, -500 ,100)
+mesecraft_seasonal.register_spawn("mesecraft_christmas:crampus_claus", {
+	season = "christmas",
+	nodes = {"default:dirt_with_snow","default:snow","default:ice"},
+	min_light = 0, max_light = 7,
+	min_y = -500, max_y = 100,
+})

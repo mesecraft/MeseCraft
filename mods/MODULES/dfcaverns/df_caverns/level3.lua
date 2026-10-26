@@ -231,7 +231,7 @@ local decorate_level_3 = function(minp, maxp, seed, vm, node_arrays, area, data)
 					data[vi] = c_water
 				end
 				
-				if (mapgen_helper.is_pos_within_box({x=x, y=y, z=z}, minp, maxp)) then				
+				if x >= minp.x and x <= maxp.x and y >= minp.y and y <= maxp.y and z >= minp.z and z <= maxp.z then				
 					local index2d = mapgen_helper.index2di(minp, maxp, area, vi)
 					local biome_name = get_biome(heatmap[index2d], humiditymap[index2d])
 					if biome_name == "blackcap" then

@@ -1,8 +1,0 @@
-# "Enabled" allows sounds to be played when zooming/unzooming (Default: Disabled)
-cinematic_zoom.sounds (Sounds) bool false
-# Speed of the zoom and bar animations. (Default: 1)
-cinematic_zoom.speed (Speed) float 1
-# Which button to use for zooming. "Enabled" is the zoom key while "Disabled" is sneak. Using the zoom key adds an annoying "zoom disabled" message which is why you can use sneak instead if you want. (Default: Enabled)
-cinematic_zoom.button (Zoom or Sneak) bool true
-# Fov to be at when fully zoomed. Set to 0 to disable zooming (Default: 30)
-cinematic_zoom.amount (Zoom Amount) float 30 0 72
