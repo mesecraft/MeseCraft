@@ -51,6 +51,8 @@ end
 -- vacuum/air propagation
 minetest.register_abm({
   label = "space vacuum",
+  -- MeseCraft: only runs in space, so let the engine skip everything below it.
+  min_y = vacuum.space_height - 40,
 	nodenames = {"air"},
 	neighbors = {"vacuum:vacuum"},
 	interval = 1,
@@ -106,6 +108,8 @@ end
 -- weird nodes in vacuum
 minetest.register_abm({
         label = "space drop nodes",
+        -- MeseCraft: only runs in space, so let the engine skip everything below it.
+        min_y = vacuum.space_height + 1,
 	nodenames = drop_nodes,
 	neighbors = {"vacuum:vacuum"},
 	interval = 1,
@@ -129,6 +133,8 @@ minetest.register_abm({
 -- various dirts in vacuum
 minetest.register_abm({
         label = "space vacuum soil dry",
+        -- MeseCraft: only runs in space, so let the engine skip everything below it.
+        min_y = vacuum.space_height + 1,
 	nodenames = {
 		"default:dirt",
 		"default:dirt_with_grass",
@@ -149,6 +155,8 @@ minetest.register_abm({
 -- plants in vacuum
 minetest.register_abm({
         label = "space vacuum plants",
+        -- MeseCraft: only runs in space, so let the engine skip everything below it.
+        min_y = vacuum.space_height + 1,
 	nodenames = {
 		"group:sapling",
 		"group:plant",
@@ -172,6 +180,8 @@ minetest.register_abm({
 -- sublimate nodes in vacuum
 minetest.register_abm({
         label = "space vacuum sublimate",
+        -- MeseCraft: only runs in space, so let the engine skip everything below it.
+        min_y = vacuum.space_height + 1,
 	nodenames = {"group:snowy", "group:leaves", "group:water"},
 	neighbors = {"vacuum:vacuum"},
 	interval = 1,
@@ -190,6 +200,8 @@ minetest.register_abm({
 -- depressurize through leaky nodes
 minetest.register_abm({
         label = "space vacuum depressurize",
+        -- MeseCraft: only runs in space, so let the engine skip everything below it.
+        min_y = vacuum.space_height + 1,
 	nodenames = leaky_nodes,
 	neighbors = {"vacuum:vacuum"},
 	interval = 2,

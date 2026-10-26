@@ -348,46 +348,26 @@ local get_ambience = function(player)
 	humid = humidmap:get_2d({x = math.floor(pos.x+0.5), y = math.floor(pos.z+0.5)})
 	
 	if node_at_upper_body and node_at_upper_body.liquidtype ~= "none" then
-		if music then
-			return {water_frequent=water_frequent, music=music}
-		else
-			return {water_frequent=water_frequent}
-		end
+		return {water_frequent=water_frequent}
 	end
 
 	if nodes_in_range(pos, 7, "default:lava_flowing")>5 or nodes_in_range(pos, 7, "default:lava_source")>5 or
 		nodes_in_range(pos, 7, "dfcaverns:mantle_flowing")>5 or nodes_in_range(pos, 7, "dfcaverns:mantle_source")>5
 	then
-		if music then
-			return {lava=lava, music=music}		
-		else
-			return {lava=lava}
-		end
+		return {lava=lava}
 	end
 
 
 	--if we are near sea level and there is lots of water around the area
 	if pos.y > -10 and pos.y < 32 and atleast_nodes_in_grid({x=pos.x-21, y=-10, z=pos.z-21}, {x=pos.x+21, y=1, z=pos.z+21}, "default:water_source", 140 ) then
 		if temp > 30 then --Frozen = no seagulls
-			if music then
-				return {beach=beach, beach_frequent=beach_frequent, music=music}
-			else
-				return {beach=beach, beach_frequent=beach_frequent}
-			end
+			return {beach=beach, beach_frequent=beach_frequent}
 		else 
-			if music then
-				return {beach_frequent=beach_frequent, music=music}
-			else
-				return {beach_frequent=beach_frequent}
-			end
+			return {beach_frequent=beach_frequent}
 		end
 	end
 	--[[if standing_in_water then
-		if music then
-			return {water_surface=water_surface, music=music}
-		else
-			return {water_surface}
-		end	
+		return {water_surface}	
 	end]]
 	grad = 14 / 95
 	yint = 1496 / 95
@@ -395,52 +375,28 @@ local get_ambience = function(player)
 	
 	
 	if desert_in_range then
-		if music then
-			return {desert=desert, desert_frequent=desert_frequent, music=music}
-		else
-			return {desert=desert, desert_frequent=desert_frequent}
-		end
+		return {desert=desert, desert_frequent=desert_frequent}
 	end	
 
 
 	if pos.y > 128 and pos.y < 1000 and skylit then -- Play desert wind at really high altitude for an icy wind effect
-		if music then
-			return {desert_frequent=desert_frequent, music=music}
-		else
-			return {desert_frequent=desert_frequent}
-		end
+		return {desert_frequent=desert_frequent}
 	end	
 	
 	if player:get_pos().y < 0 and not skylit then
-		if music then
-			return {cave=cave, cave_frequent=cave_frequent, music=music}
-		else
-			return {cave=cave, cave_frequent=cave_frequent}
-		end
+		return {cave=cave, cave_frequent=cave_frequent}
 	end
 	
 	if skylit 
 		and temp > 30
 	then
 		if is_daytime()	then
-			if music then
-				return {day=day, day_frequent=day_frequent, music=music}
-			else
-				return {day=day, day_frequent=day_frequent}
-			end
+			return {day=day, day_frequent=day_frequent}
 		else
-			if music then
-				return {night=night, night_frequent=night_frequent, music=music}
-			else
-				return {night=night, night_frequent=night_frequent}
-			end
+			return {night=night, night_frequent=night_frequent}
 		end
 	end
-	if music then
-		return {music=music}
-	else
-		return {}
-	end
+	return {}
 end
 
 -- start playing the sound, set the handler and delete the handler after sound is played
