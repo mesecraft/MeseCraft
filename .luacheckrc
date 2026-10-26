@@ -77,6 +77,9 @@ read_globals = {
 	table = {fields = {"copy", "copy_with_metatables", "indexof", "insert_all", "key_value_swap", "shuffle", "getn", "unpack"}},
 	math = {fields = {"hypot", "sign", "factorial", "round"}},
 
+	-- Mod APIs whose global differs from the mod name
+	"otherworlds",
+
 	-- Optional dependencies that are not part of this game
 	"intllib", "moretrees", "pova", "technic", "pipeworks", "ethereal", "doc", "mail",
 	"digiline", "cmi", "lucky_block", "areas", "unified_inventory", "wardrobe",

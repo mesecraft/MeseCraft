@@ -68,3 +68,29 @@ if minetest.get_modpath("lootchests") then
 		end
 	end
 end
+
+-- World layers: Earth orbit and the asteroid belts get space skies (issue #116). The moon and Mars
+-- register their own skies at a higher priority, so those win inside their bands.
+if minetest.get_modpath("climate_api") and minetest.get_modpath("other_worlds") then
+	local faces = {"sky_pos_y.png", "sky_neg_y.png", "sky_pos_x.png", "sky_neg_x.png", "sky_pos_z.png", "sky_neg_z.png"}
+	local function space_sky(textures)
+		return {
+			sky_data = {type = "skybox", base_color = {r = 0, g = 0, b = 0}, textures = textures, clouds = false},
+			sun_data = {visible = true, sunrise_visible = false},
+			moon_data = {visible = false},
+			star_data = {visible = false},
+			priority = 900,
+		}
+	end
+	local red = {}
+	for i, face in ipairs(faces) do
+		red[i] = face .. "^[colorize:#a02010:90"
+	end
+	local space_floor = minetest.get_modpath("vacuum") and vacuum.space_height or 1000
+	climate_api.register_weather("mesecraft_overrides:space",
+		{min_height = space_floor, max_height = otherworlds.settings.space_asteroids.YMAX + 1},
+		{["climate_api:skybox"] = space_sky(faces)})
+	climate_api.register_weather("mesecraft_overrides:red_asteroids",
+		{min_height = otherworlds.settings.redsky_asteroids.YMIN, max_height = otherworlds.settings.redsky_asteroids.YMAX + 1},
+		{["climate_api:skybox"] = space_sky(red)})
+end
