@@ -106,15 +106,25 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local area = VoxelArea:new{MinEdge=emin, MaxEdge=emax}
 	vm:get_data(data)
 	
+	-- Both passes only act on lava, so skip the calls for every other node.
+	local has_lava = false
 	for vi, x, y, z in area:iterp_xyz(minp, maxp) do
-		if obsidian_lining then
-			obsidianize(area, data, vi, x, y, z, minp, maxp)
-		end
-		if ameliorate_floods then
-			remove_unsupported_lava(area, data, vi, x, y, z)
+		if data[vi] == c_lava then
+			has_lava = true
+			if obsidian_lining then
+				obsidianize(area, data, vi, x, y, z, minp, maxp)
+			end
+			if ameliorate_floods then
+				remove_unsupported_lava(area, data, vi, x, y, z)
+			end
 		end
 	end
-		
+
+	-- Most chunks have no lava; nothing changed, so skip relighting and writing the chunk.
+	if not has_lava then
+		return
+	end
+
 	--send data back to voxelmanip
 	vm:set_data(data)
 	--calc lighting
