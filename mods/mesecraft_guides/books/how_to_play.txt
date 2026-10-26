@@ -20,6 +20,10 @@ Now look at the brown bar with a piece of bread, just above the thirst bar: your
 
 Night falls and monsters are everywhere. How do you stay safe? If you are near a village, you may find a bed in one of the houses that lets you sleep through the night. No bed nearby? Sheep drop wool, and three wool plus three wooden planks make a bed. You can also dig a hole and seal yourself in until morning.
 
+-- Light --
+
+Torches burn out after 20 to 30 minutes. Relight a burnt-out torch by crafting it with coal powder, made from two coal lumps. For light that lasts, put a torch in a pumpkin to make a jack-o'-lantern, which you can switch on and off by punching it. Later, glass crafted on top of a Mese crystal makes a Mese lamp, which shines forever. This is MeseCraft, after all!
+
 -- A Spiffy New Base --
 
 You survived the night! Now settle somewhere to protect yourself from the many nights to come. On a server, build at least 200 to 400 blocks away from spawn, so your home is safe from griefers and your mine won't run into anyone else's.
