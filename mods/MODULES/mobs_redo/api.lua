@@ -121,6 +121,9 @@ local mob_class = {
 	jump_height = 4,
 	lifetimer = 180, -- 3 minutes
 	physical = true,
+	-- MeseCraft: mobs don't collide with other objects, so penned animals can't climb onto
+	-- each other's backs and jump out.
+	collide_with_objects = false,
 	collisionbox = {-0.25, -0.25, -0.25, 0.25, 0.25, 0.25},
 	visual_size = {x = 1, y = 1},
 	texture_mods = "",
