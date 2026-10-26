@@ -119,10 +119,3 @@ minetest.register_decoration({
 	num_spawn_by = 1
 })
 
--- flowerpot mod
-if minetest.get_modpath("flowerpot") then
-	flowerpot.register_node("mesecraft_baked_clay:delphinium")
-	flowerpot.register_node("mesecraft_baked_clay:thistle")
-	flowerpot.register_node("mesecraft_baked_clay:lazarus")
-	flowerpot.register_node("mesecraft_baked_clay:mannagrass")
-end

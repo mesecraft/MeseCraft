@@ -153,7 +153,7 @@ minetest.register_node("mesecraft_furniture:freezer", {
 		"mesecraft_furniture_froz_front.png"
 	},
 	paramtype2 = "facedir",
-	groups = {cracky = 2, tubedevice = 1, tubedevice_receiver = 1},
+	groups = {cracky = 2},
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = default.node_sound_stone_defaults(),
@@ -168,27 +168,6 @@ minetest.register_node("mesecraft_furniture:freezer", {
 			{0.3125, 0.1875, -0.4375, 0.375, 0.25, -0.375}, -- NodeBox8
 		}
 	},
-	tube = (function() if minetest.get_modpath("pipeworks") then return {
-		-- using a different stack from defaut when inserting
-		insert_object = function(pos, node, stack, direction)
-			local meta = minetest.get_meta(pos)
-			local inv = meta:get_inventory()
-			local timer = minetest.get_node_timer(pos)
-			if not timer:is_started() then
-				timer:start(1.0)
-			end
-			return inv:add_item("src", stack)
-		end,
-		can_insert = function(pos,node,stack,direction)
-			local meta = minetest.get_meta(pos)
-			local inv = meta:get_inventory()
-			return inv:room_for_item("src", stack)
-		end,
-		-- the default stack, from which objects will be taken
-		input_inventory = "dst",
-		connect_sides = {left = 1, right = 1, back = 1, front = 1, bottom = 1, top = 1}
-	} end end)(),
-	                                     
 	can_dig = can_dig,
 
 	on_timer = freezer_node_timer,

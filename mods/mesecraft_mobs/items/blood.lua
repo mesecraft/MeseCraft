@@ -69,8 +69,8 @@ minetest.register_node("mesecraft_mobs:blood_source", {
 })
 
 --bucket
-if minetest.get_modpath("bucket") then
-bucket.register_liquid(
+if minetest.get_modpath("mesecraft_bucket") then
+mesecraft_bucket.register_liquid(
         "mesecraft_mobs:blood_source",
         "mesecraft_mobs:blood_flowing",
         "mesecraft_mobs:bucket_blood",

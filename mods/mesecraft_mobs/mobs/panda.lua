@@ -30,7 +30,7 @@ stepheight = 0.6,
 	run_velocity = 1.5,
 	jump = false,
 	jump_height = 6,
-	follow = {"ethereal:bamboo"},
+	follow = {"default:papyrus"},
 	view_range = 8,
 	drops = {
 		{name = "mesecraft_mobs:meat", chance = 1, min = 1, max = 2},
@@ -65,19 +65,5 @@ stepheight = 0.6,
 	end,
 })
 
-if minetest.get_modpath("ethereal") then
-
-	mobs:spawn({
-		name = "mesecraft_mobs:panda",
-		nodes = {"ethereal:bamboo_dirt"},
-		neighbors = {"group:grass"},
-		min_light = 14,
-		interval = 60,
-		chance = 8000, -- 15000
-		min_height = 10,
-		max_height = 80,
-		day_toggle = true,
-	})
-end
 
 mobs:register_egg("mesecraft_mobs:panda", "Panda", "wool_white.png", 1)
