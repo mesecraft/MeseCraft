@@ -1,0 +1,45 @@
+How do I use the market? This book explains the King's Market and the Night Market. Volume 2 covers trading.
+
+-- The Two Markets --
+
+There are two separate markets: the King's Market and the Night Market. The King's Market is open by day and the Night Market by night. Whatever you store or offer in a market can be reached from any box of that market anywhere in the world.
+
+-- How Trading Works --
+
+You don't sell goods to the market or buy goods from it. You offer them on the market and buy from other players. You can offer goods at a price of your choosing, or leave an offer to buy at a price. Every trade happens between players.
+
+-- Finding a Market --
+
+To use a market, you must first find one of its boxes.
+
+The King's Market is a wooden box with a yellow crown on it. It is usually in one, sometimes two, of the larger buildings in a village. Smaller villages often don't have one.
+
+The Night Market is a wooden box with a dark gray crescent moon. It is usually in one of a village's houses. Some villages don't have one.
+
+There are stranger markets too: goblins trade in dungeons, and the Undermarket, found in ruins, deals in Mese chips.
+
+-- Opening and Leaving --
+
+Right-click a market box to open it. Press Escape to leave.
+
+-- Bringing Goods to the Market --
+
+Select "Your Inventory" at the top. Then drag goods from your own inventory (at the bottom) into the square marked "Drop items here to add to your account".
+
+-- Adding Money / Your Balance --
+
+Select "Your Inventory" and drop gold coins or gold ingots into the same square. One gold ingot is worth 100 gold coins. Your balance, in gold coins, is shown under "Your Inventory" and under "Market Orders".
+
+-- Taking Goods Out --
+
+You can't take out goods that are reserved for one of your sell orders. You can only withdraw the part of your stock that isn't for sale (see "Canceling Orders" in Volume 2).
+
+To take goods out, select "Your Inventory" and double-click the item in the upper list. This moves your whole stock of that item into your inventory.
+
+-- Withdrawing Money --
+
+Select "Your Inventory", click the field next to the "Withdraw" button and enter the number of gold coins you want. When you press "Withdraw", every full 100 coins is paid out as a gold ingot and the rest as coins.
+
+-- Inventory Limit --
+
+Each market limits how many goods you can store in it: 100,000 items in the King's Market and 10,000 in the Night Market. Goods reserved for sell orders don't count. "Your Inventory" shows how close you are to the limit.

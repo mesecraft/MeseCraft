@@ -1,0 +1,29 @@
+Here are some tricks I've learned in my years on MeseCraft!
+
+-- Getting Around --
+
+Climbing down ladders is slow. Open your hang glider while going down a ladder: you'll descend about twice as fast, and much more safely. It doesn't work going up.
+
+Crossing a big stretch of water by boat? Holding forward for five minutes gets painful. Press forward and back at the same time to turn on cruise mode, and the boat keeps going on its own. Press back to turn it off, or just get out.
+
+If you place a boat underwater, it stays there until you get in and move forward, then it shoots up to the surface. It takes a moment, but it's faster than swimming up from deep water.
+
+Boats have a solid hitbox, so you can walk on them. With enough wood and patience, you could build a whole bridge out of boats.
+
+-- Protection --
+
+Mobs that blow up or change the land can't damage protected areas. They can still hurt you, though.
+
+Protection blocks can spoil the look of your base. Stand near them and type /protector_hide to make the protection blocks around you invisible. They are still solid, so a row of hidden ones makes an invisible wall. Type /protector_show to make them visible again. Type /help to see more commands.
+
+Even with protection, a base can still be griefed in a few ways. I won't list them here, so as not to spread them. Ask an experienced player or a moderator how to guard against them.
+
+-- Mobs --
+
+Some monsters made of a material take extra damage from the matching tool. Sand men take more damage from shovels, and stone men from pickaxes (but a wooden pickaxe won't hurt them at all).
+
+Many mobs take damage in water because they are bad swimmers. If a zombie is chasing you, head for water: it slows them down and slowly hurts them. Just beware of the crocodiles and sharks.
+
+Crocodiles drop the most meat and leather of any mob, up to ten of each. Kangaroos are close behind, with six to nine meat plus leather and bones.
+
+Rotten flesh from zombies is edible and, surprisingly, has no bad effects, apart from the fact that you're eating it. Most goo from slimes is edible too. Some goo is good for you, some is bad, and some can kill you, so choose carefully!

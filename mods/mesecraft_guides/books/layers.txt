@@ -1,0 +1,30 @@
+The world goes far beyond the ground beneath your feet. Here are its layers, from the highest to the deepest. Heights are the "Y" number your position shows.
+
+-- Above --
+
+Red asteroids: 22001 to 30912
+Mars: 11000 to 22000
+Asteroid belt: 3500 to 10999
+The Moon: 2000 to 2300
+Earth orbit: from 1000 up. There is no air in space, so bring a spacesuit.
+Cloudlands: floating islands at about 400 to 600
+
+-- The Surface --
+
+Grassland, coniferous and deciduous forest, rainforest, savanna, desert, sandstone desert, cold desert, snowy grassland, taiga, tundra, ice sheet, and their dunes, shores, beaches, swamps and oceans. Pyramids hide in the deserts.
+
+-- Below --
+
+Old dwarven halls and abandoned mine tracks lie not far beneath the surface.
+
+Caverns, level 1: about -100 to -832
+Caverns, level 2: -832 to -1472
+Caverns, level 3: -1472 to -2112
+Sunless Sea: -2112 to -2512
+Oil Sea: around -2700
+Lava Sea: around -2900
+The Underworld: around -3200
+Primordial caverns: -3393 to -4032
+Deep stone, where mithril hides: below -4100
+The Nether: -17000 to -31000
+Bedrock: the bottom of the world, at -30912

@@ -1,0 +1,53 @@
+Hold sneak and right-click an animal to see which items it likes. Feed an animal the food it likes to tame it. Feed two tamed animals of the same kind while they're close together, and they will breed.
+
+-- Tameable --
+
+Crocodile: Still hurts you when tamed.
+Tamed with: raw meat. Cave crocodiles too.
+
+Kangaroo: Doesn't follow you, but fights hostile mobs, and wins against villagers every time. Good guards for a savanna base. Can't be caught with a lasso.
+Tamed with: bush leaves.
+
+Cow: Cheese production. Milk it with an empty bucket.
+Tamed with: wheat.
+
+Sheep: A wool factory.
+Tamed with: wheat.
+
+Chicken: Lays eggs.
+Tamed with: wheat seeds or cotton seeds.
+
+Parrot: A colorful companion.
+Tamed with: wheat seeds or cotton seeds.
+
+Rabbit: Rabbit hide, as much as you like.
+Tamed with: apples or carrots.
+
+Horse: Make a saddle to ride it. Best on open ground: like real horses, they struggle in forests and rough terrain.
+Tamed with: wheat or apples.
+
+Ocelot: Becomes a house cat. Hard to find outside jungles.
+Tamed with: any meat, chicken or fish, raw or cooked, rotten flesh, or milk. It may take a few tries.
+
+Wolf: Becomes a dog.
+Tamed with: bones. It may take a few tries.
+
+Rat: Oddly indifferent to cheese.
+Pick it up with a right-click.
+
+Villager: Good for making towns look lived-in. Don't count on them as guards unless you have a group of them.
+Tamed with: bread, cooked meat or diamonds.
+
+-- Not Tameable --
+
+Baby spiders: Harmless.
+Giant spiders: The opposite of harmless, and a huge cave menace.
+Alien ship: Where's the mouth?
+Sharks: Meat production.
+Bats: Spooky.
+Giant vampire bats: Terribly spooky.
+Demons: Yeah, no.
+Fish: Fish farming isn't really sustainable.
+Slimes: Walking gelatin.
+
+Tip: a lasso catches many animals so you can carry them in your inventory, and a mob protection rune keeps a pet from despawning or being killed by other players.
