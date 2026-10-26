@@ -59,10 +59,7 @@ mobs:register_mob('mesecraft_halloween:scarecrow', {
         },
 	    -- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 3 weeks).
 	    do_custom = function(self)
-		        local date = os.date("*t")
-		        if not (date.month == 10 and date.day >= 10) or (date.month == 11 and date.day <= 1) then
-		                       self.object:remove()
-		        end
+		        if not mesecraft_seasonal.keep(self, "halloween") then return false end
 	    end,
 })
 --Spawn Eggs
@@ -70,4 +67,10 @@ mobs:register_egg("mesecraft_halloween:scarecrow", "Scarecrow Spawn Egg", "farmi
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 --Spawn Functions
-mobs:spawn_specific("mesecraft_halloween:scarecrow", {"farming:wheat_6", "farming:wheat_7", "farming:wheat_8", "farming:oat_6", "farming:oat_7", "farming:oat_8","decoblocks:scarecrow"}, {"air"}, 0, 5, 60, 1000, 2, -30912, 30912, false)
+mesecraft_seasonal.register_spawn("mesecraft_halloween:scarecrow", {
+	season = "halloween",
+	nodes = {"farming:wheat_6", "farming:wheat_7", "farming:wheat_8", "farming:oat_6", "farming:oat_7", "farming:oat_8","decoblocks:scarecrow"},
+	min_light = 0, max_light = 5,
+	min_y = -30912, max_y = 30912,
+	weight = 2,
+})

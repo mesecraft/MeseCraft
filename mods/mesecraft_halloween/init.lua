@@ -22,6 +22,6 @@ end
 
 
 -- Register costumes if 3d_armor is enabled
-if minetest.get_modpath("armor") then
-	dofile(minetest.get_modpath("halloween").."/costumes.lua")
+if minetest.get_modpath("3d_armor") then
+	dofile(path .. "/costumes.lua")
 end

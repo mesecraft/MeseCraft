@@ -62,10 +62,7 @@
 				self.textures = "mesecraft_christmas_reindeer_rudolph.png"
 			end
 			-- Remove mobs when its not Christmastime.
-                        local date = os.date("*t")
-                        if not (date.month == 12) then
-                                        self.object:remove()
-                        end
+                        if not mesecraft_seasonal.keep(self, "christmas") then return false end
 		end,
                     on_die = function(self, pos) -- on die, spawn particles.
 	                minetest.add_particlespawner({
@@ -109,4 +106,9 @@ mesecraft_christmas.reindeer = {
         }
 
 -- Spawns on Solid blocks -- Santa's spawning parameters.
-mobs:spawn_specific("mesecraft_christmas:reindeer", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 600, 500, 1, 2, 200)
+mesecraft_seasonal.register_spawn("mesecraft_christmas:reindeer", {
+	season = "christmas",
+	nodes = {"default:snow", "default:snowblock", "default:dirt_with_snow"},
+	min_light = 7, max_light = 16,
+	min_y = 2, max_y = 200,
+})

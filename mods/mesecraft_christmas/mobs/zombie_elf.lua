@@ -53,10 +53,7 @@ mobs:register_mob('mesecraft_christmas:zombie_elf', {
                 punch_end = 219,
 	},
         do_custom = function(self)
-                local date = os.date("*t")
-                if not (date.month == 12) then
-                                self.object:remove()
-                end
+                if not mesecraft_seasonal.keep(self, "christmas") then return false end
         end,
 })
 
@@ -64,4 +61,10 @@ mobs:register_mob('mesecraft_christmas:zombie_elf', {
 mobs:register_egg("mesecraft_christmas:zombie_elf", "Zombie Elf Spawn Egg", "wool_green.png", 1)
 
 --Spawn Functions
-mobs:spawn_specific("mesecraft_christmas:zombie_elf", {"default:snow", "default:snowblock", "default:dirt_with_snow"}, {"air"}, 7, 16, 120, 500, 3, 2, 200)
+mesecraft_seasonal.register_spawn("mesecraft_christmas:zombie_elf", {
+	season = "christmas",
+	nodes = {"default:snow", "default:snowblock", "default:dirt_with_snow"},
+	min_light = 7, max_light = 16,
+	min_y = 2, max_y = 200,
+	weight = 3,
+})

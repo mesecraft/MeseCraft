@@ -66,4 +66,7 @@ stepheight = 0.6,
 })
 
 
+-- Pandas live in rainforests.
+mobs:spawn_specific("mesecraft_mobs:panda", {"default:dirt_with_rainforest_litter"}, {"air"}, 9, 15, 120, 8000, 2, 0, 200)
+
 mobs:register_egg("mesecraft_mobs:panda", "Panda", "wool_white.png", 1)

@@ -41,7 +41,7 @@ mobs:register_mob("mesecraft_halloween:witch", {
 		{name = "gadgets_consumables:potion_mana_regen_02", chance = 10, min = 1, max = 1},
                 {name = "gadgets_consumables:potion_gravity_02", chance = 10, min = 1, max = 1},
                 {name = "mesecraft_halloween:mask_cat", chance = 100, min = 1, max = 1},
-                {name = "mesecraft_halloween:suit_harry", chance = 100, min = 1, max = 1},
+                {name = "mesecraft_halloween:suit_wizard", chance = 100, min = 1, max = 1},
                 {name = "bweapons_magic_pack:staff_void", chance = 100, min = 1, max = 1},
 	},
 	sounds = {
@@ -71,10 +71,7 @@ mobs:register_mob("mesecraft_halloween:witch", {
 	fear_height = 4,
 	    -- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 3 weeks).
 	do_custom = function(self)
-	        local date = os.date("*t")
-		        if not (date.month == 10 and date.day >= 10) or (date.month == 11 and date.day <= 1) then
-		                       self.object:remove()
-		        end
+	        if not mesecraft_seasonal.keep(self, "halloween") then return false end
 	    end,
 })
 -- Witch's Arrow
@@ -110,4 +107,10 @@ mobs:register_egg("mesecraft_halloween:witch", "Witch Spawn Egg", "mesecraft_hal
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval,chance, active_object_count, min_height, max_height, day_toggle, on_spawn)
 -- World spawning parameters for the witch.
-mobs:spawn_specific("mesecraft_halloween:witch", {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"}, {"air"}, 0, 5, 120, 1000, 2, -30912, 30192, false)
+mesecraft_seasonal.register_spawn("mesecraft_halloween:witch", {
+	season = "halloween",
+	nodes = {"group:cracky", "group:crumbly", "group:shovely", "group:pickaxey"},
+	min_light = 0, max_light = 5,
+	min_y = -30912, max_y = 30192,
+	weight = 2,
+})

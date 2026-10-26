@@ -79,10 +79,7 @@ mobs:register_mob("mesecraft_christmas:candy_cane_man", {
 	end,
 -- Remove the mob if it's not December.
     do_custom = function(self)
-                local date = os.date("*t")
-                if not (date.month == 12) then
-                               self.object:remove()
-                end
+                if not mesecraft_seasonal.keep(self, "christmas") then return false end
     end,
 })
 
@@ -90,6 +87,9 @@ mobs:register_mob("mesecraft_christmas:candy_cane_man", {
 mobs:register_egg("mesecraft_christmas:candy_cane_man", "Candy Cane Man Spawn Egg", "mesecraft_christmas_nodes_candy_cane_block.png", 1)
 
 -- Spawning Parameters
-mobs:spawn_specific("mesecraft_christmas:candy_cane_man", {"default:snowblock", "default:dirt_with_snow", "default:snow"}, {"air"}, 0, 7, 480, 5000, 1, -9500, -6500)
-
-
+mesecraft_seasonal.register_spawn("mesecraft_christmas:candy_cane_man", {
+	season = "christmas",
+	nodes = {"default:snowblock", "default:dirt_with_snow", "default:snow"},
+	min_light = 0, max_light = 7,
+	min_y = -9500, max_y = -6500,
+})
