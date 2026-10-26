@@ -13,8 +13,13 @@ local last_pos = {} -- a table of position vectors that are indexed by plname
 local chat_afk = {} -- a table of booleans indexed by plname that indicate if players are afk, used to indicate if we have placed a chat message that indicates them as afk
 local chat_noafk = {} -- a table of booleans indexed by plname that indicate if players are not afk
 afk.afk_count = 0
-local beds_path = minetest.get_modpath("beds")
+local beds_path = minetest.get_modpath("mesecraft_beds") -- provides the beds API
 local attached_before_afk = {}
+
+-- Chatting counts as activity; the next check brings the player back from AFK.
+minetest.register_on_chat_message(function(name)
+   time_afk[name] = 0
+end)
 -- Function to check if the player is afk.
 
 local function check_moved()

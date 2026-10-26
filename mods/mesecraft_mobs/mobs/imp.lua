@@ -89,6 +89,8 @@ mobs:register_arrow("mesecraft_mobs:an_imp_fireball", {
 
 -- REGISTER SPAWN PARAMETERS
 mobs:spawn_specific("mesecraft_mobs:imp", {"nether:rack"}, {"air"}, 0, 16, 240, 1000, 6, -30912, -16000)
+-- Imps also creep up into the ore-rich stone just above the Nether (issue #14).
+mobs:spawn_specific("mesecraft_mobs:imp", {"default:stone"}, {"air"}, 0, 7, 240, 3000, 3, -17000, -15500)
 
 -- REGISTER SPAWN EGG
 mobs:register_egg("mesecraft_mobs:imp", "Imp Spawn Egg", "default_dirt.png", 1)

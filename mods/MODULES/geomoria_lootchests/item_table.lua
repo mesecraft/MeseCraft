@@ -1,7 +1,7 @@
 
 -- settings related to lootchests mod
 geomoria_lootchests.slots = 32          -- capacity of the chest, number of item slots
-geomoria_lootchests.spawn_chance = 50   -- how likely, in percent, a given slot has stuff; 
+geomoria_lootchests.spawn_chance = 30   -- how likely, in percent, a given slot has stuff (MeseCraft: 50 -> 30, issue #75); 
                                         -- in other words: how full is the chest likely to be?
 
 
@@ -91,13 +91,16 @@ local log = function(msg)
 end
 
 -- remove stuff if the relevant mod isn't loaded
-for k, v in pairs(table.copy(loot_table)) do
-    if not minetest.registered_items[v[1]] then
+-- (rebuilt rather than removed in place, which skipped entries after each removal)
+local loaded = {}
+for _, v in ipairs(loot_table) do
+    if minetest.registered_items[v[1]] then
+        loaded[#loaded + 1] = v
+    else
         log(v[1]..' not loaded, removing from loot table')
---        log('tested '..tostring( minetest.registered_nodes[v[1]]) )
-        table.remove(loot_table, k)
     end
 end
+loot_table = loaded
 
 -- commit final table
 lootchests.loot_table["geomoria_lootchests:chest"] = loot_table

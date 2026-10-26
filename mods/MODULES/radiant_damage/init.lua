@@ -416,6 +416,18 @@ for _, amp_node in ipairs(amplifiers) do
 	end
 end
 
+-- MeseCraft: tell players what is hurting them, at most once a minute (issue #69).
+local last_radiation_notice = {}
+local function notify_radiation(player)
+	local name = player:get_player_name()
+	local now = minetest.get_gametime()
+	if (last_radiation_notice[name] or -60) + 60 <= now then
+		last_radiation_notice[name] = now
+		minetest.chat_send_player(name, minetest.colorize("#9fff6a",
+			"Mese radiation is hurting you. Mese ore nearby is the source; more stone between you and it blocks it."))
+	end
+end
+
 local on_radiation_damage = function(player, damage, pos)
 	local radiation_multiplier = player:get_armor_groups().radiation
 	if radiation_multiplier then
@@ -425,6 +437,7 @@ local on_radiation_damage = function(player, damage, pos)
 	if damage > 0 then
 		minetest.log("action", player:get_player_name() .. " takes " .. tostring(damage) .. " damage from mese radiation damage at " .. minetest.pos_to_string(pos))
 		player:set_hp(player:get_hp() - damage)
+		notify_radiation(player)
 		minetest.sound_play({name = "radiant_damage_geiger", gain = math.min(1, damage/10)}, {to_player=player:get_player_name()})
 	end
 end

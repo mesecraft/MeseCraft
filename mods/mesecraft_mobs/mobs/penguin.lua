@@ -55,7 +55,7 @@ mobs:register_mob("mesecraft_mobs:penguin", {
 })
 
 -- Register Spawning Parameters
-mobs:spawn_specific("mesecraft_mobs:penguin", {"default:ice", "default:dirt_with_snow"}, {"air"}, 7, 16, 240, 480, 0, 50, true)
+mobs:spawn_specific("mesecraft_mobs:penguin", {"default:ice", "default:dirt_with_snow"}, {"air"}, 7, 16, 240, 5000, 3, 0, 200, true)
 
 -- Register Spawning Egg
 mobs:register_egg("mesecraft_mobs:penguin", "Penguin", "default_snow.png", 1)

@@ -53,6 +53,8 @@ mobs:register_mob("mesecraft_mobs:pinky", {
 })
 -- REGISTER SPAWN: PINKY
 mobs:spawn_specific("mesecraft_mobs:pinky", {"nether:rack","nether:brick"}, {"air"}, 0, 16, 240, 4000, 2, -30912, -16000)
+-- And pinky demons, more rarely.
+mobs:spawn_specific("mesecraft_mobs:pinky", {"default:stone"}, {"air"}, 0, 7, 240, 8000, 1, -17000, -15500)
 
 -- REGISTER SPAWN EGG: PINKY
 mobs:register_egg("mesecraft_mobs:pinky", "Pinky Spawn Egg", "wool_pink.png", 1)
