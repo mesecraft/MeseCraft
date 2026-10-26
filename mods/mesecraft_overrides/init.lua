@@ -94,3 +94,46 @@ if minetest.get_modpath("climate_api") and minetest.get_modpath("other_worlds") 
 		{min_height = otherworlds.settings.redsky_asteroids.YMIN, max_height = otherworlds.settings.redsky_asteroids.YMAX + 1},
 		{["climate_api:skybox"] = space_sky(red)})
 end
+
+-- Thirst: players weren't sure how to drink (issue #115). Explain it on the drinking items and
+-- remind thirsty players how to drink.
+if minetest.get_modpath("thirsty") then
+	local function add_hint(name, hint)
+		local def = minetest.registered_items[name]
+		if def then
+			minetest.override_item(name, {description = def.description .. "\n" .. minetest.colorize("#9ad0ff", hint)})
+		end
+	end
+	minetest.register_on_mods_loaded(function()
+		for name in pairs(thirsty.config.drink_from_container) do
+			if thirsty.config.container_capacity[name] then
+				add_hint(name, "Left-click water to fill it. Left-click anywhere to drink from it.")
+			else
+				add_hint(name, "Left-click water to drink.")
+			end
+		end
+	end)
+
+	local HINT_BELOW = 6      -- hydration out of 20
+	local HINT_EVERY = 300    -- seconds between reminders
+	local last_hint = {}
+	local timer = 0
+	minetest.register_globalstep(function(dtime)
+		timer = timer + dtime
+		if timer < 15 then return end
+		timer = 0
+		local now = minetest.get_gametime()
+		for _, player in ipairs(minetest.get_connected_players()) do
+			local name = player:get_player_name()
+			if player:get_hp() > 0 and thirsty.get_hydro(player) < HINT_BELOW
+					and (last_hint[name] or -HINT_EVERY) + HINT_EVERY <= now then
+				last_hint[name] = now
+				minetest.chat_send_player(name, minetest.colorize("#9ad0ff",
+					"You're thirsty. Stand still in water to drink, or left-click water with a glass, bottle, bowl or canteen."))
+			end
+		end
+	end)
+	minetest.register_on_leaveplayer(function(player)
+		last_hint[player:get_player_name()] = nil
+	end)
+end
