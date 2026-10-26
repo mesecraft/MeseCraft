@@ -191,7 +191,7 @@ local function entity_physics(pos, radius, drops, in_water)
 				end
 				obj:set_hp(hp)
 			end
-		elseif obj:get_entity_name() ~= "tnt_revamped:empty_tnt_entity" then
+		elseif (obj:get_luaentity() or {}).name ~= "tnt_revamped:empty_tnt_entity" then
 			local do_damage = true
 			local do_knockback = true
 			local entity_drops = {}

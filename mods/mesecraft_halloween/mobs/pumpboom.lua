@@ -1,5 +1,23 @@
 -- code based off of pumpboom in nssm. pumpkin texture from farming_redo or crops.
 
+-- The pumpkin's carved face is dark until it targets a player; then it lights up, glows,
+-- and lights its surroundings like a jack-o'-lantern.
+local function pumpkin_textures(face)
+	return {"farming_pumpkin_top.png", "farming_pumpkin_top.png", "farming_pumpkin_side.png",
+		"farming_pumpkin_side.png", face, "farming_pumpkin_side.png"}
+end
+local unlit_textures = pumpkin_textures("farming_pumpkin_face_off.png")
+local lit_textures = pumpkin_textures("farming_pumpkin_face_on.png")
+local has_wielded_light = minetest.get_modpath("wielded_light") ~= nil
+
+local function set_lit(self, lit)
+	self.object:set_properties({textures = lit and lit_textures or unlit_textures, glow = lit and 10 or 0})
+	if has_wielded_light then
+		wielded_light.track_user_entity(self.object, "pumpboom", lit and "farming:jackolantern_on" or "")
+	end
+	self.pumpboom_lit = lit
+end
+
 -- REGISTER MOB & ATTRIBUTES
 -- todo: add costume drops
 mobs:register_mob("mesecraft_halloween:pumpboom", {
@@ -8,12 +26,7 @@ mobs:register_mob("mesecraft_halloween:pumpboom", {
     hp_max = 10,
     collisionbox = {-0.45, -0.5, -0.45, 0.45, 0.45, 0.45},
     visual = "cube",
-    textures = {{"farming_pumpkin_top.png",
-                "farming_pumpkin_top.png",
-                "farming_pumpkin_side.png",
-                "farming_pumpkin_side.png",
-                "farming_pumpkin_face_on.png",
-                "farming_pumpkin_side.png"}},
+    textures = {unlit_textures},
     visual_size = {x=1, y=1},
     explosion_radius = 3,
     makes_footstep_sound = false,
@@ -60,6 +73,10 @@ mobs:register_mob("mesecraft_halloween:pumpboom", {
 	    -- Only spawn around Halloween date/time (Oct 10th - Nov 1st, 3 weeks).
 	    do_custom = function(self)
 		        if not mesecraft_seasonal.keep(self, "halloween") then return false end
+		        local lit = self.state == "attack"
+		        if lit ~= self.pumpboom_lit then
+		                set_lit(self, lit)
+		        end
 	    end,
 })
 
