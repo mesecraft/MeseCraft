@@ -3,14 +3,14 @@
 mesecraft_guides = {}
 
 local modpath = minetest.get_modpath("mesecraft_guides")
-local FORUM = "https://www.mesecraft.com/discussions/topic/"
 
 -- MTG's book shows 14 lines per page; wrapping keeps each page within the text box.
 local LINE_WIDTH = 50
 local LINES_PER_PAGE = 14
 local MAX_TEXT = 10000
 
--- topic: forum thread the guide comes from. extra: other players whose replies were folded in.
+-- topic: the guide's thread under mesecraft.com/discussions/topic/ (credited in README.md, not in
+-- the book). extra: other players whose replies were folded in.
 mesecraft_guides.books = {
 	{id = "introduction", title = "An Introduction to MeseCraft", author = "Fane",
 		topic = "an-introduction-to-mesecraft"},
@@ -66,7 +66,7 @@ for _, book in ipairs(mesecraft_guides.books) do
 	if book.extra then
 		credit = credit .. ", with notes from " .. book.extra
 	end
-	text = text .. "\n\n" .. credit .. " on the MeseCraft forums:\n" .. FORUM .. book.topic .. "/"
+	text = text .. "\n\n" .. credit .. " for the MeseCraft forums."
 	local lines = wrap(text)
 	book.text = table.concat(lines, "\n")
 	book.page_max = math.ceil(#lines / LINES_PER_PAGE)

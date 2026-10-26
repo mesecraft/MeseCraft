@@ -2,7 +2,7 @@
 
 Guide books written by MeseCraft players on the [mesecraft.com forums](https://www.mesecraft.com/discussions/), proofread and updated for the current game. New players start with *How to Play MeseCraft*. Shelves in newly generated settlements get guides, and market buildings get the market reference. The settlements book ABM shelves a guide when it has no ledger or travel guide to write.
 
-Each book ends with its author and a link to the forum thread it came from. Texts are in `books/`. Add a guide by adding a text file there and an entry to `mesecraft_guides.books` in `init.lua`.
+Each book ends with its author's name. The forum threads they came from are listed below; the books themselves contain no links. Texts are in `books/`. Add a guide by adding a text file there and an entry to `mesecraft_guides.books` in `init.lua`.
 
 API:
 
