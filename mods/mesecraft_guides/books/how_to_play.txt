@@ -2,15 +2,15 @@ So you've just started MeseCraft and don't know what to do? Your first step is t
 
 -- The Canteen --
 
-Next, find the closest water and punch down a tree for wood. Then open your inventory. Along the top are some tabs: click "Guide". The guide shows you how to craft the items and tools you will use on your adventure. Type "canteen" into its search bar.
+Next, find the closest water. You start with a wooden canteen. What is it for? Above your hotbar is a blue bar with a water drop: your thirst bar. Hold the canteen and left-click water to fill it, then left-click anywhere to drink from it. When it runs dry, fill it again at any water source. You can also drink by standing still in water.
 
-The guide shows how to craft a wooden canteen. What is it for? Above your hotbar is a blue bar with a water drop: your thirst bar. Hold the canteen and left-click water to fill it, then left-click anywhere to drink from it. When it runs dry, fill it again at any water source. You can also drink by standing still in water. Once you have the materials, you can craft canteens that hold more water.
+Then punch down a tree for wood and open your inventory. Along the top are some tabs: click "Guide". The guide shows you how to craft the items and tools you will use on your adventure. Type "canteen" into its search bar to see the canteens that hold more water, for when you have the materials.
 
 -- Early Start --
 
 (Skip this part if you already know Minetest, though it has a few useful tips.)
 
-You start with wooden tools, and they won't last long. Take your wooden pickaxe and either dig down until you find stone or look for a cave or mountainside. Mine some stone, then search the guide for "pick", "sword" or "axe" and craft the stone versions. They are stronger and last longer than wooden tools.
+You start with wooden tools and a torch, and they won't last long. Take your wooden pickaxe and either dig down until you find stone or look for a cave or mountainside. Mine some stone, then search the guide for "pick", "sword" or "axe" and craft the stone versions. They are stronger and last longer than wooden tools.
 
 Even with these tools you aren't well protected. One of the inventory tabs is "Armor": the armor you place there protects you. Search the guide for "armor" to see every kind. Wood is the only one you can make this early. For more protection, search for "shield" and craft a wooden shield, which goes in the armor tab too. You can also put armor in your hotbar, select it and left-click to wear it.
 

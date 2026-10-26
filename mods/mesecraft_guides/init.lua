@@ -119,13 +119,21 @@ function mesecraft_guides.add_random_book(inv, listname, filter)
 	return true
 end
 
--- New players start with How to Play.
+-- New players start with How to Play, and are told where to find it.
 minetest.register_on_newplayer(function(player)
 	local inv = player:get_inventory()
 	local stack = mesecraft_guides.make_book("how_to_play")
 	if inv:room_for_item("main", stack) then
 		inv:add_item("main", stack)
 	end
+	local name = player:get_player_name()
+	-- Wait a moment so the message isn't lost among the join messages.
+	minetest.after(5, function()
+		if minetest.get_player_by_name(name) then
+			minetest.chat_send_player(name, minetest.colorize("#ffd36b",
+				"Welcome to MeseCraft! New here? Hold the How to Play book in your hotbar and left-click to read it."))
+		end
+	end)
 end)
 
 -- Settlement libraries: shelves in new settlements get a guide or two (market buildings get the
