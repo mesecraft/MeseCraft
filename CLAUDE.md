@@ -13,7 +13,7 @@ MeseCraft is in beta. Don't add backward-compatibility code for old worlds, old 
 ## Branches
 
 - `dev`: where development happens. New code, fixes and PRs target `dev`.
-- `main`: the stable branch for players and server operators. Small fixes sometimes land on `main` first and are then merged back into `dev`.
+- `main`: the stable branch for players and server operators. It only changes through a pull request from `dev`; nothing lands on `main` first, and direct pushes are refused.
 
 ## Licensing of content
 
