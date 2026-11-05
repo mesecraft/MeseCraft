@@ -24,6 +24,13 @@ MeseCraft was temporarily removed from ContentDB over copyright concerns. This d
 | `mesecraft_mobs`: 43 Mineclonia textures | Uncredited, or credited to the wrong source | Credited to Mineclonia and Pixel Perfection by XSSheep (CC BY-SA 4.0) in `credits.txt`. The spider was credited to lottmobs |
 | `mesecraft_mobs`: 38 Freedoom sounds | Freedoom not credited; its BSD license requires the notice | Listed in `credits.txt` with `LICENSE-freedoom.txt`. None of the 959 sounds checked match the original DOOM |
 | bees, smoke, paintings, itemframes, mob_horse, geomoria_lootchests | No license file | `LICENSE.txt` added, from each mod's upstream or its own code |
+| `mesecraft_mobs`: 25 humanoid mob skins | Uncredited skins from skin sites, several copying Minecraft blocks (the boomer was a creeper with TNT) | Replaced with original skins drawn by `utils/skingen/skingen.py` |
+| `mesecraft_mobs`: cacodemon, cyberdemon, mancubus, hell baron, imp, pinky and lost soul | Named and styled after DOOM's monsters | Renamed after Freedoom's monsters: trilobite, assault tripod, combat slug, pain lord, serpentipede, flesh worm and hatchling. Humanoid ones got new skins; D00Med's models (CC BY-SA 3.0) were recoloured by `utils/skingen/recolor.py`; all their sounds are Freedoom's |
+| `mesecraft_mobs`: about 100 sounds | No recorded source, sounds from a deleted freesound pack (JarAxe), one from freesfx.co.uk (no redistribution), one BY-NC (Timbre) | Rebuilt from Freedoom (BSD) by `utils/mobsounds/freedoom_sounds.py`, which records each file's source |
+| `mesecraft_mobs`: the other sounds | Not credited | Traced and credited: SnowSong by Alecia Shepherd (CC BY-SA 4.0, from the file tags), freesound.org CC0 and CC BY 4.0 sounds named in the mob code, and pooper (CC BY-SA 3.0) |
+| `mesecraft_mobs`: jabberer, cave floater, facehugger, penguin, panda, crocodiles, kangaroo, flying saucer, rat, tree monster | Not credited | Credited from the sources named in the mob code: D00Med (CC BY-SA 3.0), AspireMint (CC BY-SA 3.0), ElCeejo (GPLv3), Zeg9's ufos (WTFPL), PilzAdam |
+| `curtains` | No license; textures of unknown origin | Rewritten for MeseCraft with new textures (AGPLv3) |
+| `radioactive_gas` | No license upstream (Pandorabox) | Rewritten for MeseCraft with a new texture (AGPLv3) |
 
 **Not problems:**
 - Similarities in Minetest Game's rails, TNT, steel trapdoor and footsteps: that is Minetest Game's own art.
@@ -31,15 +38,5 @@ MeseCraft was temporarily removed from ContentDB over copyright concerns. This d
 
 ## Still open
 
-1. **Mob skins:** about 25 skins on `mobs_character.b3d` have no credit and are probably from Planet Minecraft, where skins are all rights reserved unless stated otherwise. They need replacing with original or freely licensed skins:
-   - astronaut, blood man, bogeyman, boomer, cyberdemon, diamond man, dirt man, fire imp, fire man, ghost, murderous ghost, gold man
-   - grey civilian, grey enlisted, hell baron, imp, iron man, magma man, mancubus, reptilian elite, sand man, stone man, water man, zombie, space zombie
-2. **Other uncredited mob textures:**
-   - bat, cacodemon, cave crocodile, cave floater, crocodile, deer, demon eye, facehugger, flying saucer, jabberer, kangaroo, panda, penguin
-   - pinky, rat, shark (the base texture is credited), skeleton bow and sword, skull, tree monster, clownfish 1 to 13
-3. **Mobs based on DOOM:** cacodemon, cyberdemon, mancubus, hell baron, imp, pinky and the skull (lost soul) use id Software's character names and look-alike designs. They will be renamed and redesigned. Their sounds already come from Freedoom.
-4. **Mob sounds:** about 270 sounds in `mesecraft_mobs` have no recorded source.
-5. **Mods without license information:**
-   - `curtains` by Jozet, based on xdecor's curtains
-   - `radioactive_gas`
-6. **To check:** `drawers_controller_top.png` looks somewhat like Minecraft's smooth stone slab. It's a partial match, not a copy.
+1. **Mob textures not traced yet:** the bat model, deer, clownfish (1 to 13), skeleton bow and sword, and the demon eye texture.
+2. **To check:** `drawers_controller_top.png` looks somewhat like Minecraft's smooth stone slab. It's a partial match, not a copy.

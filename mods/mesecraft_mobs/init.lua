@@ -1,7 +1,6 @@
 -- TODO: ADD GLOBAL VARIABLES FOR CONTROLLING HEIGHT SPAWNS VIA MINETEST SETTING OR MINETEST.CONF
 
 local path = minetest.get_modpath("mesecraft_mobs")
-local S = minetest.get_translator("mesecraft_mobs")
 
 --staging area for new mobs that are incomplete
 dofile(path .. "/mobs/facehugger.lua")
@@ -106,11 +105,11 @@ dofile(path .. "/items/salmon_items.lua")
 dofile(path .. "/items/spider_items.lua")
 dofile(path .. "/items/snapper_items.lua")
 
--- DOOMed Creatures
-dofile(path .. "/mobs/cacodemon.lua")
-dofile(path .. "/mobs/cyberdemon.lua")
-dofile(path .. "/mobs/hellbaron.lua")
-dofile(path .. "/mobs/imp.lua")
-dofile(path .. "/mobs/mancubus.lua")
-dofile(path .. "/mobs/pinky.lua")
-dofile(path .. "/mobs/skull.lua")
+-- Nether creatures, named after Freedoom's monsters
+dofile(path .. "/mobs/trilobite.lua")
+dofile(path .. "/mobs/assault_tripod.lua")
+dofile(path .. "/mobs/pain_lord.lua")
+dofile(path .. "/mobs/serpentipede.lua")
+dofile(path .. "/mobs/combat_slug.lua")
+dofile(path .. "/mobs/flesh_worm.lua")
+dofile(path .. "/mobs/hatchling.lua")

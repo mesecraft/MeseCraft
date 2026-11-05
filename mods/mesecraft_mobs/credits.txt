@@ -29,70 +29,86 @@ Mineclonia (mobs_mc and item mods), CC BY-SA 4.0
       _arrow_plasmaball.png (dragon fireball)
 
 Shark: by sapier, CC BY-SA 3.0, modified by blerty2112.
-Fire imp: "De'Krath Imp" by The Crawler.
-Bogeyman: "monster 2" skin by skip7777+.
-Space zombie: "Former Astronaut Callsign 21A" by Mullraugh.
-Boomer: source not recorded.
+Panda: by AspireMint, CC BY-SA 3.0.
+Jabberer and cave floater: from "horror" by D00Med, CC BY-SA 3.0.
+Facehugger: from "mobs_scifi" by D00Med, CC BY-SA 3.0.
+Penguin: by D00Med, CC BY-SA 3.0.
+Trilobite, flesh worm and hatchling: models and textures from "mobs_doom" by D00Med,
+  CC BY-SA 3.0 (https://github.com/D00Med/mobs_doom). The textures were recoloured for
+  MeseCraft by utils/skingen/recolor.py; the results stay CC BY-SA 3.0.
+Crocodile, cave crocodile and kangaroo: models and textures based on ElCeejo's Paleotest
+  and Procoptodon mods, GPLv3.
+Flying saucer: model and texture by Melkor from Zeg9's "ufos" mod (WTFPL), texture
+  modified by Pilcrow182.
+Rat: by PilzAdam (mobs_animal), B3D model by sirrobzeroone.
+Tree monster: by PilzAdam (mobs_monster).
+
+Original skins made for MeseCraft, drawn by utils/skingen/skingen.py (AGPLv3 with the
+game). They replaced uncredited skins from skin sites:
+  astronaut, assault tripod, blood man, bogeyman, boomer, combat slug, diamond man,
+  dirt man, fire imp, fire man, ghost, murderous ghost, gold man, grey civilian,
+  grey enlisted, iron man, magma man, pain lord, reptilian elite, sand man,
+  serpentipede, stone man, water man, zombie and space zombie.
 
 Original art made for MeseCraft (AGPLv3 with the game), replacing copies of Minecraft textures
 (issue #111): the cod, dolphin, turtle, snapper (1-6) and wolf collar textures, the spiderweb item
 and the salmon.
 
+Not yet traced: the bat model, deer, clownfish, skeleton bow and sword, and the demon
+eye texture. See docs/LICENSE-AUDIT.md.
+
 
 MODELS
 ------
 
+The humanoid mobs use mobs_character.b3d, the standard Luanti character model.
 Spider model from lottmobs.
 Skeleton: mesh by Morn76, animation by Pavel_S.
-Other models: sources not recorded yet.
+Demon eye: model from mobs_mc (Mineclonia), CC BY-SA 4.0.
+Other models are credited with their textures above.
 
 
 SOUNDS
 ------
 
-Freedoom (BSD 3-Clause, see LICENSE-freedoom.txt). Sounds taken from freedoom2:
-  mesecraft_mobs_cacodemon_random.ogg              DSBGACT
-  mesecraft_mobs_common_shoot_fireball_hit.ogg     DSFIRXPL
-  mesecraft_mobs_common_shoot_plasmaball.ogg       DSFIRSHT
-  mesecraft_mobs_common_shoot_plasmaball_hit.ogg   DSPLASMA
-  mesecraft_mobs_cyberdemon_death.ogg              DSCYBDTH
-  mesecraft_mobs_cyberdemon_random.ogg             DSHOOF
-  mesecraft_mobs_cyberdemon_shoot.ogg              DSRLAUNC
-  mesecraft_mobs_cyberdemon_warcry.ogg             DSCYBSIT
-  mesecraft_mobs_demon_eye_damage.ogg              DSPEPAIN
-  mesecraft_mobs_ghost_attack.ogg                  DSVILATK
-  mesecraft_mobs_ghost_damage.ogg                  DSVIPAIN
-  mesecraft_mobs_ghost_random.ogg                  DSVILACT
-  mesecraft_mobs_ghost_warcry.ogg                  DSVILSIT
-  mesecraft_mobs_hellbaron_death.ogg               DSBRSDTH
-  mesecraft_mobs_hellbaron_warcry.ogg              DSBRSSIT
-  mesecraft_mobs_imp_death.ogg                     DSKNTDTH
-  mesecraft_mobs_imp_death.1.ogg                   DSBGDTH1
-  mesecraft_mobs_imp_death.2.ogg                   DSBGDTH2
-  mesecraft_mobs_imp_random.ogg                    DSBGACT
-  mesecraft_mobs_imp_warcry.ogg                    DSKNTSIT
-  mesecraft_mobs_imp_warcry.1.ogg                  DSBGSIT1
-  mesecraft_mobs_imp_warcry.2.ogg                  DSBGSIT2
-  mesecraft_mobs_mancubus_death.ogg                DSMANDTH
-  mesecraft_mobs_mancubus_random.ogg               DSMANATK
-  mesecraft_mobs_pinky_attack.ogg                  DSSGTATK
-  mesecraft_mobs_pinky_damage.ogg                  DSDMPAIN
-  mesecraft_mobs_pinky_random.ogg                  DSDMACT
-  mesecraft_mobs_pinky_warcry.ogg                  DSSGTSIT
-  mesecraft_mobs_skull_death.ogg                   DSSKEDTH
-  mesecraft_mobs_skull_random.ogg                  DSSKEACT
-  mesecraft_mobs_skull_warcry.ogg                  DSSKESIT
-  mesecraft_mobs_zombie_death.1.ogg                DSPODTH1
-  mesecraft_mobs_zombie_death.2.ogg                DSPODTH2
-  mesecraft_mobs_zombie_death.3.ogg                DSPODTH3
-  mesecraft_mobs_zombie_random.ogg                 DSPOSACT
-  mesecraft_mobs_zombie_warcry.1.ogg               DSPOSIT1
-  mesecraft_mobs_zombie_warcry.2.ogg               DSPOSIT2
-  mesecraft_mobs_zombie_warcry.3.ogg               DSPOSIT3
+SnowSong by Alecia Shepherd (Sn0wShepherd), CC BY-SA 4.0. Most animal and monster sounds
+  (bat, boomer, chicken, cow, crocodile, demon eye, facehugger, ocelot, pig, polar bear,
+  rabbit, shark, skeleton, spider, wolf, the Halloween witch, and the arrow sounds)
+  carry her name in their file tags.
+  The SnowSong sound pack for the rest of the game is mods/MODULES/snowsong.
 
-Fire imp: "Tiny vicious creature" by Darsycho.
-Snowdrift soundpack.
-Most other mob sounds have no recorded source yet.
+Freedoom (BSD 3-Clause, see LICENSE-freedoom.txt).
+  Taken unchanged from freedoom2:
+    mesecraft_mobs_common_shoot_fireball_hit.ogg     DSFIRXPL
+    mesecraft_mobs_common_shoot_plasmaball.ogg       DSFIRSHT
+    mesecraft_mobs_common_shoot_plasmaball_hit.ogg   DSPLASMA
+    mesecraft_mobs_demon_eye_damage.ogg              DSPEPAIN
+    mesecraft_mobs_ghost_attack.ogg                  DSVILATK
+    mesecraft_mobs_ghost_damage.ogg                  DSVIPAIN
+    mesecraft_mobs_ghost_random.ogg                  DSVILACT
+    mesecraft_mobs_ghost_warcry.ogg                  DSVILSIT
+    mesecraft_mobs_zombie_death.1.ogg - .3.ogg       DSPODTH1 - DSPODTH3
+    mesecraft_mobs_zombie_random.ogg                 DSPOSACT
+    mesecraft_mobs_zombie_warcry.1.ogg - .3.ogg      DSPOSIT1 - DSPOSIT3
+  Built from Freedoom 0.13.0 by utils/mobsounds/freedoom_sounds.py, some with the pitch
+  changed. That script lists the source of each file. It covers the serpentipede, flesh
+  worm, hatchling, trilobite, pain lord, combat slug and assault tripod; the grey aliens,
+  reptilian elite and flying saucer; the dirt, sand and stone men; the rat, kangaroo,
+  demon eye and ghost deaths; the zombie's attack and damage; the shared claw, fireball
+  and poison ball sounds; and the Halloween witch's spell and werewolf.
+
+freesound.org, CC0:
+  Astronaut: craigsmith (438900).
+  Bogeyman laughs: cacti225 (405613). Bogeyman snarls: Darsycho (443404).
+  Fire imp: "Tiny vicious creature" by Darsycho.
+  Jabberer: MinigunFiend (175206), dinodilopho (263530), fabianacarmonas (491462),
+    Ragu21 (342162).
+freesound.org, CC BY 4.0:
+  Bogeyman insults: edited from Iceofdoom (https://freesound.org/people/Iceofdoom/sounds/396900/).
+
+Poop sounds: from "pooper" by AccidentallyRhine, CC BY-SA 3.0
+  (https://gitlab.com/CloudyProton/pooper), recorded by timtube, jorickhoofd and
+  IFartInUrGeneralDirection on freesound.org.
 
 
 HALLOWEEN

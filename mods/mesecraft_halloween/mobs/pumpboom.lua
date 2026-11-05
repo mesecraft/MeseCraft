@@ -35,7 +35,7 @@ mobs:register_mob("mesecraft_halloween:pumpboom", {
     walk_velocity = 1.5,
     run_velocity = 2.5,
     sounds = {
-                random = "mesecraft_mobs_dirt_golem_random",
+                random = "mesecraft_mobs_dirt_man_random",
                 attack = "tnt_ignite",
                 death = "mesecraft_mobs_boomer_death",
                 damage = "mesecraft_mobs_boomer_damage",
