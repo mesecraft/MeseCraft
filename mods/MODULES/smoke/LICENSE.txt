@@ -1,0 +1,5 @@
+smoke by Astrobe. Animated smoke texture by Texmex.
+
+License, from the header of init.lua:
+- Code: LGPL 2.1
+- Textures: CC BY-SA 4.0

@@ -1,42 +1,102 @@
+MESECRAFT_MOBS CREDITS
+======================
+
+Code is licensed under the GPLv3 (LICENSE.md). Media credits follow. Where no source is known yet,
+that is said plainly; see docs/LICENSE-AUDIT.md in the game for the open items.
+
+
 TEXTURES
-boomer textures... 
-spider texture from lottmobs
-shark author: sapier, CC-BY-SA 3.0, texture modification by blerty2112.
+--------
 
-## FIRE IMP ###
-texture: "De'Krath Imp" by The Crawler
-sounds: "Tiny vicious creature" by Darsycho
+Mineclonia (mobs_mc and item mods), CC BY-SA 4.0
+  Based on Pixel Perfection by XSSheep; files marked * were modified by MysticTempest.
+  Source: https://codeberg.org/mineclonia/mineclonia (mods/ENTITIES/mobs_mc/LICENSE-media.md)
+  Mobs:
+    mesecraft_mobs_cat_black.png, _cat_ocelot.png, _cat_red.png, _cat_siamese.png
+    mesecraft_mobs_chicken.png, _cow.png, _mooshroom.png, _mooshroom_red_mushroom.png
+    mesecraft_mobs_pig.png, _polarbear.png, _snowman.png, _wolf.png, _wolf_tame.png
+    mesecraft_mobs_rabbit_black.png, _brown.png, _caerbannog.png, _gold.png, _salt.png,
+      _toast.png, _white.png, _white_splotched.png
+    mesecraft_mobs_skeleton.png *
+    mesecraft_mobs_spider.png *, mesecraft_mobs_spider_2.png * (cave spider)
+    the parrot textures * (some recolored), the bat and sheep textures
+  Items and projectiles:
+    mesecraft_mobs_items_bone.png, _chicken_cooked.png, _chicken_egg.png, _chicken_feather.png,
+      _chicken_raw.png, _meat.png, _meat_cooked.png, _milk_bucket.png, _mutton_cooked.png,
+      _mutton_raw.png, _pork_cooked.png, _pork_raw.png, _rabbit_cooked.png, _rabbit_hide.png,
+      _rabbit_raw.png, _rotten_flesh.png
+    mesecraft_mobs_arrow_arrow_trail.png, _arrow_fireball.png (fire charge),
+      _arrow_plasmaball.png (dragon fireball)
 
+Shark: by sapier, CC BY-SA 3.0, modified by blerty2112.
+Fire imp: "De'Krath Imp" by The Crawler.
+Bogeyman: "monster 2" skin by skip7777+.
+Space zombie: "Former Astronaut Callsign 21A" by Mullraugh.
+Boomer: source not recorded.
 
-BOOGYMAN - monster 2 skin by skip7777+, sounds by 
-SKELETON - Mesh by Morn76 Animation by Pavel_S
-SPACE ZOMBIE TEXTURE - Former Astronaut Callsign 21A by Mullraugh
-
-
-
-
-
-
+Original art made for MeseCraft (AGPLv3 with the game), replacing copies of Minecraft textures
+(issue #111): the cod, dolphin, turtle, snapper (1-6) and wolf collar textures, the spiderweb item
+and the salmon.
 
 
 MODELS
-spider model from lottmobs
+------
 
-CODE
+Spider model from lottmobs.
+Skeleton: mesh by Morn76, animation by Pavel_S.
+Other models: sources not recorded yet.
 
 
 SOUNDS
-snowdrift soundpack
+------
 
-Halloween candy, costumes, and textures from "halloween" by GreenXenith (https://github.com/GreenXenith/halloween), MIT LICENSE.
+Freedoom (BSD 3-Clause, see LICENSE-freedoom.txt). Sounds taken from freedoom2:
+  mesecraft_mobs_cacodemon_random.ogg              DSBGACT
+  mesecraft_mobs_common_shoot_fireball_hit.ogg     DSFIRXPL
+  mesecraft_mobs_common_shoot_plasmaball.ogg       DSFIRSHT
+  mesecraft_mobs_common_shoot_plasmaball_hit.ogg   DSPLASMA
+  mesecraft_mobs_cyberdemon_death.ogg              DSCYBDTH
+  mesecraft_mobs_cyberdemon_random.ogg             DSHOOF
+  mesecraft_mobs_cyberdemon_shoot.ogg              DSRLAUNC
+  mesecraft_mobs_cyberdemon_warcry.ogg             DSCYBSIT
+  mesecraft_mobs_demon_eye_damage.ogg              DSPEPAIN
+  mesecraft_mobs_ghost_attack.ogg                  DSVILATK
+  mesecraft_mobs_ghost_damage.ogg                  DSVIPAIN
+  mesecraft_mobs_ghost_random.ogg                  DSVILACT
+  mesecraft_mobs_ghost_warcry.ogg                  DSVILSIT
+  mesecraft_mobs_hellbaron_death.ogg               DSBRSDTH
+  mesecraft_mobs_hellbaron_warcry.ogg              DSBRSSIT
+  mesecraft_mobs_imp_death.ogg                     DSKNTDTH
+  mesecraft_mobs_imp_death.1.ogg                   DSBGDTH1
+  mesecraft_mobs_imp_death.2.ogg                   DSBGDTH2
+  mesecraft_mobs_imp_random.ogg                    DSBGACT
+  mesecraft_mobs_imp_warcry.ogg                    DSKNTSIT
+  mesecraft_mobs_imp_warcry.1.ogg                  DSBGSIT1
+  mesecraft_mobs_imp_warcry.2.ogg                  DSBGSIT2
+  mesecraft_mobs_mancubus_death.ogg                DSMANDTH
+  mesecraft_mobs_mancubus_random.ogg               DSMANATK
+  mesecraft_mobs_pinky_attack.ogg                  DSSGTATK
+  mesecraft_mobs_pinky_damage.ogg                  DSDMPAIN
+  mesecraft_mobs_pinky_random.ogg                  DSDMACT
+  mesecraft_mobs_pinky_warcry.ogg                  DSSGTSIT
+  mesecraft_mobs_skull_death.ogg                   DSSKEDTH
+  mesecraft_mobs_skull_random.ogg                  DSSKEACT
+  mesecraft_mobs_skull_warcry.ogg                  DSSKESIT
+  mesecraft_mobs_zombie_death.1.ogg                DSPODTH1
+  mesecraft_mobs_zombie_death.2.ogg                DSPODTH2
+  mesecraft_mobs_zombie_death.3.ogg                DSPODTH3
+  mesecraft_mobs_zombie_random.ogg                 DSPOSACT
+  mesecraft_mobs_zombie_warcry.1.ogg               DSPOSIT1
+  mesecraft_mobs_zombie_warcry.2.ogg               DSPOSIT2
+  mesecraft_mobs_zombie_warcry.3.ogg               DSPOSIT3
+
+Fire imp: "Tiny vicious creature" by Darsycho.
+Snowdrift soundpack.
+Most other mob sounds have no recorded source yet.
 
 
-MOBS_MC (MineClone2 / Mineclonia)
-Textures for the bat, cat/ocelot, chicken, cow, mooshroom, parrot, pig, polar bear, rabbit, sheep,
-snowman and wolf come from mobs_mc: mob textures by XSSheep (from Pixel Perfection, CC BY-SA 4.0),
-MysticTempest and other mobs_mc contributors. See https://codeberg.org/mineclonia/mineclonia
-(mods/ENTITIES/mobs_mc) for per-file credits.
+HALLOWEEN
+---------
 
-REPLACED TEXTURES (issue #111)
-The cod, dolphin, turtle, snapper (1-6) and wolf collar textures, and the spiderweb item, were copies of
-Minecraft textures and have been replaced with original art made for MeseCraft (AGPLv3 with the game).
+Halloween candy, costumes and textures from "halloween" by GreenXenith
+(https://github.com/GreenXenith/halloween), MIT License.

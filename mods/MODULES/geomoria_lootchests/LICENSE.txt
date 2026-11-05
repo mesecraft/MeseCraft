@@ -1,0 +1,3 @@
+geomoria_lootchests by gd2shoe, written for MeseCraft and contributed to the game in
+https://github.com/mesecraft/MeseCraft/pull/85. It is part of MeseCraft and licensed with it
+under the AGPLv3 (see the game's LICENSE.txt).
