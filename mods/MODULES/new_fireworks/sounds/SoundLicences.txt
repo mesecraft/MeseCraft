@@ -1,15 +1,11 @@
 Sound Licenses
-File: fireworks_triangle
-Created By:Syna-Max
-Licence: Attribution Noncommercial License.
-URL: http://www.freesound.org/people/Syna-Max/sounds/56606/
 
-File:RomanCandlesandShells.mp3
-CreatedBy: Mr Sensible
-License: This work is licensed under the Creative Commons 0 License.
-URL:http://www.freesound.org/people/Mr%20Sensible/sounds/15000/
+File: new_fireworks_rocket.ogg
+Created By: MeseCraft, generated with ffmpeg
+Licence: CC0 1.0
 
-File: MrSensibleFireworks.mp3
-CreatedBy: Mr Sensible
-License: This work is licensed under the Creative Commons 0 License.
-http://www.freesound.org/people/Mr%20Sensible/sounds/27757/
+The bang plays the game's tnt_explode sound (MTG tnt, CC0) at a higher pitch.
+
+MeseCraft replaced the original sounds. One of them came from Syna-Max's "fireworks triangle"
+(freesound.org sound 56606), licensed Attribution Noncommercial, and it wasn't recorded which file
+that was.

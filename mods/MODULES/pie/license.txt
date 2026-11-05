@@ -24,11 +24,8 @@ THE SOFTWARE.
 Textures licensed under CC-BY-SA 3.0
 http://creativecommons.org/licenses/by-sa/3.0/
 
-lux_pp, Poikilos
-  pie_inv.png
-
 TenPlus1
-  pie_*.png (if not mentioned above)
+  pie_*.png
   choc_*.png
   bana_*.png
   coff_*.png
@@ -39,3 +36,6 @@ TenPlus1
 CalebDavis
   brpd_*.png
   orange_*.png
+
+MeseCraft removed pie_inv.png, which matched Minecraft's cake, and choc_inv.png; the
+inventory now shows the 3D cakes.

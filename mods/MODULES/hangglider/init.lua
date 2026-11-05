@@ -165,11 +165,13 @@ hangglider.can_fly = function (pname, pos)
 end
 
 hangglider.shot_sound = function (pos)
-	minetest.sound_play("hangglider_flak_shot", {
+	-- The game's TNT explosion sound (MTG tnt, CC0, or Snowsong, CC BY-SA 4.0), pitched up into a sharper flak burst.
+	minetest.sound_play("tnt_explode", {
 		pos = pos,
 		max_hear_distance = 30,
-		gain = 10.0,
-	})
+		gain = 1.5,
+		pitch = 1.4,
+	}, true)
 end
 
 local physics_attrs = {"jump", "speed", "gravity"}

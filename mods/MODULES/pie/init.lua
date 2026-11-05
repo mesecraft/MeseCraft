@@ -61,8 +61,7 @@ local register_pie = function(pie, desc)
 			pie .. "_top.png", pie .. "_bottom.png", pie .. "_side.png",
 			pie .. "_side.png", pie .. "_side.png", pie .. "_side.png"
 		},
-		inventory_image = pie .. "_inv.png",
-		wield_image = pie .. "_inv.png",
+		-- No inventory image: the inventory shows the 3D cake made from the tiles above.
 		drawtype = "nodebox",
 		node_box = {
 			type = "fixed",

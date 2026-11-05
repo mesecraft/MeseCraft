@@ -50,4 +50,5 @@ Textures:
 
 Models and sounds: 
 	CC BY-SA (4.0) by Piezo_.
-	hangglider_flak_shot: tnt_explode sound from minetest_game (CC BY-SA 3.0)
+	Flak shots play the game's tnt_explode sound (MTG tnt, CC0) at a higher pitch.
+	MeseCraft removed hangglider_flak_shot.ogg, which matched Minecraft's old explosion sound.

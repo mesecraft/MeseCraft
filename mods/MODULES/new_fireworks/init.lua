@@ -160,8 +160,9 @@ function rocket:on_step(dtime)
   end
 	if self.timer > self.rocket_flytime then
 		if #self.rdt > 0 then
-			minetest.sound_play("new_fireworks_bang", {pos=self.object:get_pos(),
-													 max_hear_distance = 90,gain = 3,})
+			-- The game's TNT explosion sound (MTG tnt, CC0, or Snowsong, CC BY-SA 4.0), pitched up for a lighter firework pop.
+			minetest.sound_play("tnt_explode", {pos=self.object:get_pos(),
+													 max_hear_distance = 90,gain = 1.5,pitch = 1.3}, true)
 			for _,i in pairs(self.rdt) do
 				if i.figure == "ball" then partcl_gen(self.object:get_pos(),ball_figure(0.1),4,4,i.color) end
 				if i.figure == "default" then partcl_gen(self.object:get_pos(),default_figure(0.1),2,4,i.color) end
