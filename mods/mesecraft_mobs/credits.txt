@@ -19,7 +19,7 @@ Mineclonia (mobs_mc and item mods), CC BY-SA 4.0
       _toast.png, _white.png, _white_splotched.png
     mesecraft_mobs_skeleton.png *
     mesecraft_mobs_spider.png *, mesecraft_mobs_spider_2.png * (cave spider)
-    the parrot textures * (some recolored), the bat and sheep textures
+    the parrot textures * (some recolored)
   Items and projectiles:
     mesecraft_mobs_items_bone.png, _chicken_cooked.png, _chicken_egg.png, _chicken_feather.png,
       _chicken_raw.png, _meat.png, _meat_cooked.png, _milk_bucket.png, _mutton_cooked.png,
@@ -54,8 +54,12 @@ Original art made for MeseCraft (AGPLv3 with the game), replacing copies of Mine
 (issue #111): the cod, dolphin, turtle, snapper (1-6) and wolf collar textures, the spiderweb item
 and the salmon.
 
-Not yet traced: the bat model, deer, clownfish, skeleton bow and sword, and the demon
-eye texture. See docs/LICENSE-AUDIT.md.
+Repainted for MeseCraft by utils/skingen/repaint.py (AGPLv3 with the game), because their
+original sources couldn't be traced: the bat, sheep (body and wool), deer, clownfish (1-13)
+and demon eye textures. The repaint keeps only the layout each model's UV map needs. The
+skeleton fighter's sword and the skeleton archer's bow were redrawn from scratch.
+
+The bat model's source is not recorded.
 
 
 MODELS

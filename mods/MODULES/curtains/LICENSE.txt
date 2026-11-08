@@ -1,0 +1,6 @@
+Part of MeseCraft.
+
+Code: GNU Affero General Public License version 3 (AGPLv3), the same as the game. See
+LICENSE.txt in the game folder for the full text.
+
+Media: original art for MeseCraft (AGPLv3), drawn by utils/skingen/curtains.py.

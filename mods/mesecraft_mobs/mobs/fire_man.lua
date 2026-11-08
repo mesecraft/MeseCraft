@@ -1,6 +1,6 @@
 -- FIRE ELEMENTAL
 -- INSPIRED BY THE FIREMAN FROM DWARF FORTRESS
--- Texture by DukeMaster123
+-- Skin: original art for MeseCraft, drawn by utils/skingen/skingen.py.
 -- TODO: Drops ash and lye.
 mobs:register_mob("mesecraft_mobs:fire_man", {
    type = "monster",

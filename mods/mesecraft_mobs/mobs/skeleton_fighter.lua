@@ -17,7 +17,7 @@ mobs:register_mob("mesecraft_mobs:skeleton_fighter", {
                 random = "mesecraft_mobs_skeleton_random",
                 death = "mesecraft_mobs_skeleton_death",
                 damage = "mesecraft_mobs_skeleton_damage",
-                shoot_attack = "mesecraft_mobs_skeleton_shoot",
+                shoot_attack = "mesecraft_mobs_common_shoot_arrow",
                 attack = "mesecraft_mobs_skeleton_attack",
                 jump = "mesecraft_mobs_skeleton_jump",
                 distance = 16,

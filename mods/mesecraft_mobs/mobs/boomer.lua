@@ -1,4 +1,4 @@
--- Skin by "misspinkbunny34"
+-- Skin: original art for MeseCraft, drawn by utils/skingen/skingen.py.
 --License for code WTFPL and otherwise stated in readmes
 -- REGISTER MOB & ATTRIBUTES
 mobs:register_mob("mesecraft_mobs:boomer", {

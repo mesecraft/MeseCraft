@@ -24,8 +24,8 @@ TenPlus1's farming_redo, dye, and default.
 	* Dinosaur  
 	* Frankenstein (Frankenstein's Monster)  
 	* Ghost  
-	* Boy Wizard  
-	* Killer  
+	* Wizard  
+	* Masked Stranger  
 	* Glow-in-the-Dark Skeleton (actually glows in 5.0+)  
 	* Grim Reaper  
 	* Pink Dinosaur  
@@ -76,3 +76,24 @@ Shapeless - Bar of Dark Chocolate (farming_redo), paper, orange dye, caramelized
 +-+-+-+
 ```
 
+
+Credits and licenses
+--------------------
+
+Code is AGPLv3 with MeseCraft, except the costume and candy code, which is based on
+GreenXenith's (GreenDimond's) "halloween" mod (MIT License, Copyright 2018 GreenDimond,
+https://github.com/GreenXenith/halloween).
+
+* Costumes, costume icons, masks and candy textures: GreenXenith's "halloween" mod (MIT).
+  The wizard, forest spirit and masked stranger costumes are the exception (see below).
+* Original art for MeseCraft (AGPLv3), drawn by `utils/skingen/holiday.py`: the
+  frankenstein, grim reaper, scarecrow, werewolf and witch mob skins, and the wizard,
+  forest spirit and masked stranger costumes. These replaced uncredited skins and
+  costumes that copied Harry Potter, Totoro and Michael Myers.
+* The Halloween zombies are a generated zombie (above) wearing GreenXenith's dark unicorn,
+  dino, pink dino and unicorn costumes (MIT).
+* The vampire mob uses GreenXenith's vampire costume texture (MIT).
+* Witch arrow texture and shoot sound: ClockGen's gadgets_modpack (CC BY 4.0).
+* Pumpkin textures: Farming Redo.
+* Werewolf sounds: built from Freedoom (BSD) by `utils/mobsounds/freedoom_sounds.py`;
+  the other mob sounds are credited in mesecraft_mobs/credits.txt.

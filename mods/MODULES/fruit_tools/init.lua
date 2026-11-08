@@ -522,6 +522,13 @@ minetest.register_craft({
 })
 
 if minetest.get_modpath("mobs") then
+    -- Textures this mod ships. A thrown food uses its own "<food>.png" from
+    -- here when there is one, and the food item's inventory image otherwise.
+    local own_textures = {}
+    for _, file in ipairs(minetest.get_dir_list(minetest.get_modpath("fruit_tools") .. "/textures", false)) do
+        own_textures[file] = true
+    end
+
     function fruit_tools:register_throwing_food(modname, foodname, plantname, final_stage, toplant, plantwhole)
         local food
         local f = string.find(foodname, ":")
@@ -557,7 +564,8 @@ if minetest.get_modpath("mobs") then
         mobs:register_arrow(modname..":"..food.."_entity", {
             visual = "sprite",
             visual_size = {x=.5, y=.5},
-            textures = {food..".png"},
+            textures = {own_textures[food..".png"] and food..".png"
+                or minetest.registered_items[foodname].inventory_image},
             velocity = 6,
 
             hit_player = function(self, player)

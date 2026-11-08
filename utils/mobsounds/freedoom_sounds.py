@@ -122,6 +122,7 @@ SOUNDS = {
     "kangaroo": ("DSPOSACT", 1.3),
     "demon_eye_death": ("DSPEDTH", 1.3),
     "ghost_death": ("DSVILDTH", 1.1),
+    "bogeyman_damage": ("DSVIPAIN", 0.8),
     "zombie_attack": ("DSCLAW", 0.9),
     "zombie_damage": ("DSPOPAIN", 1.0),
 
