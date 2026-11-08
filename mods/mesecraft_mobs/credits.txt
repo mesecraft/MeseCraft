@@ -19,7 +19,7 @@ Mineclonia (mobs_mc and item mods), CC BY-SA 4.0
       _toast.png, _white.png, _white_splotched.png
     mesecraft_mobs_skeleton.png *
     mesecraft_mobs_spider.png *, mesecraft_mobs_spider_2.png * (cave spider)
-    the parrot textures * (some recolored)
+    the parrot textures * (some recolored), mesecraft_mobs_sheep.png and _sheep_fur.png
   Items and projectiles:
     mesecraft_mobs_items_bone.png, _chicken_cooked.png, _chicken_egg.png, _chicken_feather.png,
       _chicken_raw.png, _meat.png, _meat_cooked.png, _milk_bucket.png, _mutton_cooked.png,
@@ -55,7 +55,7 @@ Original art made for MeseCraft (AGPLv3 with the game), replacing copies of Mine
 and the salmon.
 
 Repainted for MeseCraft by utils/skingen/repaint.py (AGPLv3 with the game), because their
-original sources couldn't be traced: the bat, sheep (body and wool), deer, clownfish (1-13)
+original sources couldn't be traced: the bat, deer, clownfish (1-13)
 and demon eye textures. The repaint keeps only the layout each model's UV map needs. The
 skeleton fighter's sword and the skeleton archer's bow were redrawn from scratch.
 
@@ -70,8 +70,10 @@ Traced in November 2026 by comparing geometry with the source mods.
 By 22i from MineClone2 / Mineclonia's mobs_mc, GPLv3
   (https://codeberg.org/mineclonia/mineclonia, mods/ENTITIES/mobs_mc/LICENSE-media.md):
     bat, cat, chicken, cod, cow, dolphin, parrot, pig, polar bear, rabbit, salmon,
-    sheep (fur), skeleton, skeleton fighter (the wither skeleton), snapper (tropical fish),
-    snowman, spider, wolf, and the demon eye (the ghast model).
+    sheep (Mineclonia's current two-texture model), skeleton, skeleton fighter (the wither
+    skeleton), snapper (tropical fish), snowman, spider, wolf, and the demon eye (the ghast
+    model).
+  Turtle: by 22i, from his "amc" mod (https://github.com/22i/amc), GPLv3.
   Skeleton: mesh by Morn76, animation by Pavel_S, as credited in mobs_mc.
 By D00Med, CC BY-SA 3.0: jabberer and cave floater ("horror"), facehugger ("mobs_scifi"),
   trilobite, flesh worm and hatchling ("mobs_doom").
@@ -83,8 +85,9 @@ Flying saucer: by Melkor, from Zeg9's "ufos" mod, WTFPL.
 Rat: B3D model by sirrobzeroone (as credited in the code).
 Humanoid mobs: mobs_character.b3d, based on Minetest Game's character model (CC BY-SA 3.0).
 
-Source not recorded: clownfish, turtle, sheep (shorn), deer, and the crocodile egg (a
-single box). See docs/LICENSE-AUDIT.md.
+Source not recorded: clownfish, deer, and the crocodile egg (a single box). None of them is
+a Minecraft model: checked against Minecraft's own mob geometry (Mojang's bedrock-samples).
+See docs/LICENSE-AUDIT.md.
 
 
 SOUNDS

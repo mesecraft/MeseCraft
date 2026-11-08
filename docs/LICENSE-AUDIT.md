@@ -53,6 +53,7 @@ MeseCraft was temporarily removed from ContentDB over copyright concerns. This d
 | MeseCraft's own mods without a license file | Unclear license | `LICENSE.txt` added pointing to the game's AGPLv3 |
 | `mesecraft_christmas`: about 60 item, decoration, crop, tool and armor textures and 6 paintings | Credited to people with no license, or not credited; the paintings were downscaled photos and illustrations | Redrawn by `utils/skingen/xmas_items.py` |
 | `mesecraft_mobs`: 3D models | Sources mostly not recorded | Traced by comparing geometry: MineClone2/Mineclonia by 22i (GPLv3), D00Med (CC BY-SA 3.0), TenPlus1's mobs, ElCeejo (GPLv3), sapier's shark (CC BY-SA 3.0), Zeg9's ufos (WTFPL), Minetest Game's character (CC BY-SA 3.0). Credited in `credits.txt`; an unused duplicate fish model was removed |
+| `mesecraft_mobs`: turtle and shorn sheep models | Box-for-box recreations of Minecraft's turtle and sheared sheep, found by comparing box sizes with Minecraft's mob geometry; the turtle's source wasn't recorded and the shorn sheep's couldn't be traced | Turtle traced to 22i's amc mod (GPLv3), the same author and license as Mineclonia's models. The sheep now uses Mineclonia's two-texture model and textures; shearing hides the wool texture, and the separate shorn model was removed |
 | Credit fixes | | `mesecraft_bucket` credits ElementW for the bucket textures; `mesecraft_beds` credits the Blender Foundation (CC BY 3.0) for `bouncy.ogg`; SnowSong credits for toolranks and mob_horse sounds; stale credits for replaced sounds and skins removed from the code |
 
 **Not problems:**
@@ -66,7 +67,7 @@ MeseCraft was temporarily removed from ContentDB over copyright concerns. This d
 
 ## Still open
 
-1. **Mob models with no recorded source:** clownfish, turtle, shorn sheep, deer, and the crocodile egg (a single box). They match nothing in MineClone2 (0.21 to 0.80), Mineclonia, TenPlus1's mobs, D00Med's mods, ElCeejo's mods or blert2112's mobs_water. Like Mineclonia's models, they are simple box models of real animals.
+1. **Mob models with no recorded source:** clownfish, deer, and the crocodile egg (a single box). They match nothing in MineClone2 (0.21 to 0.80), Mineclonia, 22i's amc, TenPlus1's mobs, D00Med's mods, ElCeejo's mods or blert2112's mobs_water. None of them is a Minecraft model: their box sizes were compared with Minecraft's own mob geometry from Mojang's bedrock-samples, the same test that recognises Mineclonia's cow, pig, wolf and polar bear as Minecraft-shaped. Minecraft has no deer.
 2. **To check:** `drawers_controller_top.png` looks somewhat like Minecraft's smooth stone slab. It's a partial match, not a copy.
 
-Models in the other mods ship with those mods and are covered by their licenses. Minecraft defines its own models in code, so files can't be compared with them directly; MineClone2 and Mineclonia's recreations of Minecraft's mob shapes are on ContentDB.
+Models in the other mods ship with those mods and are covered by their licenses. Mineclonia's and 22i's models recreate Minecraft's mob shapes; they are licensed GPLv3 and Mineclonia ships them on ContentDB.

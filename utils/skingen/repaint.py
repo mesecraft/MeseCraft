@@ -144,8 +144,6 @@ def main(game):
 
     redo("deer", 4)
     redo("bat", 4)
-    redo("sheep", 5)
-    redo("sheep_fur", 3, grain=0.06)
     for n in range(1, 14):
         redo("clownfish_%d" % n, 3, grain=0.08)
 
