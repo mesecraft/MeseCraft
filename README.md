@@ -57,6 +57,7 @@ Credits
 * MeseCraft players & community members.
 * The Luanti community
 * Minetest Modders
+* AI disclosure: some code, and some generated assets (the humanoid mob skins, curtain and radioactive gas textures, and a few sound effects), were made with the help of Claude (Anthropic).
 
 See each mod's license and credits files for its authors and media sources.
 
