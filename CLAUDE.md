@@ -33,7 +33,7 @@ luanti --server --gameid mesecraft --world /path/to/test-world   # headless; Lua
 
 `.luarc.json` configures lua-language-server, with `lowercase-global` and `undefined-global` diagnostics turned off, because mods share state through globals. Some vendored mods include their own `.luacheckrc` and CI workflows. Those belong to the upstream projects and are not run for this repo.
 
-`utils/optimize-textures.sh` runs optipng over the textures. `utils/pallette/` holds the reference color palette for textures. `utils/skingen/` draws the humanoid mob skins (`skingen.py`), holiday mob skins and costumes (`holiday.py`), small item icons (`items.py`) and curtain textures (`curtains.py`), recolours D00Med's Nether mob textures (`recolor.py`) and repaints untraced mob textures (`repaint.py`); `utils/mobsounds/freedoom_sounds.py` builds mob sounds from Freedoom's WAD and records where each comes from. Edit and re-run these instead of hand-editing their output.
+`utils/optimize-textures.sh` runs optipng over the textures. `utils/pallette/` holds the reference color palette for textures. `utils/skingen/` draws the humanoid mob skins (`skingen.py`), holiday mob skins and costumes (`holiday.py`), Christmas items and paintings (`xmas_items.py`), small item icons (`items.py`) and curtain textures (`curtains.py`), recolours D00Med's Nether mob textures (`recolor.py`) and repaints untraced mob textures (`repaint.py`); `utils/mobsounds/freedoom_sounds.py` builds mob sounds from Freedoom's WAD and records where each comes from. Edit and re-run these instead of hand-editing their output.
 
 ## Layout and architecture
 

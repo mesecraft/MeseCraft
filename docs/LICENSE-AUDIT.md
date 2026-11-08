@@ -51,6 +51,8 @@ MeseCraft was temporarily removed from ContentDB over copyright concerns. This d
 | bweapons, gadgets and lootchests modpacks, castle, decorations_sea, magic_materials, shipwrecks, cleaner, signs, lightning, hbhunger, show_wielded_item | GPL/LGPL code without the license text | `LICENSE.txt` added with the full GNU text |
 | hbarmor, hudbars, mana, mtg_plus, playereffects, pyramids, tsm_railcorridors | MIT code without the notice | `LICENSE.txt` added with the MIT notice |
 | MeseCraft's own mods without a license file | Unclear license | `LICENSE.txt` added pointing to the game's AGPLv3 |
+| `mesecraft_christmas`: about 60 item, decoration, crop, tool and armor textures and 6 paintings | Credited to people with no license, or not credited; the paintings were downscaled photos and illustrations | Redrawn by `utils/skingen/xmas_items.py` |
+| `mesecraft_mobs`: 3D models | Sources mostly not recorded | Traced by comparing geometry: MineClone2/Mineclonia by 22i (GPLv3), D00Med (CC BY-SA 3.0), TenPlus1's mobs, ElCeejo (GPLv3), sapier's shark (CC BY-SA 3.0), Zeg9's ufos (WTFPL), Minetest Game's character (CC BY-SA 3.0). Credited in `credits.txt`; an unused duplicate fish model was removed |
 | Credit fixes | | `mesecraft_bucket` credits ElementW for the bucket textures; `mesecraft_beds` credits the Blender Foundation (CC BY 3.0) for `bouncy.ogg`; SnowSong credits for toolranks and mob_horse sounds; stale credits for replaced sounds and skins removed from the code |
 
 **Not problems:**
@@ -64,6 +66,7 @@ MeseCraft was temporarily removed from ContentDB over copyright concerns. This d
 
 ## Still open
 
-1. **Christmas item icons with unconfirmed sources:** about 20 small textures credited to "IAmJoshuaStone" and "C_is_CREATIVE" without a license (cookies, candies, stockings, mistletoe, the bell, gingerbread, the red chest, crop stages), and the candy cane block credited to GreenXenith but not found in christmas_decor. They match nothing in Minecraft or the other Christmas mods checked. Listed in `mods/mesecraft_christmas/attributions.txt`.
-2. **Models:** 3D models were not compared against Minecraft. The bat model's source is not recorded.
-3. **To check:** `drawers_controller_top.png` looks somewhat like Minecraft's smooth stone slab. It's a partial match, not a copy.
+1. **Mob models with no recorded source:** clownfish, turtle, shorn sheep, deer, and the crocodile egg (a single box). They match nothing in MineClone2 (0.21 to 0.80), Mineclonia, TenPlus1's mobs, D00Med's mods, ElCeejo's mods or blert2112's mobs_water. Like Mineclonia's models, they are simple box models of real animals.
+2. **To check:** `drawers_controller_top.png` looks somewhat like Minecraft's smooth stone slab. It's a partial match, not a copy.
+
+Models in the other mods ship with those mods and are covered by their licenses. Minecraft defines its own models in code, so files can't be compared with them directly; MineClone2 and Mineclonia's recreations of Minecraft's mob shapes are on ContentDB.

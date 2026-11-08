@@ -65,11 +65,26 @@ The bat model's source is not recorded.
 MODELS
 ------
 
-The humanoid mobs use mobs_character.b3d, the standard Luanti character model.
-Spider model from lottmobs.
-Skeleton: mesh by Morn76, animation by Pavel_S.
-Demon eye: model from mobs_mc (Mineclonia), CC BY-SA 4.0.
-Other models are credited with their textures above.
+Traced in November 2026 by comparing geometry with the source mods.
+
+By 22i from MineClone2 / Mineclonia's mobs_mc, GPLv3
+  (https://codeberg.org/mineclonia/mineclonia, mods/ENTITIES/mobs_mc/LICENSE-media.md):
+    bat, cat, chicken, cod, cow, dolphin, parrot, pig, polar bear, rabbit, salmon,
+    sheep (fur), skeleton, skeleton fighter (the wither skeleton), snapper (tropical fish),
+    snowman, spider, wolf, and the demon eye (the ghast model).
+  Skeleton: mesh by Morn76, animation by Pavel_S, as credited in mobs_mc.
+By D00Med, CC BY-SA 3.0: jabberer and cave floater ("horror"), facehugger ("mobs_scifi"),
+  trilobite, flesh worm and hatchling ("mobs_doom").
+From TenPlus1's mobs_animal and mobs_monster: panda (AspireMint), penguin (D00Med),
+  tree monster (PilzAdam).
+By ElCeejo, GPLv3: crocodile and cave crocodile (Paleotest), kangaroo (Procoptodon).
+Shark: by sapier, CC BY-SA 3.0, from blert2112's mobs_water.
+Flying saucer: by Melkor, from Zeg9's "ufos" mod, WTFPL.
+Rat: B3D model by sirrobzeroone (as credited in the code).
+Humanoid mobs: mobs_character.b3d, based on Minetest Game's character model (CC BY-SA 3.0).
+
+Source not recorded: clownfish, turtle, sheep (shorn), deer, and the crocodile egg (a
+single box). See docs/LICENSE-AUDIT.md.
 
 
 SOUNDS

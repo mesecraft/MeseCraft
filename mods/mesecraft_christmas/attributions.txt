@@ -15,7 +15,7 @@ https://github.com/GreenXenith/christmas_decor
   Edited for MeseCraft (by FreeGamers.org):
     mesecraft_christmas_reindeer_rudolph.png, _items_green_candy_cane.png,
     _items_eggnog_glass.png, _items_hot_chocolate_glass.png, _nodes_garland_green.png,
-    _nodes_garland_red.png, _nodes_garland_yellow.png, _helmet_cane.png
+    _nodes_garland_red.png, _nodes_garland_yellow.png
   The reindeer model (reindeer.b3d) is based on christmas_decor_reindeer.b3d.
 
 
@@ -27,18 +27,17 @@ ORIGINAL ART MADE FOR MESECRAFT (AGPLv3 with the game)
     costumes and their inventory icons: suit_santa, suit_elf, suit_orange_parka,
       suit_tree, shirt_ugly_sweater, mask_santa_hat, mask_green_santa_hat,
       mask_red_poof_ball_hat
-  By FreeGamers.org: the green candy cane block, the blue, green and yellow Christmas
-  chests, green peppermint candies, presents 01-07, and the eggnog and hot chocolate
-  glasses (edited from christmas_decor, above).
-
-
-SOURCE NOT CONFIRMED
-  These were credited to the people below without a license. See docs/LICENSE-AUDIT.md.
-    C_is_CREATIVE: gingerbread block, red Christmas chest (4 sides)
-    IAmJoshuaStone: peppermint candies, sugar cookies (plain, bell, tree, star),
-      mistletoe, gingerbread, stockings (red and green), Christmas bell, peppermint
-      and ginger crops
-    GreenXenith (not found in christmas_decor): candy cane block
+  Drawn by utils/skingen/xmas_items.py, replacing textures whose sources couldn't be
+  traced (and paintings made from downscaled photos and illustrations):
+    paintings 01-06; ornaments (8 colours); the Christmas star, wreath, icicles and
+    white garland; the bell; red and green stockings; mistletoe; sugar cookies (plain,
+    bell, star, tree); red and green peppermint candies; gingerbread; candy cane and
+    green candy cane blocks; the gingerbread block; ginger root and crop stages;
+    peppermint leaf, seeds and crop stages; the candy cane sword, pickaxe and axe; the
+    candy cane armor icons. The candy cane armor textures and previews keep the old
+    files' layout and are filled with new stripes.
+  By FreeGamers.org: presents 01-07, and the eggnog and hot chocolate glasses (edited
+  from christmas_decor, above).
 
 
 SOUNDS (all CC0, from freesound.org)
