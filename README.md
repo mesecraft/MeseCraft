@@ -57,9 +57,9 @@ Credits
 * MeseCraft players & community members.
 * The Luanti community
 * Minetest Modders
-* AI disclosure: some code, and some generated assets (the humanoid mob skins, curtain and radioactive gas textures, and a few sound effects), were made with the help of Claude (Anthropic).
+* AI disclosure: some code and some generated assets were made with the help of Claude (Anthropic). The assets are drawn by the scripts in `utils/skingen/` and `utils/models/` (the deer, clownfish and crocodile egg models, mob skins, repainted and recoloured mob textures, holiday mob skins and costumes, Christmas items and paintings, curtain textures and other small icons), plus the radioactive gas textures and a few sound effects.
 
-See each mod's license and credits files for its authors and media sources.
+See each mod's license and credits files for its authors and media sources. `docs/LICENSE-AUDIT.md` records the November 2026 copyright and license audit: how the media was checked, what was fixed, and what is still open.
 
 License
 --------------------------

@@ -1,7 +1,7 @@
 --###################
 --################### Clownfish
 --###################
--- TODO: color textures, drops.
+-- Model and textures are built by utils/models/mobs.py.
 mobs:register_mob("mesecraft_mobs:clownfish", {
 	type = "animal",
 	passive = true,
@@ -13,7 +13,6 @@ mobs:register_mob("mesecraft_mobs:clownfish", {
 	armor = 200,
 	collisionbox = {-0.25, -0.2, -0.25, 0.25, 0.2, 0.25},
 	visual = "mesh",
-	visual_size = {x = 2, y = 2, z= 2},
 	mesh = "mesecraft_mobs_clownfish.b3d",
     	textures = {
         { "mesecraft_mobs_clownfish_1.png"},
@@ -30,7 +29,7 @@ mobs:register_mob("mesecraft_mobs:clownfish", {
         { "mesecraft_mobs_clownfish_12.png"},
         { "mesecraft_mobs_clownfish_13.png"},
 	},
-	visual_size = {x=3, y=3},
+	visual_size = {x = 0.45, y = 0.45},
         drops = {
  	       {name = "mesecraft_mobs:clownfish_raw", chance = 1, min = 1, max = 1},
 	       {name = "bonemeal:bonemeal", chance = 20, min = 1, max = 1},
@@ -46,17 +45,14 @@ mobs:register_mob("mesecraft_mobs:clownfish", {
 	lava_damage = 10,
 	light_damage = 0,
 	animation = {
-		stand_speed = 25,
-		walk_speed = 25,
-		run_speed = 50,
-		speed_normal = 15,
-		speed_run = 25,
-		stand_start = 40,
-		stand_end = 100,
-		walk_start = 0,
-		walk_end = 50,
-		run_start = 0,
-		run_end = 50,
+		speed_normal = 30,
+		speed_run = 50,
+		stand_start = 0,
+		stand_end = 40,
+		walk_start = 50,
+		walk_end = 80,
+		run_start = 50,
+		run_end = 80,
 	},
 })
 -- Register spawning conditions. -- spawns in tropical and warm, near coral.

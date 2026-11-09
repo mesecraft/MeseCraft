@@ -13,7 +13,9 @@ MeseCraft was temporarily removed from ContentDB over copyright concerns. This d
 - **Sounds:** all 974 sound files were fingerprinted against Minecraft's 5,927 sounds from 1.2.5 to 26.3, allowing for trimming and re-encoding. Control copies of Minecraft sounds scored as matches, so the method works. Close candidates were confirmed by waveform correlation.
 - **Licenses:** every mod was checked for a license file and for copyleft notices. All 180 freesound.org links and 10 soundbible.com links in the credits were checked against their current license pages. Untraced music was compared against Kevin MacLeod's library.
 
-**Limits:** this can't detect copies that were redrawn by hand, sounds that were pitch-shifted, assets taken from other games, or 3D models.
+- **Models:** every mob model was compared with the models in MineClone2, Mineclonia, 22i's amc, TenPlus1's mobs, D00Med's, ElCeejo's and blert2112's mods, to trace its source. Each was also compared box by box with Minecraft's own mob geometry from Mojang's bedrock-samples. The test was calibrated on Mineclonia's cow, pig, wolf and polar bear, which score as Minecraft-shaped, and on models known not to be from Minecraft.
+
+**Limits:** this can't detect copies that were redrawn by hand, sounds that were pitch-shifted, or assets taken from other games. The model check only catches box models built from Minecraft's shapes.
 
 ## Fixed
 
@@ -38,7 +40,7 @@ MeseCraft was temporarily removed from ContentDB over copyright concerns. This d
 | `radioactive_gas` | No license upstream (Pandorabox) | Rewritten for MeseCraft with a new texture (AGPLv3) |
 | `fruit_tools`: `melon_slice.png` | Minecraft's melon slice, mirrored | Removed. The thrown melon uses Farming Redo's melon slice |
 | `mesecraft_torch`: `mesecraft_torch_coal_powder.png` | Minecraft's gunpowder outline, darkened | Redrawn by `utils/skingen/items.py` |
-| `mesecraft_mobs`: bat, sheep, deer, clownfish and demon eye textures; skeleton sword and bow | No traceable source. The bat and sheep were wrongly credited to Mineclonia | Repainted by `utils/skingen/repaint.py`, which keeps only the UV layout; sword and bow redrawn |
+| `mesecraft_mobs`: bat, sheep, deer, clownfish and demon eye textures; skeleton sword and bow | No traceable source. The bat and sheep were wrongly credited to Mineclonia | Repainted by `utils/skingen/repaint.py`, which keeps only the UV layout; sword and bow redrawn. The deer and clownfish were later replaced with new models and textures (below) |
 | `mesecraft_christmas`: 7 mob skins and 8 costumes | Uncredited skins from skin sites; the orange parka copied Kenny from South Park | Redrawn by `utils/skingen/holiday.py` |
 | `mesecraft_halloween`: 9 mob skins; wizard, forest spirit and killer costumes | Uncredited skins; costumes copied Harry Potter, Totoro and Michael Myers | Redrawn by `utils/skingen/holiday.py`. The other costumes are GreenXenith's (MIT), now credited |
 | `mesecraft_christmas`: reindeer, garlands, candy cane and other items | Not credited | Credited to GreenXenith's christmas_decor (MIT) |
@@ -54,6 +56,8 @@ MeseCraft was temporarily removed from ContentDB over copyright concerns. This d
 | `mesecraft_christmas`: about 60 item, decoration, crop, tool and armor textures and 6 paintings | Credited to people with no license, or not credited; the paintings were downscaled photos and illustrations | Redrawn by `utils/skingen/xmas_items.py` |
 | `mesecraft_mobs`: 3D models | Sources mostly not recorded | Traced by comparing geometry: MineClone2/Mineclonia by 22i (GPLv3), D00Med (CC BY-SA 3.0), TenPlus1's mobs, ElCeejo (GPLv3), sapier's shark (CC BY-SA 3.0), Zeg9's ufos (WTFPL), Minetest Game's character (CC BY-SA 3.0). Credited in `credits.txt`; an unused duplicate fish model was removed |
 | `mesecraft_mobs`: turtle and shorn sheep models | Box-for-box recreations of Minecraft's turtle and sheared sheep, found by comparing box sizes with Minecraft's mob geometry; the turtle's source wasn't recorded and the shorn sheep's couldn't be traced | Turtle traced to 22i's amc mod (GPLv3), the same author and license as Mineclonia's models. The sheep now uses Mineclonia's two-texture model and textures; shearing hides the wool texture, and the separate shorn model was removed |
+| `mesecraft_mobs`: clownfish, deer and crocodile egg models | No recorded source. They didn't match Minecraft's geometry or any mod checked, but couldn't be credited | Replaced with new models built by `utils/models/mobs.py`, together with new textures (the deer, 13 clownfish colours after real anemonefish, the egg and its icon). The new models were checked against Minecraft's mob geometry and match nothing |
+| `drawers`: controller top, side and front textures | The top looked like Minecraft's smooth stone, and the side and front were drawn on the same stone. Credited to Justin Aquadro (MIT) from Storage Drawers, a Minecraft mod | Redrawn as a steel panel by `utils/skingen/items.py` |
 | Credit fixes | | `mesecraft_bucket` credits ElementW for the bucket textures; `mesecraft_beds` credits the Blender Foundation (CC BY 3.0) for `bouncy.ogg`; SnowSong credits for toolranks and mob_horse sounds; stale credits for replaced sounds and skins removed from the code |
 
 **Not problems:**
@@ -67,7 +71,6 @@ MeseCraft was temporarily removed from ContentDB over copyright concerns. This d
 
 ## Still open
 
-1. **Mob models with no recorded source:** clownfish, deer, and the crocodile egg (a single box). They match nothing in MineClone2 (0.21 to 0.80), Mineclonia, 22i's amc, TenPlus1's mobs, D00Med's mods, ElCeejo's mods or blert2112's mobs_water. None of them is a Minecraft model: their box sizes were compared with Minecraft's own mob geometry from Mojang's bedrock-samples, the same test that recognises Mineclonia's cow, pig, wolf and polar bear as Minecraft-shaped. Minecraft has no deer.
-2. **To check:** `drawers_controller_top.png` looks somewhat like Minecraft's smooth stone slab. It's a partial match, not a copy.
+Nothing known.
 
 Models in the other mods ship with those mods and are covered by their licenses. Mineclonia's and 22i's models recreate Minecraft's mob shapes; they are licensed GPLv3 and Mineclonia ships them on ContentDB.

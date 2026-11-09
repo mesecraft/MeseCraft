@@ -142,11 +142,7 @@ def main(game):
         repaint_regions(img, k, name, **kw).save(path(name), optimize=True)
         return img
 
-    redo("deer", 4)
     redo("bat", 4)
-    for n in range(1, 14):
-        redo("clownfish_%d" % n, 3, grain=0.08)
-
 
     eye = Image.open(path("demon_eye")).convert("RGBA")
     # Find the old eyeball (the light pixels) to place the new one there.

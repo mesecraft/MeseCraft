@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Draw small item icons that replaced Minecraft look-alikes.
+"""Draw small item icons and textures that replaced Minecraft look-alikes.
 
 Original art for MeseCraft (AGPLv3, like the rest of the game).
 
@@ -35,8 +35,55 @@ def coal_powder(path):
     im.save(path, optimize=True)
 
 
+def metal_panel(seed):
+    """A 16x16 brushed steel panel: dark frame, bevelled edge and corner rivets."""
+    rng = random.Random(seed)
+    im = Image.new("RGBA", (16, 16))
+    for y in range(16):
+        streak = rng.randint(-6, 6)  # brushing runs in horizontal streaks
+        for x in range(16):
+            v = 146 + streak + rng.randint(-4, 4)
+            if x in (0, 15) or y in (0, 15):
+                v = 52 + rng.randint(-4, 4)  # frame
+            elif x == 1 or y == 1:
+                v = 184  # light catches the top and left edge
+            elif x == 14 or y == 14:
+                v = 104  # shadow on the bottom and right edge
+            im.putpixel((x, y), (v, v + 2, v + 8, 255))
+    for x, y in ((3, 3), (12, 3), (3, 12), (12, 12)):
+        im.putpixel((x, y), (206, 208, 214, 255))
+        im.putpixel((x + 1, y + 1), (88, 90, 98, 255))
+    return im
+
+
+def drawers_controller(folder):
+    """The drawer controller: a steel box with vents, an intake slot and status lights."""
+    path = lambda face: os.path.join(folder, "drawers_controller_%s.png" % face)
+    metal_panel("controller_top").save(path("top"), optimize=True)
+
+    side = metal_panel("controller_side")
+    for y in (5, 8, 11):  # three vent slots
+        for x in range(5, 11):
+            side.putpixel((x, y - 1), (110, 112, 120, 255))
+            side.putpixel((x, y), (34, 34, 40, 255))
+    side.save(path("side"), optimize=True)
+
+    front = metal_panel("controller_front")
+    for x in range(4, 12):  # intake slot, with a lip below it
+        for y in (4, 5):
+            front.putpixel((x, y), (24, 24, 30, 255))
+        front.putpixel((x, 6), (190, 192, 198, 255))
+    for x in (4, 6, 8):  # status lights
+        front.putpixel((x, 10), (60, 200, 90, 255))
+        front.putpixel((x, 11), (30, 110, 50, 255))
+    front.putpixel((11, 10), (230, 170, 40, 255))
+    front.putpixel((11, 11), (130, 90, 20, 255))
+    front.save(path("front"), optimize=True)
+
+
 def main(game):
     coal_powder(os.path.join(game, "mods/mesecraft_torch/textures/mesecraft_torch_coal_powder.png"))
+    drawers_controller(os.path.join(game, "mods/MODULES/drawers/textures"))
 
 
 if __name__ == "__main__":

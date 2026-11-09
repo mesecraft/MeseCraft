@@ -55,8 +55,7 @@ Original art made for MeseCraft (AGPLv3 with the game), replacing copies of Mine
 and the salmon.
 
 Repainted for MeseCraft by utils/skingen/repaint.py (AGPLv3 with the game), because their
-original sources couldn't be traced: the bat, deer, clownfish (1-13)
-and demon eye textures. The repaint keeps only the layout each model's UV map needs. The
+original sources couldn't be traced: the bat and demon eye textures. The repaint keeps only the layout each model's UV map needs. The
 skeleton fighter's sword and the skeleton archer's bow were redrawn from scratch.
 
 The bat model's source is not recorded.
@@ -85,9 +84,9 @@ Flying saucer: by Melkor, from Zeg9's "ufos" mod, WTFPL.
 Rat: B3D model by sirrobzeroone (as credited in the code).
 Humanoid mobs: mobs_character.b3d, based on Minetest Game's character model (CC BY-SA 3.0).
 
-Source not recorded: clownfish, deer, and the crocodile egg (a single box). None of them is
-a Minecraft model: checked against Minecraft's own mob geometry (Mojang's bedrock-samples).
-See docs/LICENSE-AUDIT.md.
+Original models made for MeseCraft (AGPLv3 with the game), built with their textures by
+utils/models/mobs.py: deer, clownfish (with its 13 colour variants) and the crocodile egg
+(with its inventory icon). They replace models whose source was never recorded.
 
 
 SOUNDS
