@@ -1,93 +1,98 @@
--- Wooden tapestry top
+-- Curtains: wall-mounted cloth in every wool colour, opened and closed with a
+-- right-click, plus a wooden curtain rod to hang above them.
+--
+-- Written for MeseCraft (AGPLv3, like the rest of the game). The textures are
+-- greyscale and tinted per colour, so one pair of images covers all colours.
+
+local S = minetest.get_translator("curtains")
+
+-- Wooden curtain rod: a thin bar along the top edge of a wall.
 minetest.register_node("curtains:tapestry_top", {
-        drawtype = "nodebox",
-        description = "Wooden Curtain Rod",
-        tiles = {"default_wood.png"},
-        sunlight_propagates = true,
-        groups = {flammable=3,choppy=2,oddly_breakable_by_hand=1},
---        sounds = default.node_sound_defaults(),
-        paramtype = "light",
-        paramtype2 = "facedir",
-        node_box = {
-                type = "fixed",
-                fixed = {-0.6,-0.5,0.375,0.6,-0.375,0.5},
-        },
-        selection_box = {
-                type = "fixed",
-                fixed = {-0.6,-0.5,0.375,0.6,-0.375,0.5},
-        },
+	description = S("Wooden Curtain Rod"),
+	drawtype = "nodebox",
+	tiles = {"default_wood.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	sunlight_propagates = true,
+	node_box = {
+		type = "fixed",
+		fixed = {-0.6, -0.5, 0.375, 0.6, -0.375, 0.5},
+	},
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
+	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_craft({
-        type = "shapeless",
-        output = "curtains:tapestry_top",
-        recipe = {"default:stick"},
+	type = "shapeless",
+	output = "curtains:tapestry_top",
+	recipe = {"default:stick"},
 })
 
 minetest.register_craft({
-        type = "shapeless",
-        recipe = {"curtains:tapestry_top"},
-        output = "default:stick",
+	type = "shapeless",
+	output = "default:stick",
+	recipe = {"curtains:tapestry_top"},
 })
 
--- Curtains
-local curtain_colors = { --name, color, colorize(hex or color name:intensity(1-255))
-{'Black', 'black', '#26231f:200'},
-{'Blue', 'blue', '#284965:200'},
-{'Brown', 'brown', '#65493f:200'},
-{'Cyan', 'cyan', '#3a8d94:200'},
-{'Dark Green', 'dark_green', '#485831:200'},
-{'Dark Grey', 'dark_grey', '#464342:200'},
-{'Green', 'green', '#739251:200'},
-{'Grey', 'grey', '#85817e:200'},
-{'Magenta', 'magenta', '#b74679:200'},
-{'Orange', 'orange', '#bb6c3e:200'},
-{'Pink', 'pink', '#a2655f:200'},
-{'Red', 'red', '#893734:200'},
-{'Violet', 'violet', '#5e3170:200'},
-{'White', 'white', '#bcb2a6:200'},
-{'Yellow', 'yellow', '#c0a342:200'},
+-- Tint for each wool colour, applied to the greyscale cloth with [multiply.
+local colours = {
+	{"black", S("Black Curtain"), "#3a3631"},
+	{"blue", S("Blue Curtain"), "#3c6a96"},
+	{"brown", S("Brown Curtain"), "#8a644f"},
+	{"cyan", S("Cyan Curtain"), "#4fb6be"},
+	{"dark_green", S("Dark Green Curtain"), "#5e7640"},
+	{"dark_grey", S("Dark Grey Curtain"), "#6a6563"},
+	{"green", S("Green Curtain"), "#8fba62"},
+	{"grey", S("Grey Curtain"), "#b0aba7"},
+	{"magenta", S("Magenta Curtain"), "#d0589a"},
+	{"orange", S("Orange Curtain"), "#e8863e"},
+	{"pink", S("Pink Curtain"), "#e8a0a0"},
+	{"red", S("Red Curtain"), "#b8423e"},
+	{"violet", S("Violet Curtain"), "#8a4aa8"},
+	{"white", S("White Curtain"), "#f2ece4"},
+	{"yellow", S("Yellow Curtain"), "#e8c84a"},
 }
 
-for i in pairs(curtain_colors) do
-		local name = curtain_colors[i][1]
-		local color = curtain_colors[i][2]
-		local hex = curtain_colors[i][3]
-		
-		minetest.register_node("curtains:curtain_"..color, {
-		description = color:gsub("^%l", string.upper).." Curtain",
-		walkable = false,
-		tiles = {"homedecor_curtain.png^[colorize:"..hex},
-		inventory_image = "homedecor_curtain.png^[colorize:"..hex,
-		wield_image = "homedecor_curtain.png^[colorize:"..hex,
+-- Properties shared by the closed and open curtain of every colour.
+local function curtain_def(texture, other_state)
+	return {
 		drawtype = "signlike",
-		paramtype2 = "colorwallmounted",
-		groups = {dig_immediate=3, flammable=3},
-		selection_box = {type="wallmounted"},
+		tiles = {texture},
+		inventory_image = texture,
+		wield_image = texture,
+		use_texture_alpha = "clip",
+		paramtype = "light",
+		paramtype2 = "wallmounted",
+		sunlight_propagates = true,
+		walkable = false,
+		selection_box = {type = "wallmounted"},
+		groups = {dig_immediate = 3, flammable = 3},
+		sounds = default.node_sound_leaves_defaults(),
+		-- Right-click swaps between the closed and open curtain.
 		on_rightclick = function(pos, node, _, itemstack)
-			minetest.set_node(pos, {name="curtains:curtain_open_"..color, param2=node.param2})
+			minetest.swap_node(pos, {name = other_state, param2 = node.param2})
 			return itemstack
-		end
-	})
+		end,
+	}
+end
 
-	minetest.register_node("curtains:curtain_open_"..color, {
-		tiles = {"homedecor_curtain_open.png^[colorize:"..hex,},
-		drawtype = "signlike",
-		paramtype2 = "colorwallmounted",
-		walkable = false,
-		groups = {dig_immediate=3, flammable=3, not_in_creative_inventory=1},
-		selection_box = {type="wallmounted"},
-		drop = "curtains:curtain_"..color,
-		on_rightclick = function(pos, node, _, itemstack)
-			minetest.set_node(pos, {name="curtains:curtain_"..color, param2=node.param2})
-			return itemstack
-		end
-	})
+for _, entry in ipairs(colours) do
+	local colour, description, tint = entry[1], entry[2], entry[3]
+	local closed = "curtains:curtain_" .. colour
+	local open = "curtains:curtain_open_" .. colour
+
+	local closed_def = curtain_def("curtains_closed.png^[multiply:" .. tint, open)
+	closed_def.description = description
+	minetest.register_node(closed, closed_def)
+
+	-- The open curtain drops the closed one and stays out of creative.
+	local open_def = curtain_def("curtains_open.png^[multiply:" .. tint, closed)
+	open_def.drop = closed
+	open_def.groups.not_in_creative_inventory = 1
+	minetest.register_node(open, open_def)
 
 	minetest.register_craft({
-		output = "curtains:curtain_"..color.." 1",
-		recipe = {
-			{"", "wool:"..color, ""}
-		}
+		output = closed,
+		recipe = {{"wool:" .. colour}},
 	})
 end

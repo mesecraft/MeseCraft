@@ -1455,6 +1455,13 @@ local function handle_drops_table(name, drop)
 end
 
 local function register_drops(name, drop)
+	-- A drop is an item string or a table of possible drops ({max_items, items}).
+	-- Only the item string can become an ItemStack.
+	if is_table(drop) and not drop.name then
+		handle_drops_table(name, drop)
+		return
+	end
+
 	local dstack = ItemStack(drop)
 
 	if not dstack:is_empty() and dstack:get_name() ~= name then
@@ -1463,8 +1470,6 @@ local function register_drops(name, drop)
 			items = {name},
 			output = drop,
 		}
-	elseif is_table(drop) then
-		handle_drops_table(name, drop)
 	end
 end
 

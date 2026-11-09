@@ -1,6 +1,5 @@
--- Random howl sounds by klankbeeld - https://freesound.org/people/klankbeeld/sounds/133763/
--- hit sounds by robinhood76 - https://freesound.org/people/Robinhood76/sounds/161488/
--- Warcry sound by missozzy - https://freesound.org/people/missozzy/sounds/169985/
+-- Skin: original art for MeseCraft, drawn by utils/skingen/holiday.py.
+-- Random and damage sounds: built from Freedoom (BSD) by utils/mobsounds/freedoom_sounds.py.
 -- todo spawn a villager/npc when killed?
 mobs:register_mob('mesecraft_halloween:werewolf', {
 	type = "monster",

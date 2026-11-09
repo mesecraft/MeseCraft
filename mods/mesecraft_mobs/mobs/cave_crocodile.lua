@@ -199,18 +199,11 @@ mobs:register_mob("mesecraft_mobs:cave_crocodile_egg", {
 	light_damage = 0,
 	collisionbox = {-0.2, -0.5, -0.2, 0.2, 0, 0.2},
 	visual = "mesh",
-	mesh = "mesecraft_mobs_egg.b3d",
+	mesh = "mesecraft_mobs_crocodile_egg.b3d",
 	textures = {
-		{"mesecraft_mobs_egg_3.png"},
+		{"mesecraft_mobs_crocodile_egg.png"},
 	},
 	makes_footstep_sound = false,
-	animation = {
-		speed_normal = 1,
-		stand_start = 1,
-		stand_end = 1,
-		walk_start = 1,
-		walk_end = 1,
-	},
 
 	do_custom = function(self, dtime)
 
@@ -253,4 +246,4 @@ mobs:register_mob("mesecraft_mobs:cave_crocodile_egg", {
 })
 
 
-mobs:register_egg("mesecraft_mobs:cave_crocodile_egg", "Cave Crocodile Egg", "mesecraft_mobs_egg_3_inv.png", 0)
+mobs:register_egg("mesecraft_mobs:cave_crocodile_egg", "Cave Crocodile Egg", "mesecraft_mobs_crocodile_egg_inv.png", 0)

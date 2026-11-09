@@ -45,7 +45,7 @@ if minetest.get_modpath("lucky_block") then
 		}},
 		{"sch", "instafarm", 0, true, {
 			{"farming:wheat_8", "farming:beetroot_5"},
-			{"farming:cotton_8", "farming:barley_7"},
+			{"farming:cotton_8", "farming:barley_8"},
 		}},
 		{"sch", "instafarm", 0, true, {
 			{"farming:wheat_8", "farming:corn_8"},

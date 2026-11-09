@@ -30,3 +30,8 @@ You can disable the respawn at beds by setting "enable_bed_respawn = false" in
 minetest.conf.
 You can disable the night skip feature by setting "enable_bed_night_skip = false" in
 minetest.conf or by using the /set command in-game.
+
+Sounds
+------
+bouncy.ogg: Blender Foundation, CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/),
+from MeseCraft's bouncy_bed mod.

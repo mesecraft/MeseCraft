@@ -73,12 +73,6 @@ minetest.register_node("farming:barley_4", table.copy(def))
 
 -- stage 5
 def.tiles = {"farming_barley_5.png"}
-def.drop = {
-	items = {
-		{items = {"farming:barley"}, rarity = 2},
-		{items = {"farming:seed_barley"}, rarity = 2}
-	}
-}
 minetest.register_node("farming:barley_5", table.copy(def))
 
 -- stage 6
@@ -86,13 +80,23 @@ def.tiles = {"farming_barley_6.png"}
 def.drop = {
 	items = {
 		{items = {"farming:barley"}, rarity = 2},
-		{items = {"farming:seed_barley"}, rarity = 1}
+		{items = {"farming:seed_barley"}, rarity = 2}
 	}
 }
 minetest.register_node("farming:barley_6", table.copy(def))
 
--- stage 7 (final)
+-- stage 7
 def.tiles = {"farming_barley_7.png"}
+def.drop = {
+	items = {
+		{items = {"farming:barley"}, rarity = 2},
+		{items = {"farming:seed_barley"}, rarity = 1}
+	}
+}
+minetest.register_node("farming:barley_7", table.copy(def))
+
+-- stage 8 (final)
+def.tiles = {"farming_barley_8.png"}
 def.groups.growing = nil
 def.drop = {
 	items = {
@@ -102,7 +106,7 @@ def.drop = {
 		{items = {"farming:seed_barley"}, rarity = 3}
 	}
 }
-minetest.register_node("farming:barley_7", table.copy(def))
+minetest.register_node("farming:barley_8", table.copy(def))
 
 -- add to registered_plants
 farming.registered_plants["farming:barley"] = {
@@ -110,7 +114,7 @@ farming.registered_plants["farming:barley"] = {
 	seed = "farming:seed_barley",
 	minlight = 13,
 	maxlight = 15,
-	steps = 7
+	steps = 8
 }
 
 -- Fuel

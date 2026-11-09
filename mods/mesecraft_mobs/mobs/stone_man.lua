@@ -1,5 +1,5 @@
 -- Stone Monster original concept by PilzAdam
--- Stone Golem Skin by Leostereo
+-- Skin: original art for MeseCraft, drawn by utils/skingen/skingen.py.
 -- Simplified by FreeGamers.org
 -- Register Mob
 mobs:register_mob("mesecraft_mobs:stone_man", {

@@ -222,3 +222,10 @@ By default, when a throwable food hits an unprotected dirt node, it will place a
 
 ## Changelog
 * No changes yet!
+
+MeseCraft changes
+-----------------
+
+`melon_slice.png` was removed because it was a mirrored copy of Minecraft's melon slice.
+Thrown foods without their own texture here use the food item's inventory image, so the
+thrown melon now shows Farming Redo's melon slice.

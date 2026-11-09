@@ -24,3 +24,8 @@ Changelog:
 - 0.6 - Burnout and extinguish sounds added by tacotexmex :)
 - 0.7 - Torches can be re-lit using flint & steel and gunpowder, settings added
 - 0.8 - Updated to newer functions, requires Minetest 0.4.16 to run
+
+## Textures
+
+`mesecraft_torch_coal_powder.png` is original art for MeseCraft (AGPLv3), drawn by
+`utils/skingen/items.py`. It replaced a darkened copy of Minecraft's gunpowder icon.

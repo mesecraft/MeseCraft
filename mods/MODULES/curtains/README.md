@@ -1,9 +1,9 @@
-# curtains
-Curtains
+# Curtains
 
-Mod adding coloured curtains, very lightweight
+Wall-mounted curtains in every wool colour. Right-click to open or close them.
+Craft one from a single wool block. A wooden curtain rod, crafted from a stick,
+can be hung above them.
 
-by Jozet
-
-based at 'xdecor' curtain code
-![Screenshot](https://forum.minetest.net/download/file.php?mode=view&id=16032&sid=757c1d3ea0bd43382b8ab4776fd27758)
+Rewritten for MeseCraft, with new textures, replacing an earlier curtains mod
+by Jozet that had no license. Code and textures are AGPLv3, like the rest of
+MeseCraft. The textures are drawn by `utils/skingen/curtains.py`.

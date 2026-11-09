@@ -1,5 +1,5 @@
 -- Gold Man by FreeGamers.org
--- Skin by DerDonut1
+-- Skin: original art for MeseCraft, drawn by utils/skingen/skingen.py.
 
 -- REGISTER DIAMOND MAN
 mobs:register_mob("mesecraft_mobs:gold_man", {

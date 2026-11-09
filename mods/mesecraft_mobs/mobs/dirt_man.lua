@@ -1,5 +1,5 @@
 -- Original Dirt Monster concept by PilzAdam
--- Simplified version of "Dirt Golem" Skin by Nick_Nicany
+-- Skin: original art for MeseCraft, drawn by utils/skingen/skingen.py.
 -- Simplified by freegamers.org
 -- Register mob with Mobs API
 mobs:register_mob("mesecraft_mobs:dirt_man", {

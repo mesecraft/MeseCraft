@@ -88,6 +88,4 @@ mobs:register_arrow("mesecraft_mobs:a_devastator_energy_cannon", {
 -- Mob concept and implementation by FreeGamers.org
 -- Flying Saucer model by Melkor
 -- Flying Saucer texture by Pilcrow182, based on Melkor's textures for Zeg9's UFO mod.
--- Flying Saucer - JarAxe https://freesound.org/people/JarAxe/packs/13053/
--- Flying Saucer Engine- humanoide9000 https://freesound.org/people/humanoide9000/sounds/422245/	
--- Flying Saucer tone - Timbre https://freesound.org/people/Timbre/sounds/92908/
+-- Sounds: built from Freedoom (BSD) by utils/mobsounds/freedoom_sounds.py.

@@ -31,10 +31,6 @@
 
 --dolphin_screaming - Creative Commons 0 License, felix.blume, http://www.freesound.org/people/felix.blume/sounds/161691/
 
-ComboWind uses:
---wind-in-the-trees -Attribution License, laurent, http://www.freesound.org/people/laurent/sounds/16995/
---drygrassInWind- Creative Commons 0 License, felix.blume, http://www.freesound.org/people/felix.blume/sounds/146436/
-
 --Splash: Attribution 3.0 | Recorded by BlastwaveFx.com, http://soundbible.com/546-Fish-Splashing.html
 
 --small_waterfall Attribution License, volivieri, http://www.freesound.org/people/volivieri/sounds/38390/
@@ -56,7 +52,11 @@ Rattlesnake Rattle, Public Domain, fws.gov,  http://soundbible.com/237-Rattlesna
 flying:
 crystal_airlines: Attribution License, suonho, http://www.freesound.org/people/suonho/sounds/56364/
 
-----------------Not used yet:
+----------------Not used yet (no files from the sounds below ship with MeseCraft):
+ComboWind uses:
+--wind-in-the-trees -Attribution License, laurent, http://www.freesound.org/people/laurent/sounds/16995/
+--drygrassInWind- Creative Commons 0 License, felix.blume, http://www.freesound.org/people/felix.blume/sounds/146436/
+
 desert:
 Desert Simple.wav, Creative Commons 0 License, Proxima4, http://www.freesound.org/people/Proxima4/sounds/104320/
 

@@ -3,6 +3,10 @@
 --################### SHEEP
 --###################
 
+-- Wool on, and shorn (the wool texture replaced by a transparent one).
+local WOOLLY = {"mesecraft_mobs_sheep_fur.png", "mesecraft_mobs_sheep.png"}
+local SHORN = {"transparent_pixel.png", "mesecraft_mobs_sheep.png"}
+
 -- Register the mob with the API.
 mobs:register_mob("mesecraft_mobs:sheep", {
 	type = "animal",
@@ -10,12 +14,12 @@ mobs:register_mob("mesecraft_mobs:sheep", {
 	hp_max = 8,
 	collisionbox = {-0.45, -0.01, -0.45, 0.45, 1.29, 0.45},
 	visual = "mesh",
-	visual_size = {x=3, y=3},
-	mesh = "mesecraft_mobs_sheep_fur.b3d",
-	gotten_mesh = "mesecraft_mobs_sheep_naked.b3d",
-	textures = {
-		{"mesecraft_mobs_sheep.png^mesecraft_mobs_sheep_fur.png"}
-	},
+	-- Mineclonia's sheep model: the first texture is the wool, the second the
+	-- body. A shorn sheep swaps the wool for a transparent texture.
+	visual_size = {x=1.07, y=1.07},
+	mesh = "mesecraft_mobs_sheep.b3d",
+	textures = {WOOLLY},
+	gotten_texture = SHORN,
 	makes_footstep_sound = true,
 	walk_velocity = 1,
 	drops = {
@@ -60,9 +64,8 @@ mobs:register_mob("mesecraft_mobs:sheep", {
 			{name = "mesecraft_mobs:mutton_raw", chance = 1, min = 1, max = 2,},
 			{name = "wool:white", chance = 1, min = 1, max = 2,},
 		}
-		self.object:set_properties({
-		mesh = "mesecraft_mobs_sheep_fur.b3d",
-	})
+		self.base_texture = WOOLLY
+		self.object:set_properties({textures = WOOLLY})
 	end,
 	-- Set random color on spawn
 	on_rightclick = function(self, clicker)
@@ -75,9 +78,7 @@ mobs:register_mob("mesecraft_mobs:sheep", {
 			minetest.sound_play("shears", {pos = pos})
 			pos.y = pos.y + 0.5
 			minetest.add_item(pos, ItemStack("wool:white "..math.random(1,3)))
-			self.object:set_properties({
-				mesh = "mesecraft_mobs_sheep_naked.b3d",
-			})
+			self.object:set_properties({textures = SHORN})
 			if not minetest.settings:get_bool("creative_mode") then
 				item:add_wear(276)
 				clicker:get_inventory():set_stack("main", clicker:get_wield_index(), item)

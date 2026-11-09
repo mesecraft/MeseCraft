@@ -142,3 +142,14 @@ Created by VanessaE and edited by SpaghettiToastBook (CC0):
 
 Created by mDiyo (Natura), modified by TenPlus1 (License: CC BY-SA 3.0):
   farming_barley.png
+
+Created by TenPlus1 (CC BY 3.0), from upstream Farming Redo (2022 redraws, taken by MeseCraft
+because the older textures matched Minecraft's wheat stages and melon stem):
+  farming_barley_1.png to farming_barley_8.png
+  farming_melon_1.png to farming_melon_7.png
+  farming_melon_slice.png
+
+Created by alerikaisattera (License: CC BY-SA 4.0), from upstream Farming Redo:
+  farming_melon_top.png
+  farming_melon_side.png
+  farming_melon_bottom.png

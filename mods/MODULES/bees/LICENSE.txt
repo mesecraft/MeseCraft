@@ -1,0 +1,5 @@
+bees by bas080 (https://github.com/bas080/bees), modified for MeseCraft.
+
+License, from the upstream README:
+- Code: WTFPL
+- Textures: CC BY-SA

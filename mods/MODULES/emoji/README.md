@@ -23,3 +23,7 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+## Sounds
+
+`emoji_sound.ogg` is by MeseCraft, generated with ffmpeg, CC0. It replaces a sound copied from Minecraft.

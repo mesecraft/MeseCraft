@@ -1,5 +1,5 @@
 -- Diamond Man by FreeGamers.org
--- Skin by TylerTDG
+-- Skin: original art for MeseCraft, drawn by utils/skingen/skingen.py.
 
 -- REGISTER DIAMOND MAN
 mobs:register_mob("mesecraft_mobs:diamond_man", {

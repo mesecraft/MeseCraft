@@ -25,7 +25,8 @@ changes / complete rework by DS and A_Percy
 License of media (textures and sounds):
 ---------------------------------------
 
-helicopter_motor.ogg by  Robinhood76 | License: Attribution Noncommercial 
+helicopter_motor.ogg by MeseCraft, generated with ffmpeg | License: CC0. It replaces Robinhood76's
+recording, whose license (Attribution Noncommercial) doesn't allow MeseCraft's use.
 
 helicopter_water_driblet.png by DS | License: CC0
 

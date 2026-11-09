@@ -1,0 +1,5 @@
+mob_horse by TenPlus1 (https://codeberg.org/tenplus1/mob_horse).
+
+License, as published on ContentDB (TenPlus1/mob_horse):
+- Code: MIT
+- Media: CC BY 3.0

@@ -1,0 +1,5 @@
+itemframes by TenPlus1 (https://codeberg.org/tenplus1/itemframes).
+
+License, as published on ContentDB (TenPlus1/itemframes):
+- Code: MIT
+- Media: CC BY 3.0

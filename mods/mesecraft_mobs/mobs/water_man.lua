@@ -20,7 +20,7 @@ mobs:register_mob("mesecraft_mobs:water_man", {
 	blood_texture = "default_water.png",
 	makes_footstep_sound = true,
 	sounds = {
-		random = "mesecraft_mobs_dirt_golem_random",
+		random = "mesecraft_mobs_dirt_man_random",
 		damage = "default_water_footstep",
 		attack = "default_water_footstep",
 		jump = "default_water_footstep",

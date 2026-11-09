@@ -1,65 +1,51 @@
+MESECRAFT_CHRISTMAS CREDITS
+===========================
 
-########	TEXTURES	########
-mesecraft_christmas_candy_cane_block.png -- GreenXenith
-mesecraft_christmas_green_candy_cane_block.png -- FreeGamers.org
-mesecraft_christmas_gingerbread_block.png -- C_is_CREATIVE
-mesecraft_christmas_frosting_block.png -- GreenXenith
-mesecraft_christmas_candy_cane.png -- GreenXenith
-mesecraft_christmas_green_candy_cane.png -- FreeGamers.org
-mesecraft_christmas_gingerbread_cookie.png -- GreenXenith
-mesecraft_christmas_christmas_chest_red_bottom.png -- C_is_CREATIVE
-mesecraft_christmas_christmas_chest_red_front.png -- C_is_CREATIVE
-mesecraft_christmas_christmas_chest_red_side.png -- C_is_CREATIVE
-mesecraft_christmas_christmas_chest_red_top.png -- C_is_CREATIVE
-mesecraft_christmas_christmas_chest_blue_bottom.png -- FreeGamers.org
-mesecraft_christmas_christmas_chest_blue_front.png -- FreeGamers.org
-mesecraft_christmas_christmas_chest_blue_side.png -- FreeGamers.org
-mesecraft_christmas_christmas_chest_blue_top.png -- FreeGamers.org
-mesecraft_christmas_christmas_chest_green_bottom.png -- FreeGamers.org
-mesecraft_christmas_christmas_chest_green_front.png -- FreeGamers.org
-mesecraft_christmas_christmas_chest_green_side.png -- FreeGamers.org
-mesecraft_christmas_christmas_chest_green_top.png -- FreeGamers.org
-mesecraft_christmas_christmas_chest_yellow_bottom.png -- FreeGamers.org
-mesecraft_christmas_christmas_chest_yellow_front.png -- FreeGamers.org
-mesecraft_christmas_christmas_chest_yellow_side.png -- FreeGamers.org
-mesecraft_christmas_christmas_chest_yellow_top.png -- FreeGamers.org
-christmas_hoilday_pack_green_peppermint_candies.png -- FreeGamers.org
-mesecraft_christmas_peppermint_candies.png -- IAmJoshuaStone
-mesecraft_christmas_sugar_cookie.png -- IAmJoshuaStone
-mesecraft_christmas_sugar_cookie_bell.png -- IAmJoshuaStone
-mesecraft_christmas_sugar_cookie_tree.png -- IAmJoshuaStone
-mesecraft_christmas_sugar_cookie_star.png -- IAmJoshuaStone
-mesecraft_christmas_mistletoe.png -- IAmJoshuaStone
-mesecraft_christmas_gingerbread.png -- IAmJoshuaStone
-mesecraft_christmas_stocking.png -- IAmJoshuaStone
-mesecraft_christmas_green_stocking.png -- IAmJoshuaStone
-mesecraft_christmas_stocking_background.png -- GreenXenith
-mesecraft_christmas_stocking_exit_button.png -- GreenXenith
-mesecraft_christmas_present_01.png -- FreeGamers.org
-mesecraft_christmas_present_02.png -- FreeGamers.org
-mesecraft_christmas_present_03.png -- FreeGamers.org
-mesecraft_christmas_present_04.png -- FreeGamers.org
-mesecraft_christmas_present_05.png -- FreeGamers.org
-mesecraft_christmas_present_06.png -- FreeGamers.org
-mesecraft_christmas_present_07.png -- FreeGamers.org
-mesecraft_christmas_christmas_bell.png -- IAmJoshuaStone
-inv_mask_santa_hat.png -- IAmJoshuaStone
-inv_mask_green_santa_hat.png -- IAmJoshuaStone
-inv_mask_red_poof_ball_hat.png -- FreeGamers.org
-inv_shirt_ugly_sweater.png -- FreeGamers.org
-inv_suit_elf.png -- FreeGamers.org
-inv_suit_orange_parka.png -- FreeGamers.org
-inv_suit_santa.png -- FreeGamers.org
-inv_suit_tree.png -- FreeGamers.org
-mesecraft_christmas_mask_green_santa_hat.png -- IAmJoshuaStone
-mesecraft_christmas_mask_santa_hat.png -- IAmJoshuaStone
-mesecraft_christmas_mask_red_poof_ball_hat.png -- antisocial_Ash
-mesecraft_christmas_shirt_ugly_sweater.png -- Zomblah
-mesecraft_christmas_suit_tree.png -- John Buck
-mesecraft_christmas_suit_elf.png -- TacoKing
-mesecraft_christmas_suit_orange_parka.png -- USE1ESS
-mesecraft_christmas_suit_santa.png -- TjingTjongWah
-mesecraft_christmas_hot_chocolate_glass -- FreeGamers.org
-mesecraft_christmas_eggnog_glass -- FreeGamers.org
-peppermint -- IAmJoshuaStone
-ginger -- IAmJoshuaStone
+Code: AGPLv3 with MeseCraft (see the game's LICENSE.txt), except where a file says it is
+based on another mod. Media credits follow.
+
+
+FROM GREENXENITH'S "christmas_decor" (MIT License, Copyright 2020 GreenXenith)
+https://github.com/GreenXenith/christmas_decor
+  Unchanged:
+    mesecraft_christmas_items_candy_cane.png, _items_gingerbread_cookie.png,
+    _items_gingerbread_dough.png, _nodes_frosting_block.png, _nodes_garland.png,
+    _nodes_garland_lights.png, _nodes_garland_lights_inv.png, _stocking_background.png,
+    _stocking_exit_button.png, mesecraft_christmas_reindeer.png
+  Edited for MeseCraft (by FreeGamers.org):
+    mesecraft_christmas_reindeer_rudolph.png, _items_green_candy_cane.png,
+    _items_eggnog_glass.png, _items_hot_chocolate_glass.png, _nodes_garland_green.png,
+    _nodes_garland_red.png, _nodes_garland_yellow.png
+  The reindeer model (reindeer.b3d) is based on christmas_decor_reindeer.b3d.
+
+
+ORIGINAL ART MADE FOR MESECRAFT (AGPLv3 with the game)
+  Drawn by utils/skingen/holiday.py, replacing uncredited skins from skin sites and an
+  orange parka copied from a cartoon character:
+    mob skins: santa, mrs_claus, zombie_elf, crampus_claus, christmas_tree_man,
+      candy_cane_man, gingerbread_man
+    costumes and their inventory icons: suit_santa, suit_elf, suit_orange_parka,
+      suit_tree, shirt_ugly_sweater, mask_santa_hat, mask_green_santa_hat,
+      mask_red_poof_ball_hat
+  Drawn by utils/skingen/xmas_items.py, replacing textures whose sources couldn't be
+  traced (and paintings made from downscaled photos and illustrations):
+    paintings 01-06; ornaments (8 colours); the Christmas star, wreath, icicles and
+    white garland; the bell; red and green stockings; mistletoe; sugar cookies (plain,
+    bell, star, tree); red and green peppermint candies; gingerbread; candy cane and
+    green candy cane blocks; the gingerbread block; ginger root and crop stages;
+    peppermint leaf, seeds and crop stages; the candy cane sword, pickaxe and axe; the
+    candy cane armor icons. The candy cane armor textures and previews keep the old
+    files' layout and are filled with new stripes.
+  By FreeGamers.org: presents 01-07, and the eggnog and hot chocolate glasses (edited
+  from christmas_decor, above).
+
+
+SOUNDS (all CC0, from freesound.org)
+  mesecraft_christmas_bell.ogg: the bell mod's bell_small.ogg, by dsp9000 (sound 76405),
+    edited by mootpoint
+  mesecraft_christmas_santa_random.ogg: "SantaClaus_HoHoHo" by Bollenator (sound 325180)
+  mesecraft_christmas_sleighbell.ogg: "Sleigh_Bells_fast" by jcdecha (sound 235465),
+    shortened
+  mesecraft_christmas_reindeer_random.1.ogg: "Reindeer" by Stillerzzy (sound 676278)
+  mesecraft_christmas_reindeer_random.2.ogg: "Reindeer Sound Mating Male" by thabigm
+    (sound 758377), shortened

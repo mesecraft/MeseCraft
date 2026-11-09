@@ -94,5 +94,5 @@ mobs:register_arrow("mesecraft_mobs:reptilian_acid_spit", {
 
 -------- CREDITS & ATTRIBUTIONS --------
 -- Concept and implementation by FreeGamers.org
--- Texture by OpportunisticMilk
--- Sounds by JarAxe - https://freesound.org/people/JarAxe/packs/13148/
+-- Skin: original art for MeseCraft, drawn by utils/skingen/skingen.py.
+-- Sounds: built from Freedoom (BSD) by utils/mobsounds/freedoom_sounds.py.

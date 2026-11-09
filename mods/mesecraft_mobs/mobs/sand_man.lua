@@ -1,4 +1,4 @@
--- "Sand Camo" skin by "Gangster1643"
+-- Skin: original art for MeseCraft, drawn by utils/skingen/skingen.py.
 -- Sand Monster by PilzAdam
 
 mobs:register_mob("mesecraft_mobs:sand_man", {

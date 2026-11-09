@@ -13,7 +13,7 @@ MeseCraft is in beta. Don't add backward-compatibility code for old worlds, old 
 ## Branches
 
 - `dev`: where development happens. New code, fixes and PRs target `dev`.
-- `main`: the stable branch for players and server operators. Small fixes sometimes land on `main` first and are then merged back into `dev`.
+- `main`: the stable branch for players and server operators. It only changes through a pull request from `dev`; nothing lands on `main` first, and direct pushes are refused.
 
 ## Licensing of content
 
@@ -33,7 +33,7 @@ luanti --server --gameid mesecraft --world /path/to/test-world   # headless; Lua
 
 `.luarc.json` configures lua-language-server, with `lowercase-global` and `undefined-global` diagnostics turned off, because mods share state through globals. Some vendored mods include their own `.luacheckrc` and CI workflows. Those belong to the upstream projects and are not run for this repo.
 
-`utils/optimize-textures.sh` runs optipng over the textures. `utils/pallette/` holds the reference color palette for textures.
+`utils/optimize-textures.sh` runs optipng over the textures. `utils/pallette/` holds the reference color palette for textures. `utils/skingen/` draws the humanoid mob skins (`skingen.py`), holiday mob skins and costumes (`holiday.py`), Christmas items and paintings (`xmas_items.py`), small item icons and the drawer controller (`items.py`) and curtain textures (`curtains.py`), recolours D00Med's Nether mob textures (`recolor.py`) and repaints untraced mob textures (`repaint.py`); `utils/models/mobs.py` builds the deer, clownfish and crocodile egg models with their textures, using the box-model writer in `utils/models/boxmodel.py`; `utils/mobsounds/freedoom_sounds.py` builds mob sounds from Freedoom's WAD and records where each comes from. Edit and re-run these instead of hand-editing their output.
 
 ## Layout and architecture
 

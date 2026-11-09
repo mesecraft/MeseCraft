@@ -97,6 +97,18 @@ Licenses apply as below.
     - Composer: Juan Crisostomo de Arriaga
     - Performer: European Archive
 
+### Christmas records
+
+Added for MeseCraft's Christmas holiday pack. All four are by Kevin MacLeod
+(incompetech.com), licensed under Creative Commons: By Attribution 4.0
+(https://creativecommons.org/licenses/by/4.0/), converted to mono OGG and in some cases
+shortened:
+
+- "Deck the Halls B" (christmas_record_deck_the_halls.ogg)
+- "Jingle Bells" (christmas_record_jingle_bells.ogg)
+- "Silent Night" (christmas_record_silent_night.ogg)
+- "We Wish You" (christmas_record_we_wish.ogg)
+
 References
 ----------
   - [1] https://en.wikipedia.org/wiki/Phonograph

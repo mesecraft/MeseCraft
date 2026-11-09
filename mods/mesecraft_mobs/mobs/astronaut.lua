@@ -67,5 +67,5 @@ mobs:register_egg("mesecraft_mobs:astronaut", "Astronaut Spawn Egg", "wool_white
 
 -------- CREDITS & ATTRIBUTIONS --------
 -- Trader concept by FreeGamers.org
--- Texture by iMorph
+-- Skin: original art for MeseCraft, drawn by utils/skingen/skingen.py.
 -- Sounds by craigsmith - https://freesound.org/people/craigsmith/sounds/438900/

@@ -1,5 +1,5 @@
 -- MAGMA MAN
--- Texture by conrod456
+-- Skin: original art for MeseCraft, drawn by utils/skingen/skingen.py.
 
 mobs:register_mob("mesecraft_mobs:magma_man", {
    type = "monster",

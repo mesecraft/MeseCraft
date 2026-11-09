@@ -1,0 +1,5 @@
+paintings by Calinou.
+
+License, from the header of init.lua:
+- Code: CC0
+- Painting textures: from Stunt Rally (https://code.google.com/p/vdrift-ogre/), CC0

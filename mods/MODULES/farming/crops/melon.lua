@@ -74,7 +74,7 @@ minetest.register_node("farming:melon_7", table.copy(def))
 -- stage 8 (final)
 def.drawtype = "nodebox"
 def.description = S("Melon")
-def.tiles = {"farming_melon_top.png", "farming_melon_top.png", "farming_melon_side.png"}
+def.tiles = {"farming_melon_top.png", "farming_melon_bottom.png", "farming_melon_side.png"}
 def.selection_box = {-.5, -.5, -.5, .5, .5, .5}
 def.walkable = true
 def.groups = {

@@ -10,4 +10,4 @@ Various Minetest developers and contributors (LGPLv2.1+)
 
 Authors of media (textures)
 ---------------------------
-Komodo (CC BY-SA 3.0)
+ElementW (CC BY-SA 3.0), from Minetest Game's bucket textures, edited by Komodo (CC BY-SA 3.0)

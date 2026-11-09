@@ -1,7 +1,7 @@
 -- Music tracks for Christmas Holiday Pack by FreeGamers.org
 -- Depends on the Gramophone mod for Minetest.
 -- Gramophone does not allow API to be used from external folders.... :(
--- All songs are public domain.
+-- The songs are public domain; these recordings are by Kevin MacLeod (CC BY 4.0), see README.md.
 
 -- Register the discs.
 	-- Deck the Halls
